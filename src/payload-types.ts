@@ -70,6 +70,7 @@ export interface Config {
     products: Product;
     'product-categories': ProductCategory;
     leads: Lead;
+    stores: Store;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -82,6 +83,7 @@ export interface Config {
     products: ProductsSelect<false> | ProductsSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
+    stores: StoresSelect<false> | StoresSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -340,6 +342,62 @@ export interface User {
   collection: 'users';
 }
 /**
+ * Danh sách cơ sở hiển thị ở trang Hệ thống cơ sở. Chưa có cơ sở nào → trang chỉ hiện số liệu & ảnh khai trương.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stores".
+ */
+export interface Store {
+  id: number;
+  name: string;
+  province:
+    | 'Hà Nội'
+    | 'TP. Hồ Chí Minh'
+    | 'Hải Phòng'
+    | 'Đà Nẵng'
+    | 'Cần Thơ'
+    | 'Huế'
+    | 'An Giang'
+    | 'Bắc Ninh'
+    | 'Cà Mau'
+    | 'Cao Bằng'
+    | 'Đắk Lắk'
+    | 'Điện Biên'
+    | 'Đồng Nai'
+    | 'Đồng Tháp'
+    | 'Gia Lai'
+    | 'Hà Tĩnh'
+    | 'Hưng Yên'
+    | 'Khánh Hòa'
+    | 'Lai Châu'
+    | 'Lâm Đồng'
+    | 'Lạng Sơn'
+    | 'Lào Cai'
+    | 'Nghệ An'
+    | 'Ninh Bình'
+    | 'Phú Thọ'
+    | 'Quảng Ngãi'
+    | 'Quảng Ninh'
+    | 'Quảng Trị'
+    | 'Sơn La'
+    | 'Tây Ninh'
+    | 'Thái Nguyên'
+    | 'Thanh Hóa'
+    | 'Tuyên Quang'
+    | 'Vĩnh Long';
+  phone?: string | null;
+  address: string;
+  /**
+   * Dán link chia sẻ vị trí từ Google Maps (để khách bấm Chỉ đường).
+   */
+  mapUrl?: string | null;
+  image?: (number | null) | Media;
+  openedAt?: string | null;
+  active?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -374,6 +432,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'leads';
         value: number | Lead;
+      } | null)
+    | ({
+        relationTo: 'stores';
+        value: number | Store;
       } | null)
     | ({
         relationTo: 'media';
@@ -511,6 +573,22 @@ export interface LeadsSelect<T extends boolean = true> {
   assignee?: T;
   internalNote?: T;
   sourcePage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stores_select".
+ */
+export interface StoresSelect<T extends boolean = true> {
+  name?: T;
+  province?: T;
+  phone?: T;
+  address?: T;
+  mapUrl?: T;
+  image?: T;
+  openedAt?: T;
+  active?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -14,6 +14,11 @@ import { GalleryGrid, type GalleryGridProps } from "./gallery-grid/GalleryGrid";
 import { PolicyArticle, type PolicyArticleProps } from "./policy-article/PolicyArticle";
 import { LeadFormSection, type LeadFormSectionProps } from "./lead-form-section/LeadFormSection";
 import { MapEmbed, type MapEmbedProps } from "./map-embed/MapEmbed";
+import { VisionMission, type VisionMissionProps } from "./vision-mission/VisionMission";
+import { CeoQuote, type CeoQuoteProps } from "./ceo-quote/CeoQuote";
+import { BrandIdentity, type BrandIdentityProps } from "./brand-identity/BrandIdentity";
+import { CtaBand, type CtaBandProps } from "./cta-band/CtaBand";
+import { StoreLocator, type StoreLocatorProps } from "./store-locator/StoreLocator";
 
 /** Trang = danh sách block (dạng JSON) — GĐ2 sẽ lưu/sửa danh sách này trong editor. */
 export type Block =
@@ -32,7 +37,12 @@ export type Block =
   | { type: "galleryGrid"; props: GalleryGridProps }
   | { type: "policyArticle"; props: PolicyArticleProps }
   | { type: "leadFormSection"; props: LeadFormSectionProps }
-  | { type: "mapEmbed"; props: MapEmbedProps };
+  | { type: "mapEmbed"; props: MapEmbedProps }
+  | { type: "visionMission"; props: VisionMissionProps }
+  | { type: "ceoQuote"; props: CeoQuoteProps }
+  | { type: "brandIdentity"; props: BrandIdentityProps }
+  | { type: "ctaBand"; props: CtaBandProps }
+  | { type: "storeLocator"; props: StoreLocatorProps };
 
 export function RenderBlocks({ blocks }: { blocks: Block[] }) {
   return (
@@ -71,6 +81,16 @@ export function RenderBlocks({ blocks }: { blocks: Block[] }) {
             return <LeadFormSection key={i} {...block.props} />;
           case "mapEmbed":
             return <MapEmbed key={i} {...block.props} />;
+          case "visionMission":
+            return <VisionMission key={i} {...block.props} />;
+          case "ceoQuote":
+            return <CeoQuote key={i} {...block.props} />;
+          case "brandIdentity":
+            return <BrandIdentity key={i} {...block.props} />;
+          case "ctaBand":
+            return <CtaBand key={i} {...block.props} />;
+          case "storeLocator":
+            return <StoreLocator key={i} {...block.props} />;
         }
       })}
     </>

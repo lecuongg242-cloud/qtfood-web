@@ -11,8 +11,8 @@ export type AboutTeaserProps = {
   image: string;
   imageAlt: string;
   lines: { title: string; text: string }[];
-  quote: { text: string; author: string; role: string };
-  cta: { label: string; href: string };
+  quote?: { text: string; author: string; role: string };
+  cta?: { label: string; href: string };
 };
 
 export function AboutTeaser({ tone = "base", eyebrow, title, intro, image, imageAlt, lines, quote, cta }: AboutTeaserProps) {
@@ -25,6 +25,7 @@ export function AboutTeaser({ tone = "base", eyebrow, title, intro, image, image
               <Image src={image} alt={imageAlt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </div>
+          {quote && (
           <figure
             data-reveal
             data-tone="deep"
@@ -37,6 +38,7 @@ export function AboutTeaser({ tone = "base", eyebrow, title, intro, image, image
               <strong className="text-ink">{quote.author}</strong> · {quote.role}
             </figcaption>
           </figure>
+          )}
         </div>
 
         <div>
@@ -61,9 +63,11 @@ export function AboutTeaser({ tone = "base", eyebrow, title, intro, image, image
               </li>
             ))}
           </ol>
-          <div data-reveal className="mt-10">
-            <Button href={cta.href}>{cta.label}</Button>
-          </div>
+          {cta && (
+            <div data-reveal className="mt-10">
+              <Button href={cta.href}>{cta.label}</Button>
+            </div>
+          )}
         </div>
       </Container>
     </Section>

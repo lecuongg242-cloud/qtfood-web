@@ -12,6 +12,7 @@ import { Media } from "./payload/collections/Media";
 import { ProductCategories } from "./payload/collections/ProductCategories";
 import { Products } from "./payload/collections/Products";
 import { Leads } from "./payload/collections/Leads";
+import { Stores } from "./payload/collections/Stores";
 import { SiteSettings } from "./payload/globals/SiteSettings";
 
 const filename = fileURLToPath(import.meta.url);
@@ -27,7 +28,7 @@ export default buildConfig({
     supportedLanguages: { vi },
     fallbackLanguage: "vi",
   },
-  collections: [Products, ProductCategories, Leads, Media, Users],
+  collections: [Products, ProductCategories, Leads, Stores, Media, Users],
   globals: [SiteSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

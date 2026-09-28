@@ -349,7 +349,7 @@ Kế hoạch chi tiết đã tách thành từng phần **P0 – P7**, mỗi ph�
 | [P0](plans/P0-ha-tang-deploy.md) | Hạ tầng & deploy | GĐ1 | 🟡 GitHub ✓ · Vercel ✓ · còn region/noindex/tên miền |
 | [P1](plans/P1-nhuong-quyen-lien-he.md) | Nhượng quyền & Liên hệ (form, thông báo lead) | GĐ1 | 🟢 code xong, chờ cấu hình thông báo |
 | [P2](plans/P2-san-pham.md) | Sản phẩm & đặt hàng nhanh | GĐ1 | 🟢 xong (dữ liệu từ CMS) |
-| [P3](plans/P3-gioi-thieu-he-thong-co-so.md) | Giới thiệu & Hệ thống cơ sở | GĐ1 | ⚪ |
+| [P3](plans/P3-gioi-thieu-he-thong-co-so.md) | Giới thiệu & Hệ thống cơ sở | GĐ1 | 🟢 xong |
 | [P4](plans/P4-tin-tuc-chinh-sach-hoan-thien.md) | Tin tức, chính sách, SEO, QA → go-live bản đầu | GĐ1 | ⚪ |
 | [P5](plans/P5-cms-payload.md) | CMS Payload + Neon + Blob → go-live chính thức | GĐ1c | 🟡 P5a lõi admin xong (làm trước P1) |
 | [P6](plans/P6-visual-editor-template.md) | Visual editor & template | GĐ2 | ⚪ |

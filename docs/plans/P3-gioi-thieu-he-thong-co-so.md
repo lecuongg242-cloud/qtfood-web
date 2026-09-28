@@ -1,6 +1,14 @@
 # P3 — Giới thiệu & Hệ thống cơ sở
 
-> Giai đoạn 1 · Ước lượng ~2 ngày · Phụ thuộc: P1 (PageHero, GalleryGrid, Lightbox, Steps) · Nhánh: `p3-gioi-thieu` · Trạng thái: ⚪
+> Giai đoạn 1 · Ước lượng ~2 ngày · Phụ thuộc: P1, P5a · Nhánh: `p3-gioi-thieu` (tách từ `p2-san-pham`) · Trạng thái: 🟢 xong
+
+## Kết quả (2026-09-28)
+- [x] `/gioi-thieu`: PageHero (ruộng bậc thang + số liệu), giới thiệu + 3 mảng kinh doanh, **VisionMission**, Tín–Tâm–Tinh–Tiến, **CeoQuote** (Tổng giám đốc), **BrandIdentity** (logo, biểu tượng, 2 màu), chứng nhận ISO, **CtaBand**; JSON-LD `Organization`
+- [x] `/he-thong-co-so`: PageHero 50+, **StoreLocator** (lọc theo tỉnh, gọi, chỉ đường — tự ẩn khi chưa có dữ liệu), ảnh khai trương, CTA
+- [x] Collection mới **`stores`** (Cơ sở nhượng quyền) trong admin + migration `stores`; sửa trong admin → trang tự làm mới
+- [x] Danh sách 34 tỉnh/thành chuyển thành `src/lib/provinces.ts` (dùng chung form & admin; tránh đọc file JSON lúc chạy trên Vercel)
+- [x] Đã thử: thêm 2 cơ sở TEST → danh sách + bộ lọc hiển thị đúng → xoá → danh sách tự ẩn
+
 
 ## Mục tiêu
 Kể câu chuyện thương hiệu đủ tin cậy cho cả **khách ăn** lẫn **đối tác nhượng quyền**; cho thấy quy mô hơn 50 cơ sở.

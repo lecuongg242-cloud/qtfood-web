@@ -1,6 +1,7 @@
 import type { Block } from "@/blocks";
 import { content, franchiseGallery, img } from "../data";
 import { certificationsBlock } from "./shared";
+import { PROVINCES } from "@/lib/provinces";
 
 const { company, franchise, franchisePolicy, forms } = content;
 const [whySection, supportSection, responsibilitySection, startSection] = franchisePolicy.sections;
@@ -92,7 +93,7 @@ export const franchiseBlocks: Block[] = [
       points: ["Nhận bảng hồ sơ nhượng quyền chi tiết", "Tư vấn trực tiếp từ ban giám đốc", "Khảo sát, tư vấn chọn mặt bằng phù hợp"],
       hotlines: company.hotlines,
       zalo: company.social.zalo[0].url,
-      provinces: forms.provinces,
+      provinces: [...PROVINCES],
       budgets: forms.budgets,
     },
   },

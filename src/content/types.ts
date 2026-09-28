@@ -72,7 +72,16 @@ export type SiteContent = {
     landscape: string;
     businessLines: { title: string; intro: string; items: { title: string; text: string }[] };
     vision: string;
+    mission: { to: string; text: string }[];
     coreValues: { intro: string; items: CoreValue[] };
+    brandIdentity: {
+      title: string;
+      text: string;
+      gestures: string[];
+      symbol: string;
+      colors: { name: string; hex: string; meaning: string }[];
+      logo: string;
+    };
   };
   productCategories: { slug: string; name: string; note: string }[];
   products: Product[];
@@ -94,5 +103,5 @@ export type SiteContent = {
       cta?: { label: string; href: string };
     }[];
   };
-  forms: { provinces: string[]; budgets: string[]; contactTopics: string[] };
+  forms: { budgets: string[]; contactTopics: string[] };
 };
