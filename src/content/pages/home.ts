@@ -36,7 +36,7 @@ export const homeBlocks = ({ company, certification }: SiteData, posts: PostCard
         secondary: img("products/lau-ngua-3.jpg"),
         secondaryAlt: "Lẩu ngựa QT FOOD",
       },
-      badge: "Không chỉ thơm ngon • mà còn bổ dưỡng •",
+      badge: "QT FOOD • QT FOOD • QT FOOD • QT FOOD •",
       decor: img("decor/nui-doi-ruong-bac-thang.jpg"),
     },
   },

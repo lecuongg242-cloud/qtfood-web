@@ -89,7 +89,10 @@ export function Hero(p: HeroProps) {
                   <path id="hero-badge-circle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
                 </defs>
                 <text className="fill-current text-[7.4px] font-bold uppercase tracking-[0.1em]">
-                  <textPath href="#hero-badge-circle">{p.badge}</textPath>
+                  {/* textLength = chu vi vòng tròn → chữ giãn đều, phủ kín vòng */}
+                  <textPath href="#hero-badge-circle" textLength="236" lengthAdjust="spacing">
+                    {p.badge}
+                  </textPath>
                 </text>
               </svg>
               <HorseMark className="h-7 w-auto sm:h-8" />
