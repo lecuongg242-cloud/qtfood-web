@@ -246,7 +246,7 @@ src/
 
 ### Giai đoạn 1 — Website
 
-**1a. Nền tảng + Trang chủ demo (duyệt màu)** ← *đã chốt màu A, đang tinh chỉnh trang chủ*
+**1a. Nền tảng + Trang chủ demo (duyệt màu)** ← *gần xong — xem kế hoạch tiếp theo ở mục 10*
 
 > Chạy thử: `pnpm install` → `pnpm dev` → http://localhost:3000.
 
@@ -257,7 +257,8 @@ Mục tiêu: có ngay **1 trang chủ hoàn chỉnh bằng nội dung thật** �
 | Header | Logo, menu 7 mục, hotline 0981.787.992, nút "Đăng ký nhượng quyền" | Cố định khi cuộn, thu gọn + nền blur; menu mobile full-screen |
 | Hero | Ảnh thật Lẩu/Phở ngựa, tiêu đề "Thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa", slogan, 2 CTA, số liệu 50+ cơ sở / 6 sản phẩm / 100% thịt tươi | Chữ trồi lên từng dòng, ảnh parallax + mở bằng clip-path, số đếm |
 | Sản phẩm nổi bật | Phở ngựa, Lẩu ngựa, Nem ngựa | Card hover: ảnh zoom, card nhấc, nút trượt lên |
-| Cam kết | 4 cam kết (Nguyên liệu sạch, An toàn, Uy tín, Hương vị truyền thống) | Reveal so le |
+| Cam kết | 4 cam kết (Nguyên liệu sạch, An toàn – có kiểm định, Uy tín, Hương vị truyền thống) | Reveal so le |
+| Chứng nhận & cam kết chất lượng | ISO 22000:2018 (WCERT, số W2356F, hiệu lực 24/06/2025–23/06/2028, phạm vi nem lợn, nem ngựa): giấy chứng nhận + quyết định 274/QĐ-WCERT, bảng thông tin | Thẻ giấy nghiêng, hover thẳng lại; bấm để phóng to (dialog) |
 | Về QT FOOD | Ảnh đội ngũ, đoạn giới thiệu, 3 mảng kinh doanh | Ảnh mở clip-path, parallax nhẹ |
 | Chế biến sẵn | Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa + giá, KLT | Card hover |
 | Giá trị cốt lõi | Tín – Tâm – Tinh – Tiến | Chữ lớn chạy ngang theo cuộn |
@@ -283,7 +284,7 @@ Việc cụ thể:
 - [x] UI kit: Button (hover fill), Section/Container, SectionHeading, icon set
 - [ ] UI kit: Input, Form, Badge (làm cùng trang Liên hệ / Nhượng quyền)
 - [x] Header (cố định khi cuộn, thu gọn, đổi tone, menu mobile toàn màn hình), Footer, nút nổi Zalo/Gọi
-- [x] Trang chủ 8 block từ `content/qtfood.json` (`src/content/pages/home.ts` → `RenderBlocks`)
+- [x] Trang chủ 9 block từ `content/qtfood.json` (`src/content/pages/home.ts` → `RenderBlocks`)
 - [x] Chốt phương án màu A (Tươi sáng) → đã gỡ bộ chọn màu, giữ 1 bộ token
 - ✅ *Xong khi:* trang demo UI kit chạy mượt, Lighthouse ≥ 90.
 
@@ -331,7 +332,78 @@ Việc cụ thể:
 - [x] ~~Nội dung giới thiệu, tầm nhìn, sứ mệnh, giá trị cốt lõi, nhượng quyền~~ — đã có
 - [ ] *(Sau)* Danh sách chi tiết các cơ sở nhượng quyền — hiện hiển thị "trên 50 cơ sở", nhập vào admin khi cần
 - [ ] Rà lại lỗi nội dung cũ: Giò ngựa (mục "Nguyên liệu" đang nhắc "viên mọc"; giá 320.000đ/kg nhưng KLT 250g)
-- [ ] Ảnh sản phẩm nền đồng nhất, ảnh Nem riềng thành phẩm, giấy chứng nhận ATVSTP (nếu có)
+- [x] ~~Giấy chứng nhận~~ — đã có ISO 22000:2018 (WCERT) cho sản xuất & kinh doanh nem lợn, nem ngựa
+- [ ] Ảnh sản phẩm nền đồng nhất, ảnh Nem riềng thành phẩm; chứng nhận khác nếu có (OCOP, công bố sản phẩm, ATTP cơ sở)
 - [ ] Nội dung chính sách chung (vận chuyển, thanh toán, đổi trả, bảo mật) — mặc định: soạn bản mẫu để duyệt
 - [ ] Testimonial khách hàng / đối tác nhượng quyền (nếu có)
 - [ ] Tên miền
+
+---
+
+## 10. Kế hoạch triển khai tiếp theo (lập 2026-09-28)
+
+**Hiện trạng:** GĐ1a gần xong — trang chủ 9 block chạy bằng nội dung thật, màu A đã chốt, hiệu ứng ổn định. Chưa lên mạng (commit `e761a42` chưa push được do quyền GitHub).
+
+**Thứ tự ưu tiên:** đưa lên mạng sớm để duyệt trên link thật → làm trước các trang **tạo khách hàng** (Nhượng quyền, Liên hệ, Sản phẩm) → trang thông tin → CMS → editor → bán hàng.
+
+> Ước lượng tính theo ngày làm việc, chỉ để tham khảo thứ tự và độ lớn. Mỗi sprint kết thúc bằng **1 link preview Vercel** để duyệt; góp ý được sửa trước khi sang sprint sau.
+
+### S0 — Hạ tầng & link duyệt online (~0,5–1 ngày)
+- [ ] Sửa quyền GitHub (tài khoản `LeeCuongg` → Write vào `lecuongg242-cloud/qtfood-web`, hoặc đăng nhập đúng tài khoản) → push `main`
+- [ ] Tạo project Vercel (gói Pro, region `sin1`), nối repo: mỗi nhánh/PR tự có link preview, `main` → production
+- [ ] `metadataBase`, biến môi trường, chặn index (noindex) trên link preview
+- [ ] Vercel tự chạy lint + typecheck + build mỗi lần push
+- ✅ *Duyệt:* mở trang chủ trên link Vercel bằng điện thoại & máy tính
+
+### S1 — Nhượng quyền & Liên hệ: trang tạo khách hàng (~3 ngày)
+- [ ] UI kit form: Input, Select (tỉnh/thành), Textarea, Checkbox đồng ý, thông báo lỗi tiếng Việt (React Hook Form + Zod)
+- [ ] `/nhuong-quyen`: hero, 50+ cơ sở, vì sao chọn QT FOOD, 4 đặc quyền, quy trình hợp tác (khảo sát → tư vấn mặt bằng → đào tạo → khai trương → đồng hành — lấy từ chính sách), thư viện ảnh khai trương (lightbox), chứng nhận ISO, **form "Nhận hồ sơ nhượng quyền"** (họ tên, SĐT, tỉnh/thành, mặt bằng đã có/chưa, ngân sách dự kiến, ghi chú)
+- [ ] `/nhuong-quyen/chinh-sach`: 4 mục chính sách, mục lục bám theo khi cuộn, CTA
+- [ ] `/lien-he`: 2 hotline, Zalo, email, bản đồ, **form liên hệ**
+- [ ] Gửi form bằng Server Action: kiểm tra dữ liệu phía server, chống spam (honeypot + giới hạn tần suất), **thông báo tức thì** qua Telegram + email; tạm ghi log (chuyển vào admin ở S5)
+- ✅ *Duyệt:* gửi thử form → nhận thông báo trong vòng vài giây
+
+### S2 — Sản phẩm (~3 ngày)
+- [ ] `/san-pham`: lọc theo nhóm (Món tại quán / Chế biến sẵn), lưới sản phẩm
+- [ ] `/san-pham/[danh-muc]/[slug]`: thư viện ảnh (zoom), KLT / HSD / bảo quản / cách dùng / giá, bài mô tả dài, sản phẩm liên quan
+- [ ] Nút **Đặt hàng** → form đặt nhanh (sản phẩm, số lượng, SĐT, địa chỉ) + Zalo/Gọi — dùng chung kênh thông báo S1 (giỏ hàng thật ở GĐ3)
+- [ ] View Transitions: ảnh sản phẩm "bay" từ lưới sang trang chi tiết
+- [ ] SEO: schema.org `Product` (giá, đơn vị), ảnh OG riêng từng sản phẩm
+- ✅ *Duyệt:* đi từ trang chủ → sản phẩm → đặt hàng trọn luồng trên điện thoại
+
+### S3 — Giới thiệu & Hệ thống cơ sở (~2 ngày)
+- [ ] `/gioi-thieu`: câu chuyện thương hiệu, 3 mảng kinh doanh, tầm nhìn – sứ mệnh, Tín – Tâm – Tinh – Tiến, Tổng giám đốc, ý nghĩa logo & màu, chứng nhận ISO, ảnh đội ngũ
+- [ ] `/he-thong-co-so`: 50+ cơ sở, thư viện ảnh khai trương (lightbox), CTA nhượng quyền (bản đồ + danh sách địa chỉ khi có dữ liệu)
+- ✅ *Duyệt:* nội dung & bố cục 2 trang
+
+### S4 — Tin tức, chính sách chung & hoàn thiện GĐ1 (~3 ngày)
+- [ ] `/tin-tuc` + chi tiết bài: lọc Tin tức / Khai trương / Hoạt động; 3–5 bài mở đầu soạn từ ảnh khai trương & thông tin sẵn có (để duyệt)
+- [ ] `/chinh-sach/[slug]`: vận chuyển, thanh toán, đổi trả, bảo mật — bản mẫu để duyệt
+- [ ] Vector hoá logo SVG + hiệu ứng vẽ nét ngựa khi tải trang
+- [ ] SEO kỹ thuật: `sitemap.xml`, `robots.txt`, schema `Organization`/`LocalBusiness`, OG từng trang
+- [ ] Kiểm tra chất lượng: responsive 360 / 768 / 1024 / 1440, Lighthouse ≥ 90 (Performance, SEO, Accessibility), tương phản chữ, điều hướng bàn phím, reduced-motion
+- ✅ *Mốc GĐ1:* website đủ 10 trang, dữ liệu từ JSON — **có thể go-live bản đầu** trên tên miền nếu muốn ra mắt sớm
+
+### S5 — CMS dữ liệu, GĐ1c (~4–5 ngày)
+- [ ] Payload 3 + Neon Postgres (Singapore) + Vercel Blob; admin tại `/admin`, phân quyền Admin / Editor
+- [ ] Collections: Products, Categories, Posts, Stores, Certifications, Media, **Leads** (đặt hàng / nhượng quyền / liên hệ, có trạng thái xử lý), Pages; Global: SiteSettings (hotline, địa chỉ, MXH, menu, footer)
+- [ ] Script nhập toàn bộ `content/qtfood.json` + ảnh vào Payload; các trang đọc từ Payload, tự cập nhật khi lưu (revalidate)
+- [ ] Form S1–S2 lưu vào Leads (giữ thông báo Telegram/email)
+- [ ] Sao lưu DB tự động, tài liệu hướng dẫn admin ngắn (thêm sản phẩm, đăng bài, xử lý lead)
+- ✅ *Mốc:* nhân viên tự sửa sản phẩm, đăng tin, xem lead không cần lập trình → **go-live chính thức**
+
+### S6+ — Giai đoạn 2 & 3 (lập kế hoạch chi tiết khi xong S5)
+- **GĐ2 – Visual editor & template** (mục 7): bắt đầu bằng spike Puck 2–3 ngày (chọn phần tử con + sidebar phải) → 2a editor cơ bản → 2b style, responsive, template, phiên bản
+- **GĐ3 – Bán hàng online:** giỏ hàng, checkout, COD / VietQR / VNPay / MoMo, quản lý đơn & tồn kho
+
+### Cần chốt trước khi bắt đầu
+| # | Việc | Cần cho | Mặc định nếu chưa có |
+|---|---|---|---|
+| Q1 | Sửa quyền GitHub | S0 | — (bắt buộc) |
+| Q2 | Tài khoản Vercel (Pro) & tên miền | S0 / go-live | Dùng link `*.vercel.app` để duyệt |
+| Q3 | Nơi nhận thông báo lead: Telegram (nhóm nào), email nào, Zalo OA? | S1 | Email `qtfreshfood@gmail.com` + 1 nhóm Telegram |
+| Q4 | Trường thông tin form nhượng quyền (ngân sách, mặt bằng…) | S1 | Như liệt kê ở S1 |
+| Q5 | Sửa nội dung Giò ngựa ("viên mọc", giá/kg vs KLT 250g) | S2 | Giữ nguyên, đánh dấu cần sửa |
+| Q6 | Ảnh sản phẩm nền đồng nhất, ảnh Nem riềng thành phẩm | S2 | Dùng ảnh hiện có |
+| Q7 | Bài tin tức / hoạt động có sẵn | S4 | Soạn 3–5 bài mẫu để duyệt |
+| Q8 | Nội dung chính sách chung | S4 | Soạn bản mẫu để duyệt |

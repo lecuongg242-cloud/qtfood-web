@@ -43,8 +43,24 @@ export type Commitment = { title: string; subtitle: string; text: string; icon: 
 
 export type CoreValue = { key: string; meaning: string; text: string };
 
+export type Certification = {
+  standard: string;
+  name: string;
+  holder: string;
+  number: string;
+  decision: string;
+  issuer: string;
+  scope: string;
+  location: string;
+  issued: string;
+  expires: string;
+  surveillance: string;
+  documents: { title: string; image: string }[];
+};
+
 export type SiteContent = {
   company: Company;
+  certifications: Certification[];
   home: {
     banner: string;
     featured: { product: string; title: string; text: string; image: string }[];

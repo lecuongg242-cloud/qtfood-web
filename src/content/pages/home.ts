@@ -1,7 +1,8 @@
 import type { Block } from "@/blocks";
-import { content, formatPrice, franchiseGallery, img, productBySlug } from "../data";
+import { content, formatDate, formatPrice, franchiseGallery, img, productBySlug } from "../data";
 
 const { company, home, about, franchise } = content;
+const iso = content.certifications[0];
 
 const productHref = (slug: string) => {
   const p = productBySlug(slug);
@@ -62,8 +63,28 @@ export const homeBlocks: Block[] = [
     },
   },
   {
+    type: "certifications",
+    props: {
+      tone: "base",
+      eyebrow: "Chứng nhận",
+      title: "Chứng nhận và *cam kết chất lượng*",
+      description: `Hệ thống quản lý an toàn thực phẩm của ${iso.holder} được đánh giá và chứng nhận phù hợp tiêu chuẩn ${iso.standard}.`,
+      standard: iso.standard,
+      standardName: iso.name,
+      facts: [
+        { label: "Số chứng nhận", value: iso.number },
+        { label: "Đơn vị cấp", value: iso.issuer },
+        { label: "Phạm vi", value: iso.scope },
+        { label: "Hiệu lực", value: `${formatDate(iso.issued)} – ${formatDate(iso.expires)}` },
+        { label: "Giám sát", value: iso.surveillance },
+      ],
+      documents: iso.documents.map((d) => ({ title: d.title, image: img(d.image), width: 898, height: 1280 })),
+    },
+  },
+  {
     type: "aboutTeaser",
     props: {
+      tone: "alt",
       eyebrow: "Về QT FOOD",
       title: "Tiên phong đặc sản *thịt ngựa tươi*",
       intro: about.intro,
@@ -81,7 +102,7 @@ export const homeBlocks: Block[] = [
   {
     type: "productList",
     props: {
-      tone: "alt",
+      tone: "base",
       eyebrow: "Chế biến sẵn",
       title: "Mua về thưởng thức, *làm quà biếu*",
       description: "Đóng gói hút chân không tiện lợi, giữ trọn vị ngon — giao tận nơi trên toàn quốc.",
@@ -102,6 +123,7 @@ export const homeBlocks: Block[] = [
   {
     type: "coreValues",
     props: {
+      tone: "alt",
       eyebrow: "Giá trị cốt lõi",
       statement: "Xây dựng QT FOOD trên *4 chữ vàng* — Tín, Tâm, Tinh, Tiến.",
       items: about.coreValues.items,

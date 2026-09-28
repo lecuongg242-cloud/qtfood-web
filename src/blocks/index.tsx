@@ -1,6 +1,7 @@
 import { Hero, type HeroProps } from "./hero/Hero";
 import { FeaturedProducts, type FeaturedProductsProps } from "./featured-products/FeaturedProducts";
 import { Commitments, type CommitmentsProps } from "./commitments/Commitments";
+import { Certifications, type CertificationsProps } from "./certifications/Certifications";
 import { AboutTeaser, type AboutTeaserProps } from "./about-teaser/AboutTeaser";
 import { ProductList, type ProductListProps } from "./product-list/ProductList";
 import { CoreValues, type CoreValuesProps } from "./core-values/CoreValues";
@@ -12,6 +13,7 @@ export type Block =
   | { type: "hero"; props: HeroProps }
   | { type: "featuredProducts"; props: FeaturedProductsProps }
   | { type: "commitments"; props: CommitmentsProps }
+  | { type: "certifications"; props: CertificationsProps }
   | { type: "aboutTeaser"; props: AboutTeaserProps }
   | { type: "productList"; props: ProductListProps }
   | { type: "coreValues"; props: CoreValuesProps }
@@ -29,6 +31,8 @@ export function RenderBlocks({ blocks }: { blocks: Block[] }) {
             return <FeaturedProducts key={i} {...block.props} />;
           case "commitments":
             return <Commitments key={i} {...block.props} />;
+          case "certifications":
+            return <Certifications key={i} {...block.props} />;
           case "aboutTeaser":
             return <AboutTeaser key={i} {...block.props} />;
           case "productList":

@@ -64,6 +64,12 @@ export const Check = (p: P) => (
     <path d="m5 12.5 4.5 4.5L19 7.5" />
   </svg>
 );
+export const ZoomIn = (p: P) => (
+  <svg viewBox="0 0 24 24" {...base} {...p}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m20 20-3.5-3.5M11 8v6M8 11h6" />
+  </svg>
+);
 export const Menu = (p: P) => (
   <svg viewBox="0 0 24 24" {...base} {...p}>
     <path d="M4 8h16M4 16h16" />

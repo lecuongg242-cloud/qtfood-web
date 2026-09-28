@@ -12,6 +12,7 @@ content/
 │   ├── about/       # đội ngũ (bản gốc từ Drive), Tổng giám đốc, ruộng bậc thang
 │   ├── products/    # phở, lẩu, nem ngựa, nem riềng, giò, mọc
 │   ├── franchise/   # khai-truong-01..26 — ảnh khai trương cơ sở nhượng quyền
+│   ├── certificates/ # giấy chứng nhận + quyết định ISO 22000:2018 (WCERT, W2356F)
 │   ├── icons/       # 4 icon mục Cam kết (clip-art cũ, sẽ thay)
 │   └── decor/       # tranh vẽ nét núi đồi / ruộng bậc thang làm nền
 └── source/          # (gitignored) HTML + ảnh gốc tải về, content.json thô
@@ -29,6 +30,7 @@ content/
 | Thương hiệu | `franchise` |
 | Thương hiệu › Chính sách | `franchisePolicy` |
 | Liên hệ / footer | `company` |
+| *(bổ sung 2026-09-28)* Chứng nhận | `certifications[]` |
 
 ## Đã chỉnh khi trích xuất
 - Sửa lỗi khoảng trắng: `qtfreshfood @gmail.com` → `qtfreshfood@gmail.com`, "A Hi ếu" → "Anh Hiếu", "N ước lẩu" → "Nước lẩu".

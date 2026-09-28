@@ -8,6 +8,9 @@ export const img = (path: string) => `/images/${path}`;
 
 export const formatPrice = (value: number) => `${value.toLocaleString("vi-VN")}đ`;
 
+/** "2025-06-24" → "24/06/2025" */
+export const formatDate = (iso: string) => iso.split("-").reverse().join("/");
+
 export const productBySlug = (slug: string) => content.products.find((p) => p.slug === slug);
 
 export const franchiseGallery = () =>
