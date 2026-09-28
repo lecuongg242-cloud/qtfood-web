@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // File do Payload tự sinh
+    "src/payload-types.ts",
+    "src/migrations/**",
+    "src/app/(payload)/**",
   ]),
 ]);
 

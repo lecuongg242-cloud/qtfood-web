@@ -43,3 +43,6 @@ next-env.d.ts
 
 # ảnh gốc tải từ Google Sites (đã chọn lọc sang public/images)
 content/source/
+
+# Payload: tệp upload khi chạy local chưa có Vercel Blob
+/media/

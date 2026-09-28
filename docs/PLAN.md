@@ -351,6 +351,6 @@ Kế hoạch chi tiết đã tách thành từng phần **P0 – P7**, mỗi ph�
 | [P2](plans/P2-san-pham.md) | Sản phẩm & đặt hàng nhanh | GĐ1 | ⚪ |
 | [P3](plans/P3-gioi-thieu-he-thong-co-so.md) | Giới thiệu & Hệ thống cơ sở | GĐ1 | ⚪ |
 | [P4](plans/P4-tin-tuc-chinh-sach-hoan-thien.md) | Tin tức, chính sách, SEO, QA → go-live bản đầu | GĐ1 | ⚪ |
-| [P5](plans/P5-cms-payload.md) | CMS Payload + Neon + Blob → go-live chính thức | GĐ1c | ⚪ |
+| [P5](plans/P5-cms-payload.md) | CMS Payload + Neon + Blob → go-live chính thức | GĐ1c | 🟡 P5a lõi admin xong (làm trước P1) |
 | [P6](plans/P6-visual-editor-template.md) | Visual editor & template | GĐ2 | ⚪ |
 | [P7](plans/P7-ban-hang-online.md) | Bán hàng online | GĐ3 | ⚪ |

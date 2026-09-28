@@ -4,6 +4,38 @@
 
 > **2026-09-28:** Neon Postgres đã tạo (PostgreSQL 18.6, region `ap-southeast-1`, DB `neondb`, đang trống), đã gắn vào Vercel; bản local lưu ở `.env.local` (không commit). Mẫu biến: `.env.example`.
 
+## P5a — Lõi admin (làm trước P1, nhánh `p5a-admin-core`) ✅
+
+Quyết định 2026-09-28: có DB sớm → dựng lõi CMS trước để form P1 lưu lead vào DB ngay từ đầu, các trang P2–P4 đọc thẳng từ CMS.
+
+**Đã xong**
+- [x] Payload 3.90.2 + `@payloadcms/db-postgres` (Neon, qua `DATABASE_URL`) + Lexical + Vercel Blob (tự bật khi có `BLOB_READ_WRITE_TOKEN`, `alwaysInsertFields` để schema không đổi)
+- [x] `"type": "module"`, `next.config.ts` bọc `withPayload`, alias `@payload-config` → `src/payload.config.ts`
+- [x] Trang web chuyển vào `src/app/(site)/`; admin & API ở `src/app/(payload)/`; route bắt-mọi-đường-dẫn `(site)/[...slug]` → 404 vẫn có header/footer
+- [x] Admin **tiếng Việt** tại `/admin`; collections: `products`, `product-categories`, `leads`, `media`, `users` (Admin/Editor); global `site-settings`
+- [x] `leads`: API công khai **không** tạo/đọc được (403) — chỉ Server Action ghi qua Local API
+- [x] `products`: nháp/xuất bản (versions), khách chỉ đọc bản đã xuất bản
+- [x] Migration đầu tiên `src/migrations/20260928_091351_initial` (22 bảng); `push: false` vì chỉ có 1 DB
+- [x] `pnpm seed`: nhập thông tin chung, 2 nhóm, 6 sản phẩm (mô tả → Lexical); chạy lại không tạo trùng; ảnh chờ Vercel Blob
+- [x] Kiểm tra: lint, tsc, build sạch; `/admin` → màn hình tạo tài khoản đầu tiên (tài khoản đầu tiên luôn là Admin)
+
+**Scripts**
+| Lệnh | Việc |
+|---|---|
+| `pnpm migrate:create <ten>` | Tạo migration sau khi sửa collection |
+| `pnpm migrate` | Áp migration vào DB trong `DATABASE_URL` |
+| `pnpm build:deploy` | `migrate` rồi `build` — dùng làm Build Command trên Vercel |
+| `pnpm seed` | Nhập/cập nhật dữ liệu từ `content/qtfood.json` |
+| `pnpm generate:types` / `generate:importmap` | Sinh lại kiểu & import map sau khi đổi config |
+
+**Cần làm trên Vercel trước khi merge `p5a-admin-core`**
+- [ ] Thêm `PAYLOAD_SECRET` (chuỗi ngẫu nhiên ≥ 32 ký tự, khác bản local) cho Production & Preview
+- [ ] Settings → Build and Deployment → Build Command: `pnpm build:deploy`
+- [ ] Tạo Vercel Blob store (Storage → Blob) → tự thêm `BLOB_READ_WRITE_TOKEN` → chạy `pnpm seed` để tải ảnh sản phẩm
+- [ ] ⚠️ Preview đang dùng chung DB với production → chỉ merge migration đã duyệt; nên bật "tạo Neon branch cho mỗi preview" trong tích hợp Neon
+
+**Chưa làm (các phần còn lại của P5, làm dần cùng P1–P4)**: website đọc dữ liệu từ CMS, `posts`, `stores`, `certifications`, `pages`, live preview, revalidate khi lưu, tài liệu hướng dẫn admin.
+
 ## Mục tiêu
 Nhân viên QT FOOD **tự quản lý** sản phẩm, bài viết, cơ sở, chứng nhận, thông tin liên hệ và **xử lý lead** trong trang admin tiếng Việt — không cần lập trình. Website đọc dữ liệu từ CMS và tự cập nhật khi lưu.
 
