@@ -1,6 +1,9 @@
 import type { CollectionConfig } from "payload";
 import { anyone, loggedIn } from "../access";
 import { slugField } from "../fields/slug";
+import { revalidateProductPages } from "../hooks/revalidate";
+
+const revalidate = revalidateProductPages();
 
 export const ProductCategories: CollectionConfig = {
   slug: "product-categories",
@@ -8,6 +11,7 @@ export const ProductCategories: CollectionConfig = {
   admin: { useAsTitle: "name", defaultColumns: ["name", "slug", "order"], group: "Sản phẩm" },
   access: { read: anyone, create: loggedIn, update: loggedIn, delete: loggedIn },
   defaultSort: "order",
+  hooks: { afterChange: [revalidate.afterChange], afterDelete: [revalidate.afterDelete] },
   fields: [
     { name: "name", type: "text", label: "Tên nhóm", required: true },
     slugField("name"),

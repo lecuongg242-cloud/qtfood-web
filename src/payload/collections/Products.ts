@@ -1,6 +1,9 @@
 import type { CollectionConfig } from "payload";
 import { loggedIn } from "../access";
 import { slugField } from "../fields/slug";
+import { revalidateProductPages } from "../hooks/revalidate";
+
+const revalidate = revalidateProductPages();
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -19,6 +22,7 @@ export const Products: CollectionConfig = {
     delete: loggedIn,
   },
   versions: { drafts: true, maxPerDoc: 30 },
+  hooks: { afterChange: [revalidate.afterChange], afterDelete: [revalidate.afterDelete] },
   defaultSort: "order",
   fields: [
     {
@@ -107,6 +111,16 @@ export const Products: CollectionConfig = {
       admin: { position: "sidebar" },
     },
     { name: "featured", type: "checkbox", label: "Nổi bật ở trang chủ", defaultValue: false, admin: { position: "sidebar" } },
+    {
+      name: "isoBadge",
+      type: "checkbox",
+      label: "Hiện huy hiệu ISO 22000:2018",
+      defaultValue: false,
+      admin: {
+        position: "sidebar",
+        description: "Chỉ bật cho sản phẩm thuộc phạm vi chứng nhận (hiện tại: nem lợn, nem ngựa).",
+      },
+    },
     { name: "order", type: "number", label: "Thứ tự hiển thị", defaultValue: 0, admin: { position: "sidebar" } },
   ],
 };

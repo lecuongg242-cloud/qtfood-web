@@ -7,7 +7,7 @@ export function FloatingContact() {
     { href: `tel:${mainHotline.number}`, label: `Gọi ${mainHotline.display}`, bg: "#ed1c24", icon: <Phone className="h-5 w-5 text-white" /> },
   ];
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
+    <div className="floating-contact fixed bottom-5 right-5 z-40 flex flex-col gap-3 transition-[bottom] duration-300">
       {items.map((it) => (
         <a
           key={it.label}

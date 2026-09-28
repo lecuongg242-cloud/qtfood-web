@@ -194,6 +194,10 @@ export interface Product {
   slug: string;
   category: number | ProductCategory;
   featured?: boolean | null;
+  /**
+   * Chỉ bật cho sản phẩm thuộc phạm vi chứng nhận (hiện tại: nem lợn, nem ngựa).
+   */
+  isoBadge?: boolean | null;
   order?: number | null;
   updatedAt: string;
   createdAt: string;
@@ -456,6 +460,7 @@ export interface ProductsSelect<T extends boolean = true> {
   slug?: T;
   category?: T;
   featured?: T;
+  isoBadge?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;

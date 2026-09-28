@@ -47,7 +47,20 @@ export const contactLeadSchema = z.object({
   message: z.string().trim().min(5, "Vui lòng nhập nội dung (ít nhất 5 ký tự)").max(1000, "Tối đa 1000 ký tự"),
 });
 
-export const leadSchema = z.discriminatedUnion("type", [franchiseLeadSchema, contactLeadSchema]);
+export const orderLeadSchema = z.object({
+  type: z.literal("order"),
+  ...base,
+  productSlug: z.string().trim().min(1, "Thiếu sản phẩm"),
+  quantity: z.coerce
+    .number({ error: "Số lượng chưa đúng" })
+    .int("Số lượng chưa đúng")
+    .min(1, "Tối thiểu 1")
+    .max(999, "Đơn lớn vui lòng gọi hotline"),
+  address: z.string().trim().min(8, "Vui lòng nhập địa chỉ nhận hàng").max(300, "Địa chỉ quá dài"),
+  message: optionalText(1000),
+});
+
+export const leadSchema = z.discriminatedUnion("type", [franchiseLeadSchema, contactLeadSchema, orderLeadSchema]);
 
 export type LeadInput = z.infer<typeof leadSchema>;
 

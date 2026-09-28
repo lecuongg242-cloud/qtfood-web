@@ -128,6 +128,8 @@ async function run() {
       specs: p.specs ?? {},
       category: categoryIds[p.category],
       featured: featured.has(p.slug),
+      // Phạm vi ISO 22000:2018 (WCERT): sản xuất & kinh doanh nem lợn, nem ngựa
+      isoBadge: p.slug === "nem-ngua",
       order: i,
       _status: "published" as const,
       ...(images.length ? { images } : {}),

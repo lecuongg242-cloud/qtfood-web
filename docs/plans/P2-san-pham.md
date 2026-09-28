@@ -1,6 +1,19 @@
 # P2 — Sản phẩm & đặt hàng nhanh
 
-> Giai đoạn 1 · Ước lượng ~3 ngày · Phụ thuộc: P1 (UI form, action lead, RichBody, Lightbox) · Nhánh: `p2-san-pham` · Trạng thái: ⚪
+> Giai đoạn 1 · Ước lượng ~3 ngày · Phụ thuộc: P1, P5a · Nhánh: `p2-san-pham` (tách từ `p1-nhuong-quyen`) · Trạng thái: 🟢 xong
+
+## Kết quả (2026-09-28)
+- [x] **Đọc dữ liệu từ CMS** (Payload Local API, `src/lib/data/products.ts`) — trang tĩnh (SSG) + tự làm mới khi sửa sản phẩm/nhóm trong admin (hook `revalidatePath`)
+- [x] `/san-pham`, `/san-pham/[danh-muc]` (tab lọc bằng đường dẫn), `/san-pham/[danh-muc]/[slug]` — sai nhóm/slug → 404
+- [x] Trang chi tiết: thư viện ảnh + phóng to, giá/thông số, điểm nổi bật, mô tả rich text (Lexical), sản phẩm cùng nhóm, thanh đặt hàng dính đáy (mobile, tự đẩy nút Zalo/Gọi lên), JSON-LD `Product` + `Offer`
+- [x] Chuyển cảnh ảnh thẻ → trang chi tiết (`<ViewTransition>` của React)
+- [x] **Đặt hàng nhanh** (hộp thoại, trượt từ đáy trên mobile): số lượng −/+, tạm tính; Server Action tra giá phía server → lưu `leads` (type `order`, sản phẩm + số lượng + địa chỉ) → thông báo kèm tạm tính. Đã thử thật & xoá đơn thử
+- [x] Món tại quán (Lẩu, Phở) không có giá → CTA Nhượng quyền + gọi hotline
+- [x] Trường CMS mới **"Hiện huy hiệu ISO 22000:2018"** (migration `product_iso_badge`), seed chỉ bật cho Nem ngựa (đúng phạm vi chứng nhận)
+- [x] `ProductCard` dùng chung (trang chủ, danh mục, liên quan), card cao bằng nhau
+- [ ] Ảnh sản phẩm vẫn lấy từ `public/images` (tạm) cho tới khi gắn Vercel Blob và chạy lại `pnpm seed`
+- [ ] Nội dung Giò ngựa (giá/kg vs KLT 250g, câu "viên mọc") — chờ QT FOOD, sửa được trực tiếp trong admin
+
 
 ## Mục tiêu
 Khách xem sản phẩm dễ, tin tưởng (ảnh, thông số, chứng nhận) và **đặt hàng trong ≤ 3 bước** trên điện thoại. Giỏ hàng thật để P7.
