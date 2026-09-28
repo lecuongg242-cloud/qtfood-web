@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import { RenderBlocks } from "@/blocks";
 import { contactBlocks } from "@/content/pages/contact";
+import { getSiteSettings } from "@/lib/data/settings";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/lien-he" },
-  title: "Liên hệ",
-  description: "Liên hệ QT FOOD — hotline 0981.787.992, Zalo, email qtfreshfood@gmail.com. Đặt hàng, tư vấn nhượng quyền Lẩu ngựa & Phở ngựa.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { company, mainHotline } = await getSiteSettings();
+  return {
+    alternates: { canonical: "/lien-he" },
+    title: "Liên hệ",
+    description: `Liên hệ QT FOOD — hotline ${mainHotline.display}, Zalo, email ${company.email}. Đặt hàng, tư vấn nhượng quyền Lẩu ngựa & Phở ngựa.`,
+  };
+}
 
-export default function ContactPage() {
-  return <RenderBlocks blocks={contactBlocks} />;
+export default async function ContactPage() {
+  const { company } = await getSiteSettings();
+  return <RenderBlocks blocks={contactBlocks(company)} />;
 }

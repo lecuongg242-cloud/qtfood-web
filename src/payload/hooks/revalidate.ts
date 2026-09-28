@@ -1,5 +1,5 @@
 import { revalidatePath } from "next/cache";
-import type { CollectionAfterChangeHook, CollectionAfterDeleteHook } from "payload";
+import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, GlobalAfterChangeHook } from "payload";
 
 type PathSpec = { path: string; type?: "page" | "layout" };
 
@@ -21,7 +21,9 @@ export const revalidatePaths = (
     }
   };
   return {
-    afterChange: ({ doc, req }) => {
+    afterChange: ({ doc, previousDoc, req }) => {
+      // Bản nháp chưa từng xuất bản (kể cả tự lưu khi soạn) không ảnh hưởng trang công khai
+      if (doc?._status === "draft" && previousDoc?._status !== "published") return doc;
       run((m) => req.payload.logger.debug(m));
       return doc;
     },
@@ -34,3 +36,13 @@ export const revalidatePaths = (
 
 /** Sản phẩm & nhóm sản phẩm: làm mới toàn bộ /san-pham và trang chủ */
 export const revalidateProductPages = () => revalidatePaths([{ path: "/san-pham", type: "layout" }, { path: "/" }]);
+
+/** Thông tin chung dùng ở header/footer mọi trang → làm mới toàn bộ website */
+export const revalidateWholeSite: GlobalAfterChangeHook = ({ doc, req }) => {
+  try {
+    revalidatePath("/", "layout");
+  } catch {
+    req.payload.logger.debug("[revalidate] bỏ qua / (không chạy trong Next)");
+  }
+  return doc;
+};

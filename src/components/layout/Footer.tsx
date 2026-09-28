@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { company, nav } from "@/content/site";
 import { img } from "@/content/data";
 import { Container } from "@/components/ui/Section";
 import { Facebook, Mail, MapPin, Phone, TikTok, Zalo } from "@/components/ui/icons";
 import { getPolicies } from "@/lib/data/policies";
+import { getSiteSettings } from "@/lib/data/settings";
 import { Logo } from "./Logo";
 
 export async function Footer() {
+  const [{ company, nav }, policies] = await Promise.all([getSiteSettings(), getPolicies()]);
   const zalo = company.social.zalo[0];
-  const policies = await getPolicies();
   return (
     <footer data-tone="deep" className="relative overflow-hidden pt-40">
       <Image

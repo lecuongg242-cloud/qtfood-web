@@ -1,9 +1,11 @@
 import type { Block } from "@/blocks";
+import type { Company } from "../types";
 import { content, img } from "../data";
 
-const { company, forms } = content;
+const { forms } = content;
 
-export const contactBlocks: Block[] = [
+/** Trang Liên hệ — `company`: thông tin chung từ admin */
+export const contactBlocks = (company: Company): Block[] => [
   {
     type: "pageHero",
     props: {

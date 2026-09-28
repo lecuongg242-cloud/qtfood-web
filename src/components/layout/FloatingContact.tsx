@@ -1,7 +1,7 @@
-import { company, mainHotline } from "@/content/site";
+import type { Company, Hotline } from "@/content/types";
 import { Phone, Zalo } from "@/components/ui/icons";
 
-export function FloatingContact() {
+export function FloatingContact({ company, mainHotline }: { company: Company; mainHotline: Hotline }) {
   const items = [
     { href: company.social.zalo[0].url, label: "Chat Zalo", bg: "#0068ff", icon: <Zalo className="text-[0.72rem] text-white" /> },
     { href: `tel:${mainHotline.number}`, label: `Gọi ${mainHotline.display}`, bg: "#ed1c24", icon: <Phone className="h-5 w-5 text-white" /> },

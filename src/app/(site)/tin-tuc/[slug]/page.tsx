@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { Container, Section } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -10,9 +11,9 @@ import { Calendar } from "@/components/ui/icons";
 import { PostCard } from "@/components/post/PostCard";
 import { ShareButtons } from "@/components/post/ShareButtons";
 import { toPostCard } from "@/components/post/to-post-card";
-import { company } from "@/content/site";
 import { getPost, getPosts } from "@/lib/data/posts";
 import { absoluteUrl } from "@/lib/site-url";
+import { getSiteSettings } from "@/lib/data/settings";
 
 type Params = PageProps<"/tin-tuc/[slug]">;
 
@@ -40,10 +41,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function PostPage({ params }: Params) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const { isEnabled: draft } = await draftMode();
+  const post = await getPost(slug, draft);
   if (!post) notFound();
 
-  const all = await getPosts();
+  const [all, { company }] = await Promise.all([getPosts(), getSiteSettings()]);
   // Ưu tiên bài cùng chuyên mục, sau đó bài mới nhất
   const others = all.filter((p) => p.slug !== slug);
   const related = [...others.filter((p) => p.category.value === post.category.value), ...others.filter((p) => p.category.value !== post.category.value)].slice(0, 3);

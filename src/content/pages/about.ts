@@ -1,10 +1,12 @@
 import type { Block } from "@/blocks";
+import type { SiteData } from "../types";
 import { content, img } from "../data";
 import { certificationsBlock } from "./shared";
 
-const { company, about } = content;
+const { about } = content;
 
-export const aboutBlocks: Block[] = [
+/** Trang Giới thiệu — `company`, `certification`: dữ liệu chung từ admin */
+export const aboutBlocks = ({ company, certification }: SiteData): Block[] => [
   {
     type: "pageHero",
     props: {
@@ -69,7 +71,7 @@ export const aboutBlocks: Block[] = [
       logo: "/brand/logo-qtfood.png",
     },
   },
-  certificationsBlock("base"),
+  ...certificationsBlock(certification, "base"),
   {
     type: "ctaBand",
     props: {

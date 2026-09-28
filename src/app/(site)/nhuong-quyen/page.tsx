@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { RenderBlocks } from "@/blocks";
 import { franchiseBlocks } from "@/content/pages/franchise";
+import { getSiteData } from "@/lib/data/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/nhuong-quyen" },
@@ -10,6 +11,6 @@ export const metadata: Metadata = {
   openGraph: { images: ["/images/franchise/khai-truong-01.jpg"] },
 };
 
-export default function FranchisePage() {
-  return <RenderBlocks blocks={franchiseBlocks} />;
+export default async function FranchisePage() {
+  return <RenderBlocks blocks={franchiseBlocks(await getSiteData())} />;
 }

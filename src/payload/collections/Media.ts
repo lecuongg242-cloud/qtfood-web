@@ -10,6 +10,8 @@ export const Media: CollectionConfig = {
     // Khi chưa có Vercel Blob (chỉ dùng ở máy dev), tệp lưu tại ./media — đã nằm trong .gitignore
     staticDir: "media",
     mimeTypes: ["image/*", "application/pdf"],
+    // Ảnh chụp điện thoại rất lớn → thu bản gốc về tối đa 2400px (không phóng to ảnh nhỏ)
+    resizeOptions: { width: 2400, height: 2400, fit: "inside", withoutEnlargement: true },
     imageSizes: [
       { name: "thumbnail", width: 400 },
       { name: "card", width: 900 },

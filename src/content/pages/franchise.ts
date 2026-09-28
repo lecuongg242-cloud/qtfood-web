@@ -1,12 +1,14 @@
 import type { Block } from "@/blocks";
+import type { SiteData } from "../types";
 import { content, franchiseGallery, img } from "../data";
 import { certificationsBlock } from "./shared";
 import { PROVINCES } from "@/lib/provinces";
 
-const { company, franchise, franchisePolicy, forms } = content;
+const { franchise, franchisePolicy, forms } = content;
 const [whySection, supportSection, responsibilitySection, startSection] = franchisePolicy.sections;
 
-export const franchiseBlocks: Block[] = [
+/** Trang Nhượng quyền — `company`, `certification`: dữ liệu chung từ admin */
+export const franchiseBlocks = ({ company, certification }: SiteData): Block[] => [
   {
     type: "pageHero",
     props: {
@@ -68,7 +70,7 @@ export const franchiseBlocks: Block[] = [
       initial: 12,
     },
   },
-  certificationsBlock("base"),
+  ...certificationsBlock(certification, "base"),
   {
     type: "cardGrid",
     props: {

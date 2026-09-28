@@ -1,5 +1,4 @@
-import { content } from "./data";
-
+/** Menu & nút chính mặc định — dùng khi chưa nhập trong admin (Thông tin chung → Menu). Thông tin công ty: getSiteSettings() */
 export const nav = [
   { label: "Trang chủ", href: "/" },
   { label: "Giới thiệu", href: "/gioi-thieu" },
@@ -11,6 +10,3 @@ export const nav = [
 ];
 
 export const primaryCta = { label: "Đăng ký nhượng quyền", href: "/nhuong-quyen" };
-
-export const company = content.company;
-export const mainHotline = company.hotlines[0];

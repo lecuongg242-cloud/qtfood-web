@@ -5,6 +5,7 @@ import { ProductCatalog } from "@/components/product/ProductCatalog";
 import { certificationsBlock } from "@/content/pages/shared";
 import { img } from "@/content/data";
 import { getCategories, getProducts } from "@/lib/data/products";
+import { getCertification } from "@/lib/data/certifications";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/san-pham" },
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ProductsPage() {
-  const [categories, products] = await Promise.all([getCategories(), getProducts()]);
+  const [categories, products, certification] = await Promise.all([getCategories(), getProducts(), getCertification()]);
   return (
     <>
       <PageHero
@@ -24,7 +25,7 @@ export default async function ProductsPage() {
         decor={img("decor/nui-doi-ruong-bac-thang.jpg")}
       />
       <ProductCatalog categories={categories} products={products} />
-      <RenderBlocks blocks={[certificationsBlock("alt")]} />
+      <RenderBlocks blocks={certificationsBlock(certification, "alt")} />
     </>
   );
 }

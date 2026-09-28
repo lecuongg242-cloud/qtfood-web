@@ -10,7 +10,7 @@
 | [P2](P2-san-pham.md) | Sản phẩm & đặt hàng nhanh | GĐ1 | ~3 ngày | P1 (form, thông báo) | 🟢 Xong (nhánh `p2-san-pham`, đọc từ CMS) |
 | [P3](P3-gioi-thieu-he-thong-co-so.md) | Giới thiệu & Hệ thống cơ sở | GĐ1 | ~2 ngày | P1 (PageHero, Lightbox) | 🟢 Xong (nhánh `p3-gioi-thieu`) |
 | [P4](P4-tin-tuc-chinh-sach-hoan-thien.md) | Tin tức, chính sách chung, SEO & hoàn thiện GĐ1 | GĐ1 | ~3 ngày | P1–P3 | 🟡 Code xong (nhánh `p4-hoan-thien`), chờ QA & duyệt nội dung |
-| [P5](P5-cms-payload.md) | CMS dữ liệu (Payload + Neon + Blob) | GĐ1c | ~4–5 ngày | P5a trước P1 | 🟡 **P5a lõi admin xong** (nhánh `p5a-admin-core`) |
+| [P5](P5-cms-payload.md) | CMS dữ liệu (Payload + Neon + Blob) | GĐ1c | ~4–5 ngày | P5a trước P1 | 🟢 Code xong (nhánh `p5-cms`), chờ deploy & QT FOOD thử |
 | [P6](P6-visual-editor-template.md) | Visual editor & template | GĐ2 | ~3–4 tuần | P5 | ⚪ |
 | [P7](P7-ban-hang-online.md) | Bán hàng online (giỏ hàng, thanh toán) | GĐ3 | ~2–3 tuần | P5 | ⚪ |
 

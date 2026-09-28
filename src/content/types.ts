@@ -105,3 +105,20 @@ export type SiteContent = {
   };
   forms: { budgets: string[]; contactTopics: string[] };
 };
+
+/** Chứng nhận đang hiển thị (từ CMS, hoặc JSON khi CMS chưa có) — dùng cho khối Chứng nhận */
+export type CertificationView = {
+  standard: string;
+  name: string;
+  holder: string;
+  number: string;
+  issuer: string;
+  scope: string;
+  issued: string;
+  expires: string;
+  surveillance?: string | null;
+  documents: { title: string; image: string; width: number; height: number }[];
+};
+
+/** Dữ liệu dùng chung khi dựng trang từ block (thông tin công ty, chứng nhận…) */
+export type SiteData = { company: Company; certification: CertificationView | null };

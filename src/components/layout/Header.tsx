@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { nav, primaryCta, mainHotline } from "@/content/site";
+import type { NavItem } from "@/lib/data/settings";
+import type { Hotline } from "@/content/types";
 import { Logo } from "./Logo";
 import { Close, Menu, Phone } from "@/components/ui/icons";
 
-export function Header() {
+export function Header({ nav, primaryCta, mainHotline }: { nav: NavItem[]; primaryCta: NavItem; mainHotline: Hotline }) {
   const pathname = usePathname();
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
   const [scrolled, setScrolled] = useState(false);

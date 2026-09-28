@@ -1,9 +1,10 @@
 import type { Block } from "@/blocks";
+import type { SiteData } from "../types";
 import { content, formatPrice, franchiseGallery, img, productBySlug } from "../data";
 import { certificationsBlock } from "./shared";
 import type { PostCardData } from "@/components/post/PostCard";
 
-const { company, home, about, franchise } = content;
+const { home, about, franchise } = content;
 
 const productHref = (slug: string) => {
   const p = productBySlug(slug);
@@ -13,8 +14,8 @@ const productHref = (slug: string) => {
 const processed = content.products.filter((p) => p.category === "che-bien-san");
 const benefits = franchise.sections.find((s) => s.items)?.items ?? [];
 
-/** Trang chủ — `posts`: 3 bài mới nhất từ CMS (block tin tức tự ẩn khi chưa có bài) */
-export const homeBlocks = (posts: PostCardData[]): Block[] => [
+/** Trang chủ — `company`, `certification`: dữ liệu chung từ admin; `posts`: 3 bài mới nhất (block tin tức tự ẩn khi chưa có bài) */
+export const homeBlocks = ({ company, certification }: SiteData, posts: PostCardData[]): Block[] => [
   {
     type: "hero",
     props: {
@@ -64,7 +65,7 @@ export const homeBlocks = (posts: PostCardData[]): Block[] => [
       items: home.commitments,
     },
   },
-  certificationsBlock("base"),
+  ...certificationsBlock(certification, "base"),
   {
     type: "aboutTeaser",
     props: {

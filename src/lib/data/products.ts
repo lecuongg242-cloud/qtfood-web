@@ -80,11 +80,13 @@ export const getProducts = cache(async (categorySlug?: string) => {
   return docs.map(toView);
 });
 
-export const getProduct = cache(async (slug: string) => {
+/** `draft`: xem bản nháp mới nhất (Live Preview, Draft Mode) */
+export const getProduct = cache(async (slug: string, draft = false) => {
   const payload = await getClient();
   const { docs } = await payload.find({
     collection: "products",
-    where: { slug: { equals: slug }, _status: { equals: "published" } },
+    where: draft ? { slug: { equals: slug } } : { slug: { equals: slug }, _status: { equals: "published" } },
+    draft,
     limit: 1,
     depth: 1,
   });

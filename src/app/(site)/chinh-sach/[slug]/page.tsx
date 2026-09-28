@@ -6,8 +6,8 @@ import { PageHero } from "@/blocks/page-hero/PageHero";
 import { Container, Section } from "@/components/ui/Section";
 import { Phone } from "@/components/ui/icons";
 import { img } from "@/content/data";
-import { company } from "@/content/site";
 import { getPolicies, getPolicy } from "@/lib/data/policies";
+import { getSiteSettings } from "@/lib/data/settings";
 
 type Params = PageProps<"/chinh-sach/[slug]">;
 
@@ -30,7 +30,7 @@ export default async function PolicyPage({ params }: Params) {
   const { slug } = await params;
   const policy = await getPolicy(slug);
   if (!policy) notFound();
-  const policies = await getPolicies();
+  const [policies, { company }] = await Promise.all([getPolicies(), getSiteSettings()]);
 
   return (
     <>

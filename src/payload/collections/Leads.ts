@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { adminOnly, loggedIn } from "../access";
+import { leadsExport } from "../endpoints/leads-export";
 
 /**
  * Khách hàng để lại thông tin qua form trên website.
@@ -14,7 +15,9 @@ export const Leads: CollectionConfig = {
     group: "Khách hàng",
     listSearchableFields: ["name", "phone", "email"],
     description: "Thông tin khách gửi từ các form: đặt hàng, đăng ký nhượng quyền, liên hệ.",
+    components: { beforeListTable: ["/payload/components/LeadsExportButton#LeadsExportButton"] },
   },
+  endpoints: [leadsExport],
   access: {
     create: () => false,
     read: loggedIn,

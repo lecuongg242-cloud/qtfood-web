@@ -73,6 +73,7 @@ export interface Config {
     posts: Post;
     policies: Policy;
     stores: Store;
+    certifications: Certification;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -88,6 +89,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     policies: PoliciesSelect<false> | PoliciesSelect<true>;
     stores: StoresSelect<false> | StoresSelect<true>;
+    certifications: CertificationsSelect<false> | CertificationsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -485,6 +487,58 @@ export interface Store {
   createdAt: string;
 }
 /**
+ * Chứng nhận hiện trên website (khối "Chứng nhận và cam kết chất lượng"). Admin báo trước 6 tháng khi sắp hết hạn.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certifications".
+ */
+export interface Certification {
+  id: number;
+  /**
+   * Vd: ISO 22000:2018
+   */
+  standard: string;
+  /**
+   * Vd: Hệ thống Quản lý An toàn Thực phẩm
+   */
+  name: string;
+  number: string;
+  issuer: string;
+  holder: string;
+  /**
+   * Vd: Quyết định số 274/QĐ-WCERT ngày 24/6/2025
+   */
+  decision?: string | null;
+  /**
+   * Chỉ gắn huy hiệu chứng nhận cho sản phẩm thuộc phạm vi này.
+   */
+  scope: string;
+  location?: string | null;
+  issuedAt: string;
+  expiresAt: string;
+  /**
+   * Vd: Định kỳ 12 tháng/lần
+   */
+  surveillance?: string | null;
+  /**
+   * Ảnh giấy chứng nhận, quyết định… — hiện dạng thẻ giấy, bấm để phóng to.
+   */
+  documents?:
+    | {
+        title: string;
+        image: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  active?: boolean | null;
+  /**
+   * Chứng nhận có thứ tự nhỏ nhất hiện ở website.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -531,6 +585,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'stores';
         value: number | Store;
+      } | null)
+    | ({
+        relationTo: 'certifications';
+        value: number | Certification;
       } | null)
     | ({
         relationTo: 'media';
@@ -719,6 +777,34 @@ export interface StoresSelect<T extends boolean = true> {
   image?: T;
   openedAt?: T;
   active?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "certifications_select".
+ */
+export interface CertificationsSelect<T extends boolean = true> {
+  standard?: T;
+  name?: T;
+  number?: T;
+  issuer?: T;
+  holder?: T;
+  decision?: T;
+  scope?: T;
+  location?: T;
+  issuedAt?: T;
+  expiresAt?: T;
+  surveillance?: T;
+  documents?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        id?: T;
+      };
+  active?: T;
+  order?: T;
   updatedAt?: T;
   createdAt?: T;
 }

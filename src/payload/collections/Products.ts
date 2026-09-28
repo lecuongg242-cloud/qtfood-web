@@ -21,7 +21,7 @@ export const Products: CollectionConfig = {
     update: loggedIn,
     delete: loggedIn,
   },
-  versions: { drafts: true, maxPerDoc: 30 },
+  versions: { drafts: { autosave: { interval: 1500 } }, maxPerDoc: 30 },
   hooks: { afterChange: [revalidate.afterChange], afterDelete: [revalidate.afterDelete] },
   defaultSort: "order",
   fields: [

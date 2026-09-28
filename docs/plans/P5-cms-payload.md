@@ -1,6 +1,19 @@
 # P5 — CMS dữ liệu (Payload 3 + Neon + Vercel Blob) — GĐ1c
 
-> Ước lượng ~4–5 ngày · Phụ thuộc: P1–P4 · Nhánh: `p5-cms` · Trạng thái: ⚪ (DB đã sẵn sàng)
+> Ước lượng ~4–5 ngày · Phụ thuộc: P1–P4 · Nhánh: `p5-cms` (tách từ `p4-hoan-thien`) · Trạng thái: 🟢 code xong, chờ deploy & QT FOOD thử
+
+## P5 — Kết quả (2026-09-28)
+- [x] **Thông tin chung lên website**: header, footer, nút liên hệ nổi, trang Liên hệ/Nhượng quyền/Giới thiệu, JSON-LD đọc global `site-settings` (`getSiteSettings`, trường trống → dữ liệu `qtfood.json`); lưu → làm mới toàn site. `content/site.ts` chỉ còn menu mặc định
+- [x] Collection **`certifications`** (Chứng nhận): cảnh báo trong form khi còn ≤ 6 tháng / đã hết hạn; khối Chứng nhận trên web đọc từ CMS (chưa có bản ghi → dùng JSON); `pnpm seed` tạo ISO 22000:2018 khi đã có Blob
+- [x] **Bảng điều khiển admin**: thẻ "Khách hàng mới chưa liên hệ" + "Chứng nhận sắp hết hạn"
+- [x] **Live Preview** cho Sản phẩm & Tin tức (điện thoại / máy tính bảng / máy tính), tự lưu nháp 1,5s, `/next/preview` chỉ cho người đã đăng nhập (Draft Mode) + thanh "Đang xem bản nháp"; bản nháp chưa xuất bản không làm mới trang công khai
+- [x] **Xuất Excel (CSV)** danh sách khách hàng theo bộ lọc đang chọn (`/api/leads/export`, chống CSV injection, BOM cho Excel)
+- [x] Ảnh: giới hạn 15MB, bản gốc thu về ≤ 2400px, tải thẳng lên Blob (`clientUploads`, vượt giới hạn 4,5MB của Vercel)
+- [x] Migration `cms_p5` (certifications, cột `autosave`); [tài liệu hướng dẫn admin](../huong-dan-admin.md) (chưa có ảnh chụp)
+- [x] Đã thử trên Postgres local: đổi hotline trong admin → trang chủ & Liên hệ cập nhật; preview 403 khi chưa đăng nhập, chặn open-redirect; bản nháp chỉ hiện trong Draft Mode; gửi form → lead → CSV đúng; thẻ cảnh báo chứng nhận
+- **Để sang P6:** collection `pages` (trang dựng bằng block), hẹn giờ đăng bài (cần Vercel Cron)
+- [ ] Còn lại: chạy `pnpm migrate` + `pnpm seed` trên Neon (có Blob → chứng nhận & ảnh bài viết lên CMS); tạo tài khoản cho QT FOOD; thêm ảnh chụp vào tài liệu hướng dẫn; bật Neon branch cho preview
+
 
 > **2026-09-28:** Neon Postgres đã tạo (PostgreSQL 18.6, region `ap-southeast-1`, DB `neondb`, đang trống), đã gắn vào Vercel; bản local lưu ở `.env.local` (không commit). Mẫu biến: `.env.example`.
 

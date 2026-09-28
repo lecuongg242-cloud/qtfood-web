@@ -7,6 +7,7 @@ import fs from "fs";
 import path from "path";
 import { getPayload } from "payload";
 import config from "../payload.config";
+import { nav, primaryCta } from "../content/site";
 
 type BodyBlock =
   | { type: "p"; text: string }
@@ -53,16 +54,6 @@ const toLexical = (blocks: BodyBlock[]) => ({
   },
 });
 
-const nav = [
-  { label: "Trang chủ", href: "/" },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
-  { label: "Sản phẩm", href: "/san-pham" },
-  { label: "Nhượng quyền", href: "/nhuong-quyen" },
-  { label: "Hệ thống cơ sở", href: "/he-thong-co-so" },
-  { label: "Tin tức", href: "/tin-tuc" },
-  { label: "Liên hệ", href: "/lien-he" },
-];
-
 async function run() {
   const payload = await getPayload({ config });
   const log = (msg: string) => payload.logger.info(`[seed] ${msg}`);
@@ -87,7 +78,7 @@ async function run() {
       tiktok: c.social.tiktok,
       zalo: c.social.zalo,
       nav,
-      primaryCta: { label: "Đăng ký nhượng quyền", href: "/nhuong-quyen" },
+      primaryCta,
     },
   });
   log("Thông tin chung ✓");
@@ -179,6 +170,44 @@ async function run() {
       data: { title: p.title, slug: p.slug, summary: p.summary, body: toLexical(p.body) as never, order: i },
     });
     log(`Chính sách: ${p.title} ✓`);
+  }
+
+  // 7. Chứng nhận — cần ảnh văn bản (Blob); chưa có Blob thì website dùng tạm dữ liệu trong qtfood.json
+  type SeedCert = { standard: string; name: string; holder: string; number: string; decision: string; issuer: string; scope: string; location: string; issued: string; expires: string; surveillance: string; documents: { title: string; image: string }[] };
+  for (const [i, c] of (data.certifications as SeedCert[]).entries()) {
+    const found = await payload.find({ collection: "certifications", where: { number: { equals: c.number } }, limit: 1 });
+    if (found.docs[0]) {
+      log(`Chứng nhận: ${c.standard} (đã có, bỏ qua)`);
+      continue;
+    }
+    if (!canUpload) {
+      log(`Chứng nhận: ${c.standard} — chờ Vercel Blob để tải ảnh văn bản`);
+      continue;
+    }
+    const documents = [];
+    for (const d of c.documents) documents.push({ title: d.title, image: (await uploadImage(d.image, d.title)) as number });
+    // Ngày chỉ có ngày → lưu 12:00 giờ VN để không lệch ngày khi đổi múi giờ
+    const at = (day: string) => new Date(`${day}T12:00:00+07:00`).toISOString();
+    await payload.create({
+      collection: "certifications",
+      data: {
+        standard: c.standard,
+        name: c.name,
+        holder: c.holder,
+        number: c.number,
+        decision: c.decision,
+        issuer: c.issuer,
+        scope: c.scope,
+        location: c.location,
+        surveillance: c.surveillance,
+        issuedAt: at(c.issued),
+        expiresAt: at(c.expires),
+        documents,
+        active: true,
+        order: i,
+      },
+    });
+    log(`Chứng nhận: ${c.standard} ✓`);
   }
 
   if (!canUpload) log("Chưa có BLOB_READ_WRITE_TOKEN → bỏ qua ảnh. Chạy lại `pnpm seed` sau khi gắn Vercel Blob để tải ảnh lên.");

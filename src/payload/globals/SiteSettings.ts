@@ -1,5 +1,6 @@
 import type { GlobalConfig, GroupField } from "payload";
 import { adminOnly, anyone } from "../access";
+import { revalidateWholeSite } from "../hooks/revalidate";
 
 const link = (name: string, label: string): GroupField => ({
   name,
@@ -21,6 +22,7 @@ export const SiteSettings: GlobalConfig = {
   label: "Thông tin chung",
   admin: { group: "Hệ thống", description: "Thông tin công ty, hotline, mạng xã hội, menu — dùng trên toàn website." },
   access: { read: anyone, update: adminOnly },
+  hooks: { afterChange: [revalidateWholeSite] },
   fields: [
     {
       type: "tabs",

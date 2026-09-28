@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { Container, Section } from "@/components/ui/Section";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -9,9 +10,9 @@ import { Check, Phone, ShieldCheck } from "@/components/ui/icons";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { OrderButton } from "@/components/product/OrderButton";
 import { ProductCard, productMeta } from "@/components/product/ProductCard";
-import { company, mainHotline } from "@/content/site";
 import { getProduct, getProducts } from "@/lib/data/products";
 import { siteUrl } from "@/lib/site-url";
+import { getSiteSettings } from "@/lib/data/settings";
 
 type Params = PageProps<"/san-pham/[danh-muc]/[slug]">;
 
@@ -34,9 +35,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Params) {
   const { slug, "danh-muc": categorySlug } = await params;
-  const product = await getProduct(slug);
+  const { isEnabled: draft } = await draftMode();
+  const product = await getProduct(slug, draft);
   if (!product || product.category.slug !== categorySlug) notFound();
 
+  const { company, mainHotline } = await getSiteSettings();
   const related = (await getProducts(categorySlug)).filter((p) => p.slug !== slug).slice(0, 4);
   const { specs } = product;
   const sellable = Boolean(product.priceLabel);

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { RenderBlocks } from "@/blocks";
 import { aboutBlocks } from "@/content/pages/about";
+import { getSiteData } from "@/lib/data/site";
 
 export const metadata: Metadata = {
   title: "Giới thiệu",
@@ -11,6 +12,6 @@ export const metadata: Metadata = {
 };
 
 // JSON-LD Organization nằm ở layout (dùng chung toàn site)
-export default function AboutPage() {
-  return <RenderBlocks blocks={aboutBlocks} />;
+export default async function AboutPage() {
+  return <RenderBlocks blocks={aboutBlocks(await getSiteData())} />;
 }
