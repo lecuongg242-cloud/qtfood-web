@@ -1,7 +1,9 @@
 /**
  * Nhập dữ liệu ban đầu từ content/qtfood.json (+ posts.json, policies.json) vào Payload.
- * Chạy: pnpm seed   (chạy lại nhiều lần được — cập nhật theo slug, không tạo trùng)
- * Ảnh sản phẩm chỉ được tải lên khi đã có BLOB_READ_WRITE_TOKEN (Vercel Blob).
+ * Chạy: pnpm seed   (chạy lại nhiều lần được — chỉ tạo phần còn thiếu, KHÔNG ghi đè dữ liệu đã sửa trong admin;
+ *                    sản phẩm đã có mà chưa có ảnh thì được bổ sung ảnh)
+ *       SEED_OVERWRITE=1 pnpm seed   → ghi đè thông tin chung, nhóm & sản phẩm bằng dữ liệu trong content/ (cẩn thận trên production)
+ * Ảnh chỉ được tải lên khi đã có BLOB_READ_WRITE_TOKEN (Vercel Blob).
  */
 import fs from "fs";
 import path from "path";
@@ -58,10 +60,13 @@ async function run() {
   const payload = await getPayload({ config });
   const log = (msg: string) => payload.logger.info(`[seed] ${msg}`);
   const canUpload = Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+  const overwrite = process.env.SEED_OVERWRITE === "1";
 
-  // 1. Thông tin chung
+  // 1. Thông tin chung (chỉ khi chưa nhập)
   const c = data.company;
-  await payload.updateGlobal({
+  const current = await payload.findGlobal({ slug: "site-settings", depth: 0 });
+  if (current.legalName && !overwrite) log("Thông tin chung (đã có, bỏ qua)");
+  else await payload.updateGlobal({
     slug: "site-settings",
     data: {
       legalName: c.legalName,
@@ -81,13 +86,15 @@ async function run() {
       primaryCta,
     },
   });
-  log("Thông tin chung ✓");
+  if (!current.legalName || overwrite) log("Thông tin chung ✓");
 
   // 2. Nhóm sản phẩm
   const categoryIds: Record<string, number | string> = {};
   for (const [i, cat] of (data.productCategories as { slug: string; name: string; note: string }[]).entries()) {
     const found = await payload.find({ collection: "product-categories", where: { slug: { equals: cat.slug } }, limit: 1 });
-    const doc = found.docs[0]
+    const doc = found.docs[0] && !overwrite
+      ? found.docs[0]
+      : found.docs[0]
       ? await payload.update({ collection: "product-categories", id: found.docs[0].id, data: { name: cat.name, note: cat.note, order: i } })
       : await payload.create({ collection: "product-categories", data: { name: cat.name, slug: cat.slug, note: cat.note, order: i } });
     categoryIds[cat.slug] = doc.id;
@@ -129,9 +136,19 @@ async function run() {
       ...(images.length ? { images } : {}),
     };
     const found = await payload.find({ collection: "products", where: { slug: { equals: p.slug } }, limit: 1, draft: true });
-    if (found.docs[0]) await payload.update({ collection: "products", id: found.docs[0].id, data: doc as never });
-    else await payload.create({ collection: "products", data: doc as never });
-    log(`Sản phẩm: ${p.name}${images.length ? ` (${images.length} ảnh)` : ""} ✓`);
+    const existing = found.docs[0];
+    if (!existing) {
+      await payload.create({ collection: "products", data: doc as never });
+      log(`Sản phẩm: ${p.name}${images.length ? ` (${images.length} ảnh)` : ""} ✓`);
+    } else if (overwrite) {
+      await payload.update({ collection: "products", id: existing.id, data: doc as never });
+      log(`Sản phẩm: ${p.name} (ghi đè) ✓`);
+    } else if (!existing.images?.length && images.length) {
+      await payload.update({ collection: "products", id: existing.id, data: { images } as never });
+      log(`Sản phẩm: ${p.name} (bổ sung ${images.length} ảnh) ✓`);
+    } else {
+      log(`Sản phẩm: ${p.name} (đã có, bỏ qua)`);
+    }
   }
 
   // 5. Tin tức (chỉ tạo mới — không ghi đè bài đã sửa trong admin)
