@@ -1,0 +1,101 @@
+{
+  "_note": "Bài mở đầu (bản mẫu chờ QT FOOD duyệt) — nhập vào admin bằng `pnpm seed`. Soạn từ thông tin sẵn có trong qtfood.json, không thêm số liệu/ngày tháng mới. publishedAt: ngày đăng web (riêng bài ISO dùng ngày cấp chứng nhận).",
+  "posts": [
+    {
+      "slug": "qt-food-dat-chung-nhan-iso-22000-2018",
+      "title": "QT FOOD đạt chứng nhận ISO 22000:2018 về an toàn thực phẩm",
+      "category": "tin-tuc",
+      "publishedAt": "2025-06-24",
+      "cover": "certificates/giay-chung-nhan-iso-22000.jpg",
+      "excerpt": "Công ty TNHH QT Fresh Food được Công ty Cổ phần Chứng nhận WCERT cấp chứng nhận Hệ thống Quản lý An toàn Thực phẩm ISO 22000:2018 cho hoạt động sản xuất và kinh doanh nem lợn, nem ngựa.",
+      "body": [
+        { "type": "p", "text": "Theo Quyết định số 274/QĐ-WCERT ngày 24/6/2025, Công ty TNHH QT Fresh Food (QT FOOD) được Công ty Cổ phần Chứng nhận WCERT cấp giấy chứng nhận Hệ thống Quản lý An toàn Thực phẩm phù hợp tiêu chuẩn ISO 22000:2018, số chứng nhận W2356F." },
+        { "type": "h2", "text": "Phạm vi chứng nhận" },
+        { "type": "list", "items": [
+          "Lĩnh vực: sản xuất và kinh doanh nem lợn, nem ngựa.",
+          "Địa điểm: Thôn Cầu Các, xã Bình Nguyên, tỉnh Phú Thọ (trước sáp nhập: xã Quất Lưu, huyện Bình Xuyên, tỉnh Vĩnh Phúc).",
+          "Hiệu lực: từ 24/06/2025 đến 23/06/2028, đánh giá giám sát định kỳ 12 tháng/lần."
+        ] },
+        { "type": "h2", "text": "Ý nghĩa với khách hàng và đối tác" },
+        { "type": "p", "text": "ISO 22000:2018 là tiêu chuẩn quốc tế về hệ thống quản lý an toàn thực phẩm, yêu cầu doanh nghiệp kiểm soát các mối nguy trong suốt quá trình từ nguyên liệu, chế biến đến bảo quản và phân phối. Với QT FOOD, chứng nhận này là cam kết được kiểm chứng độc lập cho hai giá trị mà công ty theo đuổi: nguyên liệu sạch và sản phẩm an toàn." },
+        { "type": "p", "text": "Đối với các cơ sở nhượng quyền, nguồn nem ngựa và nem lợn được cung cấp từ cơ sở sản xuất đạt chuẩn giúp đồng bộ chất lượng trên toàn hệ thống." },
+        { "type": "p", "text": "Bản chụp giấy chứng nhận và quyết định cấp chứng nhận được đăng tại trang Giới thiệu của website." }
+      ]
+    },
+    {
+      "slug": "he-thong-hon-50-co-so-nhuong-quyen-qt-food",
+      "title": "Hơn 50 cơ sở nhượng quyền Lẩu ngựa & Phở ngựa QT FOOD",
+      "category": "khai-truong",
+      "publishedAt": "2026-09-28",
+      "cover": "franchise/khai-truong-01.jpg",
+      "excerpt": "Từ khát vọng đưa đặc sản vùng đất Tổ vươn xa, hệ thống nhượng quyền QT FOOD đã vượt mốc 50 cơ sở trên khắp các tỉnh thành — mỗi cơ sở cùng một bộ nhận diện và một tiêu chuẩn hương vị.",
+      "body": [
+        { "type": "p", "text": "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản vùng đất Tổ vươn xa, QT FOOD tập trung vào phân phối và chế biến các sản phẩm từ thịt ngựa tươi sạch. Cột mốc trên 50 cơ sở nhượng quyền trải dài khắp các tỉnh thành là minh chứng cho uy tín thương hiệu và một mô hình kinh doanh F&B bền vững." },
+        { "type": "h2", "text": "Những ngày khai trương rộn ràng" },
+        { "type": "p", "text": "Mỗi cơ sở mới ra đời đều khoác lên bộ nhận diện thương hiệu màu xanh lá đặc trưng, cùng mang đến cho thực khách địa phương Lẩu ngựa thịt tươi, Phở ngựa đậm đà và các sản phẩm chế biến sẵn như Nem, Giò, Mọc ngựa." },
+        { "type": "p", "text": "Sự đồng bộ về chất lượng và hương vị \"không chỉ thơm ngon mà còn bổ dưỡng\" giúp các cơ sở nhanh chóng quen thuộc với thực khách tại địa phương." },
+        { "type": "h2", "text": "QT FOOD đồng hành cùng đối tác thế nào?" },
+        { "type": "list", "items": [
+          "Khảo sát và tư vấn chọn mặt bằng kinh doanh phù hợp.",
+          "Hỗ trợ thiết kế biển bảng, bảng hiệu theo bộ nhận diện thương hiệu.",
+          "Đào tạo kỹ thuật nấu lẩu ngựa và các món về ngựa; đào tạo nhân viên, hướng dẫn quản lý và vận hành.",
+          "Hỗ trợ marketing, xây dựng fanpage; cung cấp nguyên liệu ổn định và trợ giúp kỹ thuật thường xuyên."
+        ] },
+        { "type": "p", "text": "Xem hình ảnh khai trương tại trang Hệ thống cơ sở, hoặc để lại thông tin tại trang Nhượng quyền để nhận hồ sơ chi tiết." }
+      ]
+    },
+    {
+      "slug": "mo-hinh-nhuong-quyen-lau-ngua-pho-ngua",
+      "title": "Mô hình nhượng quyền Lẩu ngựa – Phở ngựa: đối tác nhận được gì?",
+      "category": "tin-tuc",
+      "publishedAt": "2026-09-28",
+      "cover": "brand/banner-nhuong-quyen-lau-pho-ngua.jpg",
+      "excerpt": "Công thức nước dùng, nguồn thịt ngựa tươi, set-up nhận diện và đồng hành vận hành — bốn nhóm hỗ trợ QT FOOD dành cho đối tác nhận quyền.",
+      "body": [
+        { "type": "p", "text": "Thị trường ẩm thực đặc sản là mảnh đất nhiều tiềm năng. Với mô hình đã vận hành tại hơn 50 cơ sở, QT FOOD không chỉ trao cho đối tác một thương hiệu mà còn đồng hành xây dựng một cơ sở kinh doanh bền vững." },
+        { "type": "h2", "text": "Bốn nhóm hỗ trợ dành cho đối tác" },
+        { "type": "h3", "text": "Chuyển giao công thức" },
+        { "type": "p", "text": "Bí quyết chế biến nước dùng Lẩu, Phở chuẩn vị và cách bảo quản thực phẩm." },
+        { "type": "h3", "text": "Nguồn nguyên liệu tận gốc" },
+        { "type": "p", "text": "Chuỗi cung ứng thịt ngựa tươi sạch, an toàn vệ sinh thực phẩm với giá sỉ cạnh tranh, giúp tối ưu biên lợi nhuận." },
+        { "type": "h3", "text": "Set-up & nhận diện thương hiệu" },
+        { "type": "p", "text": "Tư vấn thiết kế không gian quán, bảng hiệu, menu đồng bộ, chuyên nghiệp." },
+        { "type": "h3", "text": "Đồng hành chiến lược" },
+        { "type": "p", "text": "Quy trình vận hành bài bản cùng các hoạt động truyền thông, marketing theo từng giai đoạn." },
+        { "type": "h2", "text": "Quy trình 5 bước" },
+        { "type": "list", "items": [
+          "Liên hệ & nhận hồ sơ nhượng quyền, được tư vấn trực tiếp từ ban giám đốc.",
+          "Khảo sát & tư vấn mặt bằng.",
+          "Thiết kế & set-up theo bộ nhận diện.",
+          "Đào tạo bếp & vận hành.",
+          "Khai trương & đồng hành lâu dài."
+        ] },
+        { "type": "p", "text": "Chi tiết quyền lợi và trách nhiệm của đối tác được trình bày tại trang Chính sách nhượng quyền." }
+      ]
+    },
+    {
+      "slug": "cach-thuong-thuc-nem-ngua-dung-vi",
+      "title": "Cách thưởng thức và bảo quản nem ngựa đúng vị",
+      "category": "hoat-dong",
+      "publishedAt": "2026-09-28",
+      "cover": "products/nem-ngua-dia-1.jpg",
+      "excerpt": "Nem ngựa ngon nhất khi ăn cùng lá sung, lá mơ, đinh lăng và chấm tương ớt. Vài lưu ý bảo quản để giữ trọn vị nem trong suốt hạn dùng.",
+      "body": [
+        { "type": "p", "text": "Nem Ngựa QT FOOD được chế biến từ thịt ngựa tươi sạch lên men tự nhiên cùng thính gạo rang. Vị ngọt mềm của thịt, độ giòn sần sật của bì và chút cay nồng của tỏi ớt tạo nên món đặc sản đậm đà." },
+        { "type": "h2", "text": "Thưởng thức thế nào cho đúng vị?" },
+        { "type": "list", "items": [
+          "Bóc lớp lá gói ngay trước khi ăn để nem giữ được độ ẩm và mùi thơm.",
+          "Ăn trực tiếp cùng các loại lá như lá sung, lá mơ, lá đinh lăng…",
+          "Chấm kèm tương ớt để vị nem thêm đậm đà."
+        ] },
+        { "type": "h2", "text": "Bảo quản" },
+        { "type": "list", "items": [
+          "Bảo quản trong ngăn mát tủ lạnh ở 2–6°C.",
+          "Hạn sử dụng 01 tháng kể từ ngày sản xuất (in trên bao bì).",
+          "Nem đóng gói hút chân không, tiện mang đi xa và làm quà biếu."
+        ] },
+        { "type": "p", "text": "Nem ngựa là một trong hai sản phẩm thuộc phạm vi chứng nhận ISO 22000:2018 của QT FOOD. Đặt nem ngựa qua hotline hoặc tại trang sản phẩm — QT FOOD gọi xác nhận đơn và báo phí giao hàng trước khi giao." }
+      ]
+    }
+  ]
+}

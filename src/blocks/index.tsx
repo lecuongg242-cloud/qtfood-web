@@ -19,6 +19,7 @@ import { CeoQuote, type CeoQuoteProps } from "./ceo-quote/CeoQuote";
 import { BrandIdentity, type BrandIdentityProps } from "./brand-identity/BrandIdentity";
 import { CtaBand, type CtaBandProps } from "./cta-band/CtaBand";
 import { StoreLocator, type StoreLocatorProps } from "./store-locator/StoreLocator";
+import { NewsList, type NewsListProps } from "./news-list/NewsList";
 
 /** Trang = danh sách block (dạng JSON) — GĐ2 sẽ lưu/sửa danh sách này trong editor. */
 export type Block =
@@ -42,7 +43,8 @@ export type Block =
   | { type: "ceoQuote"; props: CeoQuoteProps }
   | { type: "brandIdentity"; props: BrandIdentityProps }
   | { type: "ctaBand"; props: CtaBandProps }
-  | { type: "storeLocator"; props: StoreLocatorProps };
+  | { type: "storeLocator"; props: StoreLocatorProps }
+  | { type: "newsList"; props: NewsListProps };
 
 export function RenderBlocks({ blocks }: { blocks: Block[] }) {
   return (
@@ -91,6 +93,8 @@ export function RenderBlocks({ blocks }: { blocks: Block[] }) {
             return <CtaBand key={i} {...block.props} />;
           case "storeLocator":
             return <StoreLocator key={i} {...block.props} />;
+          case "newsList":
+            return <NewsList key={i} {...block.props} />;
         }
       })}
     </>

@@ -19,8 +19,8 @@ export function HorseMark({ className }: { className?: string }) {
       aria-hidden
       className={clsx("inline-block aspect-[756/400] bg-current", className)}
       style={{
-        maskImage: "url(/brand/horse.png)",
-        WebkitMaskImage: "url(/brand/horse.png)",
+        maskImage: "url(/brand/horse.svg)",
+        WebkitMaskImage: "url(/brand/horse.svg)",
         maskSize: "contain",
         WebkitMaskSize: "contain",
         maskRepeat: "no-repeat",
@@ -102,6 +102,26 @@ export const Bowl = (p: P) => (
   <svg viewBox="0 0 24 24" {...base} {...p}>
     <path d="M3 12h18a9 9 0 0 1-18 0Z" />
     <path d="M9 8c0-1.5 1-1.5 1-3M13 8c0-1.5 1-1.5 1-3M8 21h8" />
+  </svg>
+);
+export const Calendar = (p: P) => (
+  <svg viewBox="0 0 24 24" {...base} {...p}>
+    <rect x="3.5" y="5" width="17" height="15" rx="2" />
+    <path d="M3.5 10h17M8 3v4M16 3v4" />
+  </svg>
+);
+export const LinkIcon = (p: P) => (
+  <svg viewBox="0 0 24 24" {...base} {...p}>
+    <path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1" />
+    <path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1" />
+  </svg>
+);
+export const Share = (p: P) => (
+  <svg viewBox="0 0 24 24" {...base} {...p}>
+    <circle cx="18" cy="5" r="2.5" />
+    <circle cx="6" cy="12" r="2.5" />
+    <circle cx="18" cy="19" r="2.5" />
+    <path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4" />
   </svg>
 );
 export const Facebook = (p: P) => (

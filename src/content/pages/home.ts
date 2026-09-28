@@ -1,6 +1,7 @@
 import type { Block } from "@/blocks";
 import { content, formatPrice, franchiseGallery, img, productBySlug } from "../data";
 import { certificationsBlock } from "./shared";
+import type { PostCardData } from "@/components/post/PostCard";
 
 const { company, home, about, franchise } = content;
 
@@ -12,7 +13,8 @@ const productHref = (slug: string) => {
 const processed = content.products.filter((p) => p.category === "che-bien-san");
 const benefits = franchise.sections.find((s) => s.items)?.items ?? [];
 
-export const homeBlocks: Block[] = [
+/** Trang chủ — `posts`: 3 bài mới nhất từ CMS (block tin tức tự ẩn khi chưa có bài) */
+export const homeBlocks = (posts: PostCardData[]): Block[] => [
   {
     type: "hero",
     props: {
@@ -126,8 +128,19 @@ export const homeBlocks: Block[] = [
     },
   },
   {
+    type: "newsList",
+    props: {
+      tone: "base",
+      eyebrow: "Tin tức & hoạt động",
+      title: "Câu chuyện *QT FOOD*",
+      posts,
+      cta: { label: "Xem tất cả tin tức", href: "/tin-tuc" },
+    },
+  },
+  {
     type: "contactCta",
     props: {
+      tone: posts.length ? "alt" : "base",
       eyebrow: "Liên hệ",
       title: "Sẵn sàng *đồng hành* cùng QT FOOD?",
       description: "Gọi ngay để được tư vấn nhượng quyền, đặt hàng sỉ lẻ hoặc giải đáp mọi thắc mắc.",

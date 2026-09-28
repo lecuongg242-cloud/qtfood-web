@@ -5,7 +5,9 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Animations } from "@/components/motion/Animations";
+import { IntroHorse, introBootScript } from "@/components/motion/IntroHorse";
 import { company } from "@/content/site";
+import { absoluteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const body = Be_Vietnam_Pro({
@@ -24,6 +26,7 @@ const serif = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl()),
   title: {
     default: `${company.brand} – ${company.positioning}`,
     template: `%s | ${company.brand}`,
@@ -38,25 +41,66 @@ export const metadata: Metadata = {
   },
 };
 
-// Bật cờ JS trước khi vẽ để trạng thái ban đầu của hiệu ứng không bị nháy
-const bootScript = `document.documentElement.classList.add('js')`;
+// Organization + LocalBusiness cho toàn site (Google Knowledge Panel / Maps)
+const orgId = absoluteUrl("/#organization");
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": orgId,
+      name: company.legalName,
+      alternateName: company.brand,
+      url: absoluteUrl("/"),
+      logo: absoluteUrl("/brand/logo-qtfood.png"),
+      slogan: company.slogan,
+      taxID: company.taxCode,
+      email: company.email,
+      contactPoint: company.hotlines.map((h) => ({
+        "@type": "ContactPoint",
+        telephone: `+84${h.number.slice(1)}`,
+        contactType: "customer service",
+        areaServed: "VN",
+        availableLanguage: "vi",
+      })),
+      sameAs: [company.social.facebook.url, company.social.tiktok.url],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": absoluteUrl("/#localbusiness"),
+      name: company.brand,
+      parentOrganization: { "@id": orgId },
+      description: company.positioning,
+      url: absoluteUrl("/"),
+      image: absoluteUrl("/images/brand/banner-nhuong-quyen-lau-pho-ngua.jpg"),
+      logo: absoluteUrl("/brand/logo-qtfood.png"),
+      telephone: `+84${company.hotlines[0].number.slice(1)}`,
+      email: company.email,
+      address: { "@type": "PostalAddress", streetAddress: company.address, addressRegion: "Phú Thọ", addressCountry: "VN" },
+      geo: { "@type": "GeoCoordinates", latitude: company.geo.lat, longitude: company.geo.lng },
+      areaServed: "VN",
+    },
+  ],
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className={`${body.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
+        <script dangerouslySetInnerHTML={{ __html: introBootScript }} />
         <noscript>
           <style>{`[data-reveal],[data-split]{opacity:1!important;visibility:visible!important}[data-clip]{clip-path:none!important}`}</style>
         </noscript>
       </head>
       <body data-tone="base" className="min-h-screen antialiased">
+        <IntroHorse />
         <SmoothScroll />
         <Animations />
         <Header />
         <main>{children}</main>
         <Footer />
         <FloatingContact />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\u003c") }} />
       </body>
     </html>
   );

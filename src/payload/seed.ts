@@ -1,5 +1,5 @@
 /**
- * Nhập dữ liệu ban đầu từ content/qtfood.json vào Payload.
+ * Nhập dữ liệu ban đầu từ content/qtfood.json (+ posts.json, policies.json) vào Payload.
  * Chạy: pnpm seed   (chạy lại nhiều lần được — cập nhật theo slug, không tạo trùng)
  * Ảnh sản phẩm chỉ được tải lên khi đã có BLOB_READ_WRITE_TOKEN (Vercel Blob).
  */
@@ -26,7 +26,10 @@ type SeedProduct = {
 };
 
 const root = process.cwd();
-const data = JSON.parse(fs.readFileSync(path.join(root, "content/qtfood.json"), "utf8"));
+const readJson = (file: string) => JSON.parse(fs.readFileSync(path.join(root, "content", file), "utf8"));
+const data = readJson("qtfood.json");
+type SeedPost = { slug: string; title: string; category: string; publishedAt: string; cover: string; excerpt: string; body: BodyBlock[] };
+type SeedPolicy = { slug: string; title: string; summary: string; body: BodyBlock[] };
 
 // ---------- Lexical ----------
 const base = { direction: "ltr" as const, format: "" as const, indent: 0, version: 1 };
@@ -138,6 +141,44 @@ async function run() {
     if (found.docs[0]) await payload.update({ collection: "products", id: found.docs[0].id, data: doc as never });
     else await payload.create({ collection: "products", data: doc as never });
     log(`Sản phẩm: ${p.name}${images.length ? ` (${images.length} ảnh)` : ""} ✓`);
+  }
+
+  // 5. Tin tức (chỉ tạo mới — không ghi đè bài đã sửa trong admin)
+  for (const p of readJson("posts.json").posts as SeedPost[]) {
+    const found = await payload.find({ collection: "posts", where: { slug: { equals: p.slug } }, limit: 1, draft: true });
+    if (found.docs[0]) {
+      log(`Bài viết: ${p.title} (đã có, bỏ qua)`);
+      continue;
+    }
+    const cover = await uploadImage(p.cover, p.title);
+    await payload.create({
+      collection: "posts",
+      data: {
+        title: p.title,
+        slug: p.slug,
+        category: p.category as "tin-tuc",
+        publishedAt: new Date(p.publishedAt).toISOString(),
+        excerpt: p.excerpt,
+        body: toLexical(p.body) as never,
+        _status: "published",
+        ...(cover ? { cover } : {}),
+      } as never,
+    });
+    log(`Bài viết: ${p.title} ✓`);
+  }
+
+  // 6. Chính sách chung (chỉ tạo mới)
+  for (const [i, p] of (readJson("policies.json").policies as SeedPolicy[]).entries()) {
+    const found = await payload.find({ collection: "policies", where: { slug: { equals: p.slug } }, limit: 1 });
+    if (found.docs[0]) {
+      log(`Chính sách: ${p.title} (đã có, bỏ qua)`);
+      continue;
+    }
+    await payload.create({
+      collection: "policies",
+      data: { title: p.title, slug: p.slug, summary: p.summary, body: toLexical(p.body) as never, order: i },
+    });
+    log(`Chính sách: ${p.title} ✓`);
   }
 
   if (!canUpload) log("Chưa có BLOB_READ_WRITE_TOKEN → bỏ qua ảnh. Chạy lại `pnpm seed` sau khi gắn Vercel Blob để tải ảnh lên.");

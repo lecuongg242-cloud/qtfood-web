@@ -4,10 +4,12 @@ import { company, nav } from "@/content/site";
 import { img } from "@/content/data";
 import { Container } from "@/components/ui/Section";
 import { Facebook, Mail, MapPin, Phone, TikTok, Zalo } from "@/components/ui/icons";
+import { getPolicies } from "@/lib/data/policies";
 import { Logo } from "./Logo";
 
-export function Footer() {
+export async function Footer() {
   const zalo = company.social.zalo[0];
+  const policies = await getPolicies();
   return (
     <footer data-tone="deep" className="relative overflow-hidden pt-40">
       <Image
@@ -90,6 +92,20 @@ export function Footer() {
             <p className="mt-5 text-sm text-muted">{company.social.facebook.label}</p>
           </div>
         </div>
+
+        {policies.length > 0 && (
+          <nav aria-label="Chính sách" className="border-b border-line py-6">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {policies.map((p) => (
+                <li key={p.slug}>
+                  <Link href={p.href} className="link-underline text-muted hover:text-ink">
+                    {p.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
 
         <div className="flex flex-col gap-2 py-8 text-sm text-muted sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} {company.legalName}. Bảo lưu mọi quyền.</p>

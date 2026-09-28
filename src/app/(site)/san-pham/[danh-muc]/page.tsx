@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: PageProps<"/san-pham/[danh-mu
   const { "danh-muc": slug } = await params;
   const category = (await getCategories()).find((c) => c.slug === slug);
   if (!category) return {};
-  return { title: `${category.name} – Sản phẩm`, description: category.note ?? undefined };
+  return { title: `${category.name} – Sản phẩm`, description: category.note ?? undefined, alternates: { canonical: `/san-pham/${slug}` } };
 }
 
 export default async function CategoryPage({ params }: PageProps<"/san-pham/[danh-muc]">) {

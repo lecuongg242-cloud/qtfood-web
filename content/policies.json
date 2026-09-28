@@ -1,0 +1,82 @@
+{
+  "_note": "Chính sách mẫu (chờ QT FOOD duyệt) cho giai đoạn chưa bán online: đặt hàng qua điện thoại/Zalo/form, thanh toán COD hoặc chuyển khoản. Nhập vào admin bằng `pnpm seed`; sau đó sửa trực tiếp trong admin.",
+  "policies": [
+    {
+      "slug": "van-chuyen",
+      "title": "Chính sách vận chuyển",
+      "summary": "Phạm vi giao hàng, thời gian và phí vận chuyển đối với sản phẩm chế biến sẵn của QT FOOD.",
+      "body": [
+        { "type": "h2", "text": "Phạm vi giao hàng" },
+        { "type": "p", "text": "QT FOOD nhận giao sản phẩm chế biến sẵn (Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa…) trên toàn quốc. Các món phục vụ tại quán như Lẩu ngựa, Phở ngựa chỉ có tại hệ thống cơ sở nhượng quyền." },
+        { "type": "h2", "text": "Cách đặt hàng" },
+        { "type": "list", "items": [
+          "Gọi hotline hoặc nhắn Zalo của QT FOOD.",
+          "Bấm \"Đặt hàng\" tại trang sản phẩm và để lại số điện thoại.",
+          "QT FOOD gọi lại xác nhận sản phẩm, số lượng, địa chỉ và phí giao hàng trước khi giao."
+        ] },
+        { "type": "h2", "text": "Thời gian & phí giao hàng" },
+        { "type": "p", "text": "Thời gian giao và phí vận chuyển phụ thuộc địa chỉ nhận và đơn vị vận chuyển; QT FOOD thông báo cụ thể khi gọi xác nhận đơn. Đơn hàng chỉ được giao sau khi khách hàng đồng ý." },
+        { "type": "h2", "text": "Đóng gói & bảo quản khi vận chuyển" },
+        { "type": "p", "text": "Sản phẩm được đóng gói hút chân không. Với đơn đi xa, QT FOOD tư vấn hình thức đóng gói giữ lạnh phù hợp. Khi nhận hàng, quý khách vui lòng cho sản phẩm vào ngăn mát tủ lạnh (2–6°C) càng sớm càng tốt." }
+      ]
+    },
+    {
+      "slug": "thanh-toan",
+      "title": "Chính sách thanh toán",
+      "summary": "Các hình thức thanh toán khi đặt sản phẩm QT FOOD: thanh toán khi nhận hàng (COD) hoặc chuyển khoản.",
+      "body": [
+        { "type": "h2", "text": "Hình thức thanh toán" },
+        { "type": "h3", "text": "Thanh toán khi nhận hàng (COD)" },
+        { "type": "p", "text": "Quý khách kiểm tra hàng và thanh toán trực tiếp cho nhân viên giao hàng." },
+        { "type": "h3", "text": "Chuyển khoản ngân hàng" },
+        { "type": "p", "text": "Thông tin tài khoản được QT FOOD gửi khi gọi xác nhận đơn. Nội dung chuyển khoản vui lòng ghi họ tên và số điện thoại đặt hàng." },
+        { "type": "h2", "text": "Lưu ý" },
+        { "type": "list", "items": [
+          "Website hiện chưa thanh toán trực tuyến; QT FOOD không yêu cầu nhập thông tin thẻ trên website.",
+          "Chỉ chuyển khoản vào tài khoản đứng tên Công ty TNHH QT Fresh Food hoặc tài khoản được QT FOOD xác nhận qua hotline chính thức.",
+          "Giá sản phẩm niêm yết trên website; phí vận chuyển (nếu có) được báo khi xác nhận đơn."
+        ] }
+      ]
+    },
+    {
+      "slug": "doi-tra",
+      "title": "Chính sách đổi trả",
+      "summary": "Điều kiện và cách thức đổi trả sản phẩm chế biến sẵn QT FOOD khi có lỗi từ nhà sản xuất hoặc trong quá trình vận chuyển.",
+      "body": [
+        { "type": "h2", "text": "Trường hợp được đổi trả" },
+        { "type": "list", "items": [
+          "Sản phẩm giao sai loại hoặc sai số lượng so với đơn đã xác nhận.",
+          "Bao bì bị rách, hở chân không hoặc hư hỏng trong quá trình vận chuyển.",
+          "Sản phẩm có dấu hiệu biến chất khi còn hạn sử dụng và đã được bảo quản đúng hướng dẫn."
+        ] },
+        { "type": "h2", "text": "Cách yêu cầu đổi trả" },
+        { "type": "p", "text": "Quý khách vui lòng liên hệ hotline hoặc Zalo của QT FOOD ngay khi nhận hàng, kèm ảnh chụp sản phẩm, bao bì và mã đơn/số điện thoại đặt hàng. QT FOOD kiểm tra và phản hồi phương án đổi sản phẩm mới hoặc hoàn tiền." },
+        { "type": "h2", "text": "Trường hợp không áp dụng" },
+        { "type": "list", "items": [
+          "Sản phẩm đã quá hạn sử dụng hoặc không được bảo quản theo hướng dẫn trên bao bì.",
+          "Sản phẩm đã sử dụng một phần, trừ khi phát hiện lỗi chất lượng.",
+          "Đổi ý sau khi đã nhận hàng (do đặc thù thực phẩm tươi)."
+        ] }
+      ]
+    },
+    {
+      "slug": "bao-mat",
+      "title": "Chính sách bảo mật thông tin",
+      "summary": "QT FOOD thu thập những thông tin nào qua website, dùng vào việc gì và cách bảo vệ thông tin của quý khách.",
+      "body": [
+        { "type": "h2", "text": "Thông tin được thu thập" },
+        { "type": "p", "text": "Khi quý khách gửi form đăng ký nhượng quyền, liên hệ hoặc đặt hàng, website lưu các thông tin quý khách tự nhập: họ tên, số điện thoại, email (nếu có), tỉnh/thành, nội dung lời nhắn và sản phẩm quan tâm." },
+        { "type": "h2", "text": "Mục đích sử dụng" },
+        { "type": "list", "items": [
+          "Liên hệ lại để tư vấn nhượng quyền, xác nhận đơn hàng hoặc trả lời câu hỏi của quý khách.",
+          "Giao hàng và chăm sóc khách hàng sau mua.",
+          "QT FOOD không bán, trao đổi hay cho thuê thông tin cá nhân của quý khách cho bên thứ ba."
+        ] },
+        { "type": "h2", "text": "Lưu trữ & bảo vệ" },
+        { "type": "p", "text": "Thông tin được lưu trên hệ thống quản trị của QT FOOD, chỉ nhân viên phụ trách tư vấn và bán hàng được truy cập. Website sử dụng kết nối mã hoá HTTPS." },
+        { "type": "h2", "text": "Quyền của quý khách" },
+        { "type": "p", "text": "Quý khách có thể yêu cầu xem, chỉnh sửa hoặc xoá thông tin đã gửi bằng cách liên hệ hotline hoặc email của QT FOOD." }
+      ]
+    }
+  ]
+}

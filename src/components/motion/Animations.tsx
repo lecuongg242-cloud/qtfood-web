@@ -29,6 +29,8 @@ export function Animations() {
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const splits: SplitText[] = [];
+        // Đang chạy hiệu ứng mở trang (IntroHorse) → hero chờ màn che mở ra rồi mới chạy
+        const introDelay = document.documentElement.classList.contains("intro") ? 0.85 : 0;
 
         gsap.utils.toArray<HTMLElement>("[data-split]").forEach((el) => {
           const inHero = !!el.closest("[data-hero]");
@@ -46,7 +48,7 @@ export function Animations() {
                   duration: 1.2,
                   ease: EASE,
                   stagger: 0.09,
-                  delay: inHero ? 0.25 : 0,
+                  delay: inHero ? 0.25 + introDelay : 0,
                   scrollTrigger: inHero ? undefined : { trigger: el, start: "top 88%", once: true },
                   // Chạy xong thì trả về HTML gốc: không còn khung che, không còn chia dòng
                   onComplete: () => {
@@ -66,7 +68,7 @@ export function Animations() {
             gsap.fromTo(
               batch,
               { y: 36, autoAlpha: 0 },
-              { y: 0, autoAlpha: 1, duration: 1.1, ease: EASE, stagger: 0.09, overwrite: true },
+              { y: 0, autoAlpha: 1, duration: 1.1, ease: EASE, stagger: 0.09, overwrite: true, delay: batch[0]?.closest("[data-hero]") ? introDelay : 0 },
             ),
         });
 
@@ -75,7 +77,7 @@ export function Animations() {
             clipPath: "inset(0% 0 0 0)",
             duration: 1.5,
             ease: "expo.inOut",
-            delay: el.closest("[data-hero]") ? 0.15 : 0,
+            delay: el.closest("[data-hero]") ? 0.15 + introDelay : 0,
             scrollTrigger: { trigger: el, start: "top 85%", once: true },
           });
         });

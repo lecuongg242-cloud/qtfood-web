@@ -70,6 +70,8 @@ export interface Config {
     products: Product;
     'product-categories': ProductCategory;
     leads: Lead;
+    posts: Post;
+    policies: Policy;
     stores: Store;
     media: Media;
     users: User;
@@ -83,6 +85,8 @@ export interface Config {
     products: ProductsSelect<false> | ProductsSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    policies: PoliciesSelect<false> | PoliciesSelect<true>;
     stores: StoresSelect<false> | StoresSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -342,6 +346,89 @@ export interface User {
   collection: 'users';
 }
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  /**
+   * 1–3 câu, hiện ở thẻ bài viết và mô tả SEO.
+   */
+  excerpt: string;
+  cover?: (number | null) | Media;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  seo?: {
+    /**
+     * Để trống sẽ dùng tiêu đề bài.
+     */
+    title?: string | null;
+    /**
+     * Để trống sẽ dùng tóm tắt.
+     */
+    description?: string | null;
+  };
+  /**
+   * Để trống sẽ tự tạo từ tên, vd: nem-ngua
+   */
+  slug: string;
+  category: 'tin-tuc' | 'khai-truong' | 'hoat-dong';
+  publishedAt: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * Vận chuyển, thanh toán, đổi trả, bảo mật… — hiện ở chân trang, đường dẫn /chinh-sach/<slug>.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "policies".
+ */
+export interface Policy {
+  id: number;
+  title: string;
+  /**
+   * 1–2 câu dưới tiêu đề, dùng làm mô tả SEO.
+   */
+  summary: string;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Để trống sẽ tự tạo từ tên, vd: nem-ngua
+   */
+  slug: string;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * Danh sách cơ sở hiển thị ở trang Hệ thống cơ sở. Chưa có cơ sở nào → trang chỉ hiện số liệu & ảnh khai trương.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -432,6 +519,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'leads';
         value: number | Lead;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'policies';
+        value: number | Policy;
       } | null)
     | ({
         relationTo: 'stores';
@@ -573,6 +668,41 @@ export interface LeadsSelect<T extends boolean = true> {
   assignee?: T;
   internalNote?: T;
   sourcePage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  excerpt?: T;
+  cover?: T;
+  body?: T;
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  slug?: T;
+  category?: T;
+  publishedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "policies_select".
+ */
+export interface PoliciesSelect<T extends boolean = true> {
+  title?: T;
+  summary?: T;
+  body?: T;
+  slug?: T;
+  order?: T;
   updatedAt?: T;
   createdAt?: T;
 }

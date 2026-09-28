@@ -1,6 +1,7 @@
 import * as migration_20260928_091351_initial from './20260928_091351_initial';
 import * as migration_20260928_094824_product_iso_badge from './20260928_094824_product_iso_badge';
 import * as migration_20260928_100232_stores from './20260928_100232_stores';
+import * as migration_20260928_122053_posts_policies from './20260928_122053_posts_policies';
 
 export const migrations = [
   {
@@ -16,6 +17,11 @@ export const migrations = [
   {
     up: migration_20260928_100232_stores.up,
     down: migration_20260928_100232_stores.down,
-    name: '20260928_100232_stores'
+    name: '20260928_100232_stores',
+  },
+  {
+    up: migration_20260928_122053_posts_policies.up,
+    down: migration_20260928_122053_posts_policies.down,
+    name: '20260928_122053_posts_policies'
   },
 ];

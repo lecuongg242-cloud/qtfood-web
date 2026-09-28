@@ -87,6 +87,19 @@ body {
 .logo-color { display: var(--logo-color, block); }
 .logo-white { display: var(--logo-white, none); }
 
+/* Hiệu ứng mở trang (IntroHorse): chỉ hiện khi <html class="intro">; tự ẩn sau 2,5s nếu JS lỗi */
+.intro-overlay { display: none; }
+html.intro .intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  animation: intro-failsafe 0s 2.5s forwards;
+}
+@keyframes intro-failsafe { to { visibility: hidden; } }
+
 .decor {
   filter: var(--decor-filter);
   mix-blend-mode: var(--decor-blend);
@@ -241,7 +254,10 @@ body {
     line-height: 1.8;
     color: var(--ink);
   }
-  .prose-qt > * + * { margin-top: 1.1em; }
+  .prose-qt > * + *,
+  .prose-qt > :where(.payload-richtext) > * + * { margin-top: 1.1em; }
+  .prose-qt > :first-child,
+  .prose-qt > :where(.payload-richtext) > :first-child { margin-top: 0; }
   .prose-qt h2 {
     margin-top: 2em;
     font-size: clamp(1.45rem, 2.6vw, 1.9rem);

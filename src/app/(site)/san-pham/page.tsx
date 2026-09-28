@@ -7,6 +7,7 @@ import { img } from "@/content/data";
 import { getCategories, getProducts } from "@/lib/data/products";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/san-pham" },
   title: "Sản phẩm",
   description: "Đặc sản thịt ngựa QT FOOD: Phở ngựa, Lẩu ngựa, Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa — không chỉ thơm ngon mà còn bổ dưỡng.",
 };

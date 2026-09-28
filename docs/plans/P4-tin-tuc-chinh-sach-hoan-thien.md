@@ -1,6 +1,23 @@
 # P4 — Tin tức, chính sách chung, SEO & hoàn thiện GĐ1
 
-> Giai đoạn 1 · Ước lượng ~3 ngày · Phụ thuộc: P1–P3 · Nhánh: `p4-hoan-thien` · Trạng thái: ⚪
+> Giai đoạn 1 · Ước lượng ~3 ngày · Phụ thuộc: P1–P3 · Nhánh: `p4-hoan-thien` · Trạng thái: 🟡 code xong, chờ QA đầy đủ & duyệt nội dung
+
+## Kết quả (2026-09-28)
+- [x] Đổi hướng so với plan gốc: Tin tức & Chính sách lưu trong **Payload** (collection `posts`, `policies` + migration `posts_policies`), không dùng JSON — thống nhất với P2–P3. `content/posts.json`, `content/policies.json` chỉ là dữ liệu seed (`pnpm seed`, chỉ tạo mới, không ghi đè bản đã sửa trong admin)
+- [x] `/tin-tuc`: lưới bài + bài mới nhất nổi bật, lọc Tin tức / Khai trương / Hoạt động (`?loai=`, trang vẫn tĩnh); `/tin-tuc/[slug]`: ảnh bìa, ngày, chuyên mục, nội dung, chia sẻ (Facebook, Zalo/khác qua Web Share, sao chép link), bài liên quan, JSON-LD `Article`
+- [x] 4 bài mở đầu (ISO 22000:2018, hơn 50 cơ sở, mô hình nhượng quyền, thưởng thức nem ngựa) — soạn từ `qtfood.json`, không thêm số liệu mới
+- [x] Trang chủ: block `NewsList` (3 bài mới nhất) trước Liên hệ, tự ẩn khi chưa có bài
+- [x] `/chinh-sach/[slug]`: vận chuyển, thanh toán, đổi trả, bảo mật (bản mẫu) + link ở footer
+- [x] Logo & ngựa vector hoá (potrace) → `public/brand/logo-qtfood.svg`, `logo-qtfood-white.svg`, `horse.svg`; header/footer/HorseMark/favicon (`icon.svg`) dùng SVG. Bản PNG giữ lại cho JSON-LD & OG
+- [x] Hiệu ứng mở trang `IntroHorse`: vẽ nét ngựa (DrawSVG) → tô màu → màn che trượt lên, 1,2s, 1 lần/phiên, bỏ qua khi reduced-motion, tự ẩn sau 2,5s nếu JS lỗi
+- [x] SEO: `sitemap.ts` (trang, nhóm SP, sản phẩm, bài, chính sách), `robots.ts` (chặn /admin, /api; link preview chặn toàn bộ), `metadataBase`, canonical mọi trang, JSON-LD `Organization` + `LocalBusiness` trong layout (chưa có giờ mở cửa)
+- [x] Trang 404 thật (thay "đang xây dựng")
+- [x] Sửa kèm: khoảng cách đoạn văn trong nội dung RichText (cả trang sản phẩm); menu header xuống dòng ở 1280px
+- [x] Đã kiểm tra: `tsc`, `lint`, `build` sạch; chạy thử với Postgres local (migrate + seed); không cuộn ngang ở 390 / 1024 / 1280 / 1440
+- [ ] Còn lại: Lighthouse, thử trên Safari iOS / Cốc Cốc / Zalo in-app, rà chính tả toàn site (mục 5); go-live (mục 6); QT FOOD duyệt bài & chính sách mẫu
+
+**Triển khai lên Vercel:** cần chạy migration `posts_policies` trên Neon trước khi build (Build Command = `pnpm build:deploy`, hoặc chạy tay `pnpm migrate`), rồi `pnpm seed` để nhập bài & chính sách mẫu. Đặt `NEXT_PUBLIC_SITE_URL` khi có tên miền.
+
 
 ## Mục tiêu
 Đủ 10 trang theo sitemap, đạt chuẩn chất lượng để **go-live bản đầu** (dữ liệu vẫn từ JSON).

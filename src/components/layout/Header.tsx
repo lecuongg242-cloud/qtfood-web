@@ -49,7 +49,7 @@ export function Header() {
           </Link>
 
           <nav aria-label="Menu chính" className="hidden xl:block">
-            <ul className="flex items-center gap-7 text-[0.94rem] font-semibold">
+            <ul className="flex items-center gap-5 whitespace-nowrap text-[0.94rem] font-semibold min-[1400px]:gap-7">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
@@ -67,14 +67,14 @@ export function Header() {
           <div className="flex items-center gap-3">
             <a
               href={`tel:${mainHotline.number}`}
-              className="hidden items-center gap-2 text-sm font-bold lg:inline-flex"
+              className="hidden items-center gap-2 whitespace-nowrap text-sm font-bold lg:inline-flex xl:hidden min-[1400px]:inline-flex"
             >
               <span className="grid h-9 w-9 place-items-center rounded-full border border-line">
                 <Phone className="h-4 w-4" />
               </span>
               {mainHotline.display}
             </a>
-            <Link href={primaryCta.href} className="btn btn-primary hidden !py-3 sm:inline-flex">
+            <Link href={primaryCta.href} className="btn btn-primary hidden whitespace-nowrap !py-3 sm:inline-flex">
               {primaryCta.label}
             </Link>
             <button
