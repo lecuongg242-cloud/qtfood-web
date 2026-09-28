@@ -1,6 +1,18 @@
 # P1 — Nhượng quyền & Liên hệ (form khách hàng)
 
-> Giai đoạn 1 · Ước lượng ~3 ngày · Phụ thuộc: P0 · Nhánh: `p1-nhuong-quyen` · Trạng thái: ⚪
+> Giai đoạn 1 · Ước lượng ~3 ngày · Phụ thuộc: P0, P5a · Nhánh: `p1-nhuong-quyen` (tách từ `p5a-admin-core`) · Trạng thái: 🟢 xong phần code, chờ cấu hình kênh thông báo
+
+## Kết quả (2026-09-28)
+- [x] `/nhuong-quyen` (8 section), `/nhuong-quyen/chinh-sach` (mục lục bám theo khi cuộn), `/lien-he` (form + bản đồ tải lười)
+- [x] Block mới: `PageHero` (breadcrumb + JSON-LD), `CardGrid`, `Steps` (đường nối vẽ theo cuộn — `data-draw`), `GalleryGrid` + `Lightbox` (phím ←/→/Esc, vuốt, "Xem thêm"), `PolicyArticle`, `LeadFormSection`, `MapEmbed`; `certificationsBlock()` dùng chung
+- [x] UI form (`src/components/form/`), `LeadForm` dùng `useActionState` — giữ dữ liệu khi lỗi, lỗi tiếng Việt từng ô, trạng thái đang gửi, màn hình cảm ơn
+- [x] `src/lib/leads/`: schema Zod (SĐT VN), Server Action **lưu vào collection `leads` (Payload)** → thông báo Telegram + email trong `after()`; honeypot + thời gian điền tối thiểu 3s; thiếu cấu hình kênh → ghi log, không lỗi
+- [x] Đã thử thật: gửi form lỗi → báo đúng 4 ô; gửi hợp lệ → lead lưu DB (SĐT chuẩn hoá) → đã xoá bản ghi thử
+- [x] Sửa lỗi chung: `.btn` đưa vào `@layer components` (trước đó ghi đè `hidden` → mất nút menu trên điện thoại 390px); menu tô mục cha khi ở trang con
+- [x] Dữ liệu: `franchise.process` (5 bước lấy từ chính sách), `forms.provinces` (34 tỉnh/thành từ 01/07/2025), `forms.budgets` (**mặc định — chờ QT FOOD xác nhận**), `forms.contactTopics`
+
+**Còn lại:** thêm biến môi trường thông báo (mục 7) trên Vercel; QT FOOD xác nhận các khoảng ngân sách; Lighthouse mobile khi có link preview.
+
 
 ## Mục tiêu
 Nhượng quyền là mảng kinh doanh trọng tâm → trang này phải **thuyết phục và thu được lead**. Mọi form gửi đi phải đến tay QT FOOD trong vài giây.

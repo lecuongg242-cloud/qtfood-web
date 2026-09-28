@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 import { Close, ZoomIn } from "./icons";
+import { pauseScroll, resumeScroll } from "@/components/motion/lenis";
 
 type Props = {
   src: string;
@@ -21,7 +22,10 @@ export function DocumentCard({ src, title, width, height, tilt = "left" }: Props
     <figure className="group">
       <button
         type="button"
-        onClick={() => dialog.current?.showModal()}
+        onClick={() => {
+          dialog.current?.showModal();
+          pauseScroll();
+        }}
         aria-label={`Phóng to: ${title}`}
         className={clsx(
           "relative block w-full rounded-xl bg-white p-2 shadow-[0_30px_60px_-30px_rgb(16_36_15/0.45)] ring-1 ring-black/5 transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:-translate-y-2 group-hover:rotate-0",
@@ -42,6 +46,7 @@ export function DocumentCard({ src, title, width, height, tilt = "left" }: Props
       <dialog
         ref={dialog}
         aria-label={title}
+        onClose={resumeScroll}
         onClick={(e) => e.target === dialog.current && dialog.current.close()}
         className="doc-dialog m-auto max-h-[94vh] max-w-[94vw] overflow-visible bg-transparent p-0 backdrop:bg-[#0c1a0c]/75 backdrop:backdrop-blur-sm"
       >

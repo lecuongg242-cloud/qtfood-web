@@ -347,7 +347,7 @@ Kế hoạch chi tiết đã tách thành từng phần **P0 – P7**, mỗi ph�
 | P | Nội dung | Giai đoạn | Trạng thái |
 |---|---|---|---|
 | [P0](plans/P0-ha-tang-deploy.md) | Hạ tầng & deploy | GĐ1 | 🟡 GitHub ✓ · Vercel ✓ · còn region/noindex/tên miền |
-| [P1](plans/P1-nhuong-quyen-lien-he.md) | Nhượng quyền & Liên hệ (form, thông báo lead) | GĐ1 | ⚪ |
+| [P1](plans/P1-nhuong-quyen-lien-he.md) | Nhượng quyền & Liên hệ (form, thông báo lead) | GĐ1 | 🟢 code xong, chờ cấu hình thông báo |
 | [P2](plans/P2-san-pham.md) | Sản phẩm & đặt hàng nhanh | GĐ1 | ⚪ |
 | [P3](plans/P3-gioi-thieu-he-thong-co-so.md) | Giới thiệu & Hệ thống cơ sở | GĐ1 | ⚪ |
 | [P4](plans/P4-tin-tuc-chinh-sach-hoan-thien.md) | Tin tức, chính sách, SEO, QA → go-live bản đầu | GĐ1 | ⚪ |

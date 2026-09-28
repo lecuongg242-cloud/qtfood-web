@@ -10,6 +10,7 @@ import { Close, Menu, Phone } from "@/components/ui/icons";
 
 export function Header() {
   const pathname = usePathname();
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -53,7 +54,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    aria-current={pathname === item.href ? "page" : undefined}
+                    aria-current={isActive(item.href) ? "page" : undefined}
                     className="link-underline py-1"
                   >
                     {item.label}
@@ -111,7 +112,7 @@ export function Header() {
                 className={clsx(
                   "block py-1.5 text-[2.1rem] font-extrabold tracking-tight transition-transform duration-700 ease-[var(--ease-out-expo)]",
                   open ? "translate-y-0" : "translate-y-full",
-                  pathname === item.href && "text-accent",
+                  isActive(item.href) && "text-accent",
                 )}
               >
                 {item.label}

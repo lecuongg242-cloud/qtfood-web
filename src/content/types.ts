@@ -81,6 +81,18 @@ export type SiteContent = {
     stats: { value: number; suffix: string; label: string }[];
     intro: string;
     sections: { title: string; paragraphs: string[]; items?: { title: string; text: string }[] }[];
+    process: { title: string; text: string }[];
     gallery: { dir: string; count: number };
   };
+  franchisePolicy: {
+    title: string;
+    intro: string;
+    sections: {
+      title: string;
+      intro?: string;
+      items?: { title: string; text: string }[];
+      cta?: { label: string; href: string };
+    }[];
+  };
+  forms: { provinces: string[]; budgets: string[]; contactTopics: string[] };
 };

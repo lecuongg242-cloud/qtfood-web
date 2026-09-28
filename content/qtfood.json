@@ -518,7 +518,29 @@
       "count": 26,
       "pattern": "khai-truong-{01..26}.jpg",
       "caption": "Khai trương các cơ sở nhượng quyền QT FOOD"
-    }
+    },
+    "process": [
+      {
+        "title": "Liên hệ & nhận hồ sơ",
+        "text": "Để lại thông tin để nhận bảng hồ sơ nhượng quyền chi tiết và được tư vấn trực tiếp từ ban giám đốc."
+      },
+      {
+        "title": "Khảo sát & tư vấn mặt bằng",
+        "text": "Công ty khảo sát cơ sở nhượng quyền, tư vấn chọn mặt bằng kinh doanh phù hợp."
+      },
+      {
+        "title": "Thiết kế & set-up",
+        "text": "Hỗ trợ thiết kế biển bảng, bảng hiệu theo bộ nhận diện thương hiệu QT Fresh Food."
+      },
+      {
+        "title": "Đào tạo bếp & vận hành",
+        "text": "Đào tạo kỹ thuật nấu lẩu ngựa và các món về ngựa; đào tạo nhân viên, hướng dẫn quản lý và vận hành cơ sở."
+      },
+      {
+        "title": "Khai trương & đồng hành",
+        "text": "Hỗ trợ marketing, xây dựng fanpage; cung cấp nguyên liệu ổn định và trợ giúp kỹ thuật thường xuyên."
+      }
+    ]
   },
   "franchisePolicy": {
     "title": "Chính sách nhượng quyền thương hiệu QT Food: Cơ hội đột phá doanh thu cùng đặc sản Lẩu Ngựa - Phở Ngựa",
@@ -598,6 +620,58 @@
       "decor/nui-doi.jpg",
       "decor/nui-doi-ruong-bac-thang.jpg",
       "decor/nui-doi-chi-tiet.jpg"
+    ]
+  },
+  "forms": {
+    "_note": "Danh sách 34 tỉnh/thành theo sắp xếp đơn vị hành chính từ 01/07/2025. Các khoảng ngân sách là mặc định — cần QT FOOD xác nhận.",
+    "provinces": [
+      "Hà Nội",
+      "TP. Hồ Chí Minh",
+      "Hải Phòng",
+      "Đà Nẵng",
+      "Cần Thơ",
+      "Huế",
+      "An Giang",
+      "Bắc Ninh",
+      "Cà Mau",
+      "Cao Bằng",
+      "Đắk Lắk",
+      "Điện Biên",
+      "Đồng Nai",
+      "Đồng Tháp",
+      "Gia Lai",
+      "Hà Tĩnh",
+      "Hưng Yên",
+      "Khánh Hòa",
+      "Lai Châu",
+      "Lâm Đồng",
+      "Lạng Sơn",
+      "Lào Cai",
+      "Nghệ An",
+      "Ninh Bình",
+      "Phú Thọ",
+      "Quảng Ngãi",
+      "Quảng Ninh",
+      "Quảng Trị",
+      "Sơn La",
+      "Tây Ninh",
+      "Thái Nguyên",
+      "Thanh Hóa",
+      "Tuyên Quang",
+      "Vĩnh Long"
+    ],
+    "budgets": [
+      "Dưới 300 triệu",
+      "300 – 500 triệu",
+      "500 triệu – 1 tỷ",
+      "Trên 1 tỷ",
+      "Chưa xác định"
+    ],
+    "contactTopics": [
+      "Đặt hàng",
+      "Nhượng quyền",
+      "Hợp tác phân phối",
+      "Khác"
     ]
   }
 }

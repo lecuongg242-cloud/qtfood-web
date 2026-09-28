@@ -18,6 +18,7 @@ const EASE = "expo.out";
  *  - data-parallax=N  : dịch chuyển theo cuộn (N = tỉ lệ, vd 0.15)
  *  - data-count=N     : số đếm lên N
  *  - data-scrub-x=N   : chạy ngang theo cuộn (N = % chiều rộng)
+ *  - data-draw        : đường kẻ "vẽ" dần theo cuộn (ngang hoặc dọc tuỳ kích thước)
  */
 export function Animations() {
   const pathname = usePathname();
@@ -115,6 +116,19 @@ export function Animations() {
               xPercent: amount,
               ease: "none",
               scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 0.6 },
+            },
+          );
+        });
+
+        gsap.utils.toArray<HTMLElement>("[data-draw]").forEach((el) => {
+          const horizontal = el.offsetWidth >= el.offsetHeight;
+          gsap.fromTo(
+            el,
+            horizontal ? { scaleX: 0 } : { scaleY: 0 },
+            {
+              ...(horizontal ? { scaleX: 1 } : { scaleY: 1 }),
+              ease: "none",
+              scrollTrigger: { trigger: el.parentElement, start: "top 75%", end: "bottom 60%", scrub: 0.6 },
             },
           );
         });

@@ -1,15 +1,7 @@
 import type { TextField } from "payload";
+import { slugify } from "../../lib/slugify";
 
-/** Chuyển tiếng Việt có dấu → slug: "Nem Ngựa" → "nem-ngua" */
-export const slugify = (value: string) =>
-  value
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/đ/g, "d")
-    .replace(/Đ/g, "D")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+export { slugify };
 
 /** Trường slug: tự sinh từ `fromField` nếu để trống. */
 export const slugField = (fromField = "name"): TextField => ({

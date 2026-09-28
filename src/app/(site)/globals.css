@@ -94,6 +94,8 @@ body {
   user-select: none;
 }
 
+/* Component class đặt trong @layer components để class tiện ích (hidden, sm:inline-flex…) ghi đè được */
+@layer components {
 /* ------------------------------------------------------------------ */
 /*  Button: nền lấp đầy từ trái sang khi hover                          */
 /* ------------------------------------------------------------------ */
@@ -168,6 +170,7 @@ body {
 .link-underline:hover,
 .link-underline[aria-current="page"] {
   background-size: 100% 1.5px;
+}
 }
 
 /* ------------------------------------------------------------------ */

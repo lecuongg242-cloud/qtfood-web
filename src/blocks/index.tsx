@@ -7,6 +7,13 @@ import { ProductList, type ProductListProps } from "./product-list/ProductList";
 import { CoreValues, type CoreValuesProps } from "./core-values/CoreValues";
 import { FranchiseTeaser, type FranchiseTeaserProps } from "./franchise-teaser/FranchiseTeaser";
 import { ContactCta, type ContactCtaProps } from "./contact-cta/ContactCta";
+import { PageHero, type PageHeroProps } from "./page-hero/PageHero";
+import { CardGrid, type CardGridProps } from "./card-grid/CardGrid";
+import { Steps, type StepsProps } from "./steps/Steps";
+import { GalleryGrid, type GalleryGridProps } from "./gallery-grid/GalleryGrid";
+import { PolicyArticle, type PolicyArticleProps } from "./policy-article/PolicyArticle";
+import { LeadFormSection, type LeadFormSectionProps } from "./lead-form-section/LeadFormSection";
+import { MapEmbed, type MapEmbedProps } from "./map-embed/MapEmbed";
 
 /** Trang = danh sách block (dạng JSON) — GĐ2 sẽ lưu/sửa danh sách này trong editor. */
 export type Block =
@@ -18,7 +25,14 @@ export type Block =
   | { type: "productList"; props: ProductListProps }
   | { type: "coreValues"; props: CoreValuesProps }
   | { type: "franchiseTeaser"; props: FranchiseTeaserProps }
-  | { type: "contactCta"; props: ContactCtaProps };
+  | { type: "contactCta"; props: ContactCtaProps }
+  | { type: "pageHero"; props: PageHeroProps }
+  | { type: "cardGrid"; props: CardGridProps }
+  | { type: "steps"; props: StepsProps }
+  | { type: "galleryGrid"; props: GalleryGridProps }
+  | { type: "policyArticle"; props: PolicyArticleProps }
+  | { type: "leadFormSection"; props: LeadFormSectionProps }
+  | { type: "mapEmbed"; props: MapEmbedProps };
 
 export function RenderBlocks({ blocks }: { blocks: Block[] }) {
   return (
@@ -43,6 +57,20 @@ export function RenderBlocks({ blocks }: { blocks: Block[] }) {
             return <FranchiseTeaser key={i} {...block.props} />;
           case "contactCta":
             return <ContactCta key={i} {...block.props} />;
+          case "pageHero":
+            return <PageHero key={i} {...block.props} />;
+          case "cardGrid":
+            return <CardGrid key={i} {...block.props} />;
+          case "steps":
+            return <Steps key={i} {...block.props} />;
+          case "galleryGrid":
+            return <GalleryGrid key={i} {...block.props} />;
+          case "policyArticle":
+            return <PolicyArticle key={i} {...block.props} />;
+          case "leadFormSection":
+            return <LeadFormSection key={i} {...block.props} />;
+          case "mapEmbed":
+            return <MapEmbed key={i} {...block.props} />;
         }
       })}
     </>

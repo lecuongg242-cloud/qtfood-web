@@ -6,7 +6,7 @@
 | P | Tên | Giai đoạn | Ước lượng* | Phụ thuộc | Trạng thái |
 |---|---|---|---|---|---|
 | [P0](P0-ha-tang-deploy.md) | Hạ tầng & deploy | GĐ1 | 0,5–1 ngày | — | 🟡 Gần xong (GitHub ✓, Vercel ✓) |
-| [P1](P1-nhuong-quyen-lien-he.md) | Nhượng quyền & Liên hệ (form khách hàng) | GĐ1 | ~3 ngày | P0 | ⚪ Chưa bắt đầu |
+| [P1](P1-nhuong-quyen-lien-he.md) | Nhượng quyền & Liên hệ (form khách hàng) | GĐ1 | ~3 ngày | P0, P5a | 🟢 Code xong (nhánh `p1-nhuong-quyen`), chờ cấu hình Telegram/email |
 | [P2](P2-san-pham.md) | Sản phẩm & đặt hàng nhanh | GĐ1 | ~3 ngày | P1 (form, thông báo) | ⚪ |
 | [P3](P3-gioi-thieu-he-thong-co-so.md) | Giới thiệu & Hệ thống cơ sở | GĐ1 | ~2 ngày | P1 (PageHero, Lightbox) | ⚪ |
 | [P4](P4-tin-tuc-chinh-sach-hoan-thien.md) | Tin tức, chính sách chung, SEO & hoàn thiện GĐ1 | GĐ1 | ~3 ngày | P1–P3 | ⚪ |
