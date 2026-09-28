@@ -46,7 +46,8 @@ export default buildConfig({
       enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
       // Giữ schema cố định dù Blob đang bật hay tắt (không phải tạo migration khi gắn Blob)
       alwaysInsertFields: true,
-      collections: { media: true },
+      // Ảnh công khai → trả link CDN của Blob trực tiếp (không đi qua server), gom vào thư mục media/
+      collections: { media: { disablePayloadAccessControl: true, prefix: "media" } },
       token: process.env.BLOB_READ_WRITE_TOKEN,
     }),
   ],

@@ -11,7 +11,7 @@
 - [x] Món tại quán (Lẩu, Phở) không có giá → CTA Nhượng quyền + gọi hotline
 - [x] Trường CMS mới **"Hiện huy hiệu ISO 22000:2018"** (migration `product_iso_badge`), seed chỉ bật cho Nem ngựa (đúng phạm vi chứng nhận)
 - [x] `ProductCard` dùng chung (trang chủ, danh mục, liên quan), card cao bằng nhau
-- [ ] Ảnh sản phẩm vẫn lấy từ `public/images` (tạm) cho tới khi gắn Vercel Blob và chạy lại `pnpm seed`
+- [x] Ảnh sản phẩm lấy từ CMS (Vercel Blob CDN) — đã seed 16 ảnh; `public/images` chỉ còn là ảnh dự phòng khi sản phẩm chưa có ảnh
 - [ ] Nội dung Giò ngựa (giá/kg vs KLT 250g, câu "viên mọc") — chờ QT FOOD, sửa được trực tiếp trong admin
 
 

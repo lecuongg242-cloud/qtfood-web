@@ -31,7 +31,7 @@ Quyết định 2026-09-28: có DB sớm → dựng lõi CMS trước để form
 **Cần làm trên Vercel trước khi merge `p5a-admin-core`**
 - [ ] Thêm `PAYLOAD_SECRET` (chuỗi ngẫu nhiên ≥ 32 ký tự, khác bản local) cho Production & Preview
 - [ ] Settings → Build and Deployment → Build Command: `pnpm build:deploy`
-- [ ] Tạo Vercel Blob store (Storage → Blob) → tự thêm `BLOB_READ_WRITE_TOKEN` → chạy `pnpm seed` để tải ảnh sản phẩm
+- [x] Tạo Vercel Blob store + `BLOB_READ_WRITE_TOKEN` (local: `.env.local`) → `pnpm seed` đã tải 16 ảnh sản phẩm lên Blob (thư mục `media/`, link CDN trực tiếp) — **kiểm tra Blob store đã được gắn (Connect) vào project Vercel** để bản deploy có token
 - [ ] ⚠️ Preview đang dùng chung DB với production → chỉ merge migration đã duyệt; nên bật "tạo Neon branch cho mỗi preview" trong tích hợp Neon
 
 **Chưa làm (các phần còn lại của P5, làm dần cùng P1–P4)**: website đọc dữ liệu từ CMS, `posts`, `stores`, `certifications`, `pages`, live preview, revalidate khi lưu, tài liệu hướng dẫn admin.
