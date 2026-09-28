@@ -1,0 +1,346 @@
+{
+  "_source": "https://sites.google.com/view/qtfood (trích xuất 2026-09-28)",
+  "company": {
+    "legalName": "Công ty TNHH QT Fresh Food",
+    "brand": "QT FOOD",
+    "slogan": "QT FOOD - Tinh hoa thực phẩm, vươn tầm sức khỏe",
+    "tagline": "Không chỉ thơm ngon mà còn bổ dưỡng",
+    "positioning": "Thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa",
+    "taxCode": "2500737677",
+    "address": "Thôn Cầu Các, Xã Bình Nguyên, Tỉnh Phú Thọ, Việt Nam",
+    "geo": { "lat": 21.28092, "lng": 105.64257 },
+    "email": "qtfreshfood@gmail.com",
+    "hotlines": [
+      { "number": "0981787992", "display": "0981.787.992", "contact": "Anh Quang" },
+      { "number": "0869963685", "display": "0869.963.685", "contact": "Anh Hiếu" }
+    ],
+    "social": {
+      "facebook": { "label": "QT Fresh Food - Thương Hiệu Nhượng quyền Lẩu Ngựa", "url": "https://www.facebook.com/profile.php?id=100088265298553" },
+      "tiktok": { "label": "QT Food", "url": "https://www.tiktok.com/@tho.ngh.tay.tri" },
+      "zalo": [
+        { "label": "Zalo 0981.787.992", "url": "https://zalo.me/0981787992" },
+        { "label": "Zalo 0869.963.685", "url": "https://zalo.me/0869963685" }
+      ]
+    },
+    "ceo": {
+      "name": "Nguyễn Tiến Quang",
+      "title": "Tổng Giám Đốc",
+      "photo": "about/tong-giam-doc-nguyen-tien-quang.jpg",
+      "quote": [
+        { "keyword": "Thành công", "text": "Là có những điều mình muốn" },
+        { "keyword": "Hạnh phúc", "text": "Là muốn những điều mình có" }
+      ]
+    }
+  },
+
+  "home": {
+    "banner": "brand/banner-nhuong-quyen-lau-pho-ngua.jpg",
+    "featured": [
+      {
+        "product": "pho-ngua",
+        "title": "Phở Ngựa",
+        "text": "Tô phở nóng hổi với nước dùng cốt xương thanh ngọt, kết hợp cùng những thớ thịt tươi 100% mềm mọng. Đây là lựa chọn bồi bổ sinh lực hoàn hảo để khởi đầu ngày mới.",
+        "image": "products/pho-ngua-2.jpg"
+      },
+      {
+        "product": "lau-ngua",
+        "title": "Lẩu Ngựa",
+        "text": "Nồi lẩu đậm đà hương vị thảo mộc và lá mắc mật Tây Bắc, ăn kèm đồ nhúng chuẩn sạch và bát nước chấm tuyển trạch độc quyền.",
+        "image": "products/lau-ngua-2.jpg"
+      },
+      {
+        "product": "nem-ngua",
+        "title": "Nem Ngựa",
+        "text": "Đặc sản đóng gói hút chân không tiện lợi, giữ trọn vị giòn dai sần sật, thơm ngon và vô cùng bổ dưỡng. Món mồi bén này cực kỳ thích hợp để mua về nhâm nhi tại nhà hoặc làm quà biếu.",
+        "image": "products/nem-ngua-goi-1.jpg"
+      }
+    ],
+    "commitments": [
+      {
+        "title": "100%", "subtitle": "Nguyên liệu sạch",
+        "text": "Nguyên liệu được chọn lựa từ những nhà cung cấp uy tín, đảm bảo đủ điều kiện an toàn thực phẩm, kiểm tra nghiêm ngặt theo các chỉ số: độ tươi, nguồn gốc, và chất lượng.",
+        "icon": "icons/cam-ket-nguyen-lieu-sach.png"
+      },
+      {
+        "title": "An toàn", "subtitle": "Có kiểm định",
+        "text": "Sản phẩm được sản xuất theo dây chuyền khép kín, đảm bảo hệ thống an toàn thực phẩm theo tiêu chuẩn quốc tế. Sản phẩm luôn đạt chất lượng tốt nhất đến tay người tiêu dùng.",
+        "icon": "icons/cam-ket-an-toan.png"
+      },
+      {
+        "title": "Uy tín", "subtitle": "Trung thực",
+        "text": "Là một trong những giá trị cốt lõi QT Fresh Food theo đuổi, là kim chỉ nam và phương châm cho mọi quyết sách chiến lược để xây dựng hệ thống kinh doanh bền vững.",
+        "icon": "icons/cam-ket-uy-tin.png"
+      },
+      {
+        "title": "Hương vị", "subtitle": "Truyền thống",
+        "text": "Chúng tôi hướng tới mục tiêu chung tay bảo tồn và phát triển ẩm thực Việt, mang đến trải nghiệm ẩm thực chất lượng, tiện lợi và gần gũi với mọi khách hàng.",
+        "icon": "icons/cam-ket-huong-vi-truyen-thong.png"
+      }
+    ]
+  },
+
+  "about": {
+    "intro": "Công ty TNHH QT Fresh Food (Thương hiệu QT FOOD) tự hào là một trong những đơn vị tiên phong trong lĩnh vực cung cấp, chế biến và phân phối các sản phẩm đặc sản từ thịt ngựa tươi. Với tâm huyết mang đến cho thực khách Việt những trải nghiệm ẩm thực độc đáo, bổ dưỡng và đậm đà bản sắc, QT FOOD luôn đặt tiêu chí chất lượng và vệ sinh an toàn thực phẩm lên hàng đầu trong suốt quá trình hoạt động.",
+    "teamPhoto": "about/doi-ngu-qtfood.jpg",
+    "landscape": "about/ruong-bac-thang-vung-cao.jpg",
+    "businessLines": {
+      "title": "Sản phẩm tiêu biểu",
+      "intro": "Từ nguồn nguyên liệu thịt ngựa tươi sạch, được tuyển chọn kỹ lưỡng, QT FOOD mang đến hệ sinh thái ẩm thực phong phú, đáp ứng đa dạng nhu cầu thưởng thức của khách hàng:",
+      "items": [
+        { "title": "Kinh doanh dịch vụ ăn uống", "text": "Ghi dấu ấn với các món ngon trứ danh như Lẩu ngựa, Phở ngựa mang hương vị đậm đà, công thức nước dùng độc quyền." },
+        { "title": "Thực phẩm chế biến sẵn", "text": "Cung cấp số lượng lớn Nem ngựa, Giò ngựa, Mọc ngựa... Thơm ngon, tiện lợi, thích hợp cho cả bữa ăn gia đình và làm quà biếu tặng." },
+        { "title": "Cung cấp nguyên liệu tươi", "text": "Phân phối sỉ lẻ thịt ngựa tươi chuẩn chất lượng cho hệ thống các nhà hàng, quán ăn trên toàn quốc." }
+      ]
+    },
+    "franchiseIntro": {
+      "title": "Chuyên nhượng quyền thương hiệu",
+      "intro": "Với định hướng phát triển mạnh mẽ và mở rộng chuỗi cung ứng, QT FOOD tập trung đẩy mạnh mô hình Nhượng quyền thương hiệu. Chúng tôi mang đến cơ hội hợp tác kinh doanh sinh lời bền vững cho các đối tác đam mê ngành F&B (Thực phẩm & Đồ uống) thông qua những đặc quyền:",
+      "items": [
+        "Chuyển giao 100% công thức chế biến độc quyền và quy trình vận hành nhà hàng bài bản.",
+        "Đảm bảo nguồn cung nguyên liệu (thịt ngựa tươi, nem, giò, mọc...) ổn định với giá tận gốc.",
+        "Hỗ trợ tư vấn set-up không gian quán, cung cấp hình ảnh nhận diện thương hiệu và chiến lược marketing thu hút thực khách."
+      ]
+    },
+    "vision": "Trở thành thương hiệu hàng đầu tại Việt Nam trong lĩnh vực cung cấp, chế biến các đặc sản từ thịt ngựa sạch và là đối tác nhượng quyền F&B đáng tin cậy nhất. QT FOOD khát vọng đưa hương vị ẩm thực độc đáo của vùng đất Tổ vươn xa, có mặt trên bản đồ ẩm thực của mọi miền đất nước.",
+    "mission": [
+      { "to": "Đối với khách hàng", "text": "Cung cấp các sản phẩm thực phẩm (Lẩu, Phở, Nem, Giò, Mọc ngựa) an toàn, giàu dinh dưỡng với hương vị truyền thống chuẩn mực, nâng tầm trải nghiệm ẩm thực mỗi ngày." },
+      { "to": "Đối với đối tác", "text": "Xây dựng hệ sinh thái kinh doanh nhượng quyền bền vững, chuyển giao quy trình chuyên nghiệp và luôn đồng hành cùng đối tác trên con đường chinh phục thành công." },
+      { "to": "Đối với xã hội", "text": "Góp phần tôn vinh, bảo tồn giá trị ẩm thực đặc sản địa phương và tạo ra nhiều giá trị, việc làm cho cộng đồng." }
+    ],
+    "coreValues": {
+      "intro": "Chúng tôi xây dựng và phát triển QT FOOD dựa trên 4 chữ vàng: TÍN – TÂM – TINH – TIẾN",
+      "items": [
+        { "key": "Tín", "meaning": "Uy tín", "text": "Đặt chữ Tín lên hàng đầu trong mọi cam kết với khách hàng và đối tác nhượng quyền. Minh bạch trong nguồn gốc nguyên liệu và chất lượng sản phẩm." },
+        { "key": "Tâm", "meaning": "Tận tâm", "text": "Làm việc bằng tất cả đam mê và trách nhiệm. Phục vụ khách hàng bằng sự tận tâm, hỗ trợ đối tác bằng sự chân thành." },
+        { "key": "Tinh", "meaning": "Tinh hoa", "text": "Chắt lọc những gì tinh túy nhất trong công thức chế biến độc quyền để tạo ra các sản phẩm mang hương vị vượt trội, không thể trộn lẫn." },
+        { "key": "Tiến", "meaning": "Tiến bước", "text": "Không ngừng đổi mới, sáng tạo và hoàn thiện hệ thống vận hành để thích ứng với thị trường, mang lại lợi ích lâu dài cho chuỗi phân phối và người tiêu dùng." }
+      ]
+    },
+    "brandIdentity": {
+      "title": "Dấu ấn QT FOOD: Hệ thống nhận diện thương hiệu",
+      "text": "Logo QT Food là biểu tượng độc đáo của thương hiệu cung cấp thực phẩm và đặc sản hàng đầu, với sự kết hợp giữa năng lượng mạnh mẽ và nguồn gốc tự nhiên, mang lại một cảm giác tươi sạch, chất lượng và an tâm cho người tiêu dùng.",
+      "gestures": ["Sự mạnh mẽ", "Tốc độ", "Thiên nhiên", "Chất lượng"],
+      "symbol": "Ngựa tung vó & thịt tươi",
+      "colors": [
+        { "name": "Xanh lá", "hex": "#4cb448", "meaning": "Tượng trưng cho đồng cỏ tự nhiên, sự tươi mới, an toàn và sạch sẽ của thực phẩm." },
+        { "name": "Đỏ", "hex": "#ed1c24", "meaning": "Tạo điểm nhấn mạnh mẽ, kích thích vị giác và thể hiện sự tươi ngon, nguyên bản của sản phẩm thịt." }
+      ],
+      "logo": "brand/logo-qtfood-2.png"
+    }
+  },
+
+  "productCategories": [
+    { "slug": "mon-an", "name": "Món ăn tại quán", "note": "Phục vụ tại hệ thống cơ sở nhượng quyền" },
+    { "slug": "che-bien-san", "name": "Thực phẩm chế biến sẵn", "note": "Đóng gói, mua mang về / làm quà" }
+  ],
+
+  "products": [
+    {
+      "slug": "pho-ngua",
+      "category": "mon-an",
+      "name": "Phở Ngựa",
+      "headline": "Phở Ngựa QT Fresh Food – Tinh hoa ẩm thực độc đáo",
+      "summary": "Phở Ngựa QT FOOD là sự giao thoa tinh tế giữa công thức nước dùng phở truyền thống và hương vị độc đáo, bổ dưỡng của đặc sản thịt ngựa tươi sạch. Đây là món ăn sáng hoặc bữa chính đầy năng lượng, đang làm nức lòng thực khách tại hệ thống chuỗi cửa hàng của chúng tôi.",
+      "body": [
+        { "type": "p", "text": "Mang đến một trải nghiệm ẩm thực hoàn toàn mới lạ nhưng vẫn giữ trọn linh hồn của món ăn truyền thống Việt Nam, Phở Ngựa QT Fresh Food là sự kết hợp hoàn hảo mà thực khách không thể bỏ lỡ." },
+        { "type": "h3", "text": "Điểm nhấn làm nên sức hấp dẫn của Phở Ngựa QT Fresh Food" },
+        { "type": "list", "items": [
+          "Thịt ngựa tươi ngon hảo hạng: Từng lát thịt ngựa được tuyển chọn kỹ lưỡng, thái mỏng vừa ăn và chần chín tới. Điều này giúp giữ nguyên độ mềm mại, vị ngọt thịt tự nhiên cùng hàm lượng dinh dưỡng cao, dồi dào protein và ít chất béo.",
+          "Nước dùng ngọt thanh, đậm đà: Nước cốt được ninh hầm cẩn thận trong nhiều giờ, mang đến vị ngọt thanh tao, thơm lừng đặc trưng, đánh thức mọi giác quan ngay từ thìa nước dùng đầu tiên.",
+          "Sự hòa quyện trọn vẹn: Tô phở được phục vụ vô cùng đầy đặn với ngập tràn hành lá xắt nhỏ. Đặc biệt, khi ăn kèm cùng đĩa rau thơm tươi mát (húng quế, mùi tàu) và những chiếc quẩy vàng ươm, giòn rụm, món ăn sẽ bùng nổ hương vị một cách hài hòa nhất.",
+          "Chất lượng từ thương hiệu uy tín: Kế thừa tiêu chuẩn khắt khe từ chuỗi thương hiệu QT Fresh Food, mỗi tô phở đều đảm bảo tiêu chí \"Tươi ngon - Sạch sẽ - An toàn\"."
+        ] },
+        { "type": "p", "text": "Đến ngay QT Fresh Food để xì xụp một tô Phở Ngựa nóng hổi, đậm vị và nạp đầy năng lượng cho ngày mới!" }
+      ],
+      "images": ["products/pho-ngua-3.jpg", "products/pho-ngua-1.jpg", "products/pho-ngua-2.jpg"]
+    },
+    {
+      "slug": "lau-ngua",
+      "category": "mon-an",
+      "name": "Lẩu Ngựa",
+      "headline": "Lẩu Ngựa QT Food: Tuyệt phẩm đặc sản đậm đà hương vị vùng cao",
+      "summary": "Lẩu Ngựa QT FOOD là tuyệt phẩm ẩm thực mang đậm dấu ấn bản sắc, kết hợp hoàn hảo giữa nước cốt lẩu thảo mộc thanh ngọt và các phần thịt ngựa tươi sạch thượng hạng. Bồi bổ khí huyết và cực kỳ dồi dào dinh dưỡng, nồi lẩu nghi ngút khói đậm đà hương vị núi rừng này chính là lựa chọn hoàn hảo nhất cho những buổi tụ họp quây quần bên gia đình và bạn bè.",
+      "body": [
+        { "type": "p", "text": "Khám phá hương vị lẩu ngựa QT Food trứ danh với nước dùng đậm đà, thịt ngựa tươi ngon và giàu dinh dưỡng. Sự lựa chọn hoàn hảo cho những buổi tụ họp gia đình và bạn bè!" },
+        { "type": "h2", "text": "1. Điểm khác biệt tạo nên thương hiệu Lẩu Ngựa QT Food" },
+        { "type": "p", "text": "Tại QT Food, chúng tôi không chỉ bán một món ăn, chúng tôi mang đến một trải nghiệm ẩm thực chất lượng cao. Nồi lẩu ngựa của chúng tôi chinh phục hàng ngàn thực khách nhờ 3 yếu tố cốt lõi:" },
+        { "type": "h3", "text": "Nguồn nguyên liệu thịt ngựa chuẩn \"Tuyển\"" },
+        { "type": "p", "text": "100% thịt ngựa tại QT Food được tuyển chọn từ những nguồn cung cấp sạch, có nguồn gốc xuất xứ rõ ràng. Chúng tôi cam kết sử dụng thịt ngựa tươi mới mỗi ngày. Từng thớ thịt đỏ au, săn chắc, kết hợp cùng các phần nội tạng,... được làm sạch kỹ lưỡng, đảm bảo độ giòn ngon, ngọt thịt và không có mùi hôi." },
+        { "type": "h3", "text": "Nước lẩu gia truyền – Linh hồn của món ăn" },
+        { "type": "p", "text": "Nước lẩu của QT Food có một màu sắc vô cùng bắt mắt. Đó là thành quả của quá trình ninh xương ngựa liên tục trong nhiều giờ. Kết hợp với các gia vị thảo mộc tự nhiên như quế, hồi, thảo quả, sả, ớt... nước dùng lẩu ngựa QT Food mang vị ngọt thanh của xương, cay nồng nhẹ nhàng và hương thơm ngây ngất khó quên." },
+        { "type": "h3", "text": "Đồ ăn kèm chuẩn vị vùng cao" },
+        { "type": "p", "text": "Để món lẩu thêm phần trọn vẹn, QT Food luôn chuẩn bị những loại rau nhúng đặc trưng, tươi xanh nhất như: rau muống, bắp cải, cải đắng,... Vị đắng dịu của rau hòa quyện cùng vị ngọt béo của thịt ngựa tạo nên một bản giao hưởng bùng nổ trong khoang miệng." },
+        { "type": "h2", "text": "2. Lẩu Ngựa – Không chỉ ngon mà còn vô cùng bổ dưỡng" },
+        { "type": "p", "text": "Khách hàng của QT Food yêu thích món lẩu ngựa không chỉ vì hương vị xuất sắc mà còn vì giá trị dinh dưỡng tuyệt vời mà nó mang lại:" },
+        { "type": "list", "items": [
+          "Giàu Protein, ít béo: Phù hợp cho cả những người đang trong chế độ ăn kiêng, giữ dáng.",
+          "Tốt cho tim mạch và xương khớp: Chứa nhiều Omega-3, canxi từ sụn xương và các khoáng chất thiết yếu.",
+          "Bồi bổ sinh lực: Là món ăn \"đại bổ\" giúp phục hồi sức khỏe nhanh chóng, tăng cường thể lực cực kỳ hiệu quả."
+        ] },
+        { "type": "h2", "text": "3. QT Food cam kết với khách hàng" },
+        { "type": "p", "text": "Là thương hiệu thực phẩm uy tín, QT Food luôn đặt cái \"Tâm\" vào từng sản phẩm. Chúng tôi tự hào cam kết:" },
+        { "type": "checklist", "items": [
+          "Vệ sinh an toàn thực phẩm: Đạt tiêu chuẩn khắt khe nhất trong mọi khâu từ sơ chế đến đóng gói.",
+          "Đóng gói tiện lợi: Set lẩu được đóng gói cẩn thận, kèm đầy đủ nước dùng và gia vị, dễ dàng chế biến tại nhà.",
+          "Giao hàng hỏa tốc: Giữ trọn độ tươi ngon của nguyên liệu khi giao đến tận tay khách hàng."
+        ] }
+      ],
+      "images": ["products/lau-ngua-3.jpg", "products/lau-ngua-1.jpg", "products/lau-ngua-2.jpg"]
+    },
+    {
+      "slug": "nem-ngua",
+      "category": "che-bien-san",
+      "name": "Nem Ngựa",
+      "headline": "Nem Ngựa QT FOOD",
+      "summary": "Nem Ngựa QT FOOD là món đặc sản trứ danh mang trọn vẹn tinh hoa ẩm thực truyền thống, được chế biến từ 100% thịt ngựa tươi sạch lên men tự nhiên cùng thính gạo rang thơm lừng. Sự hòa quyện giữa vị ngọt mềm của thịt, độ giòn sần sật của bì và chút cay nồng của gia vị tỏi ớt tạo nên một món ăn \"không chỉ thơm ngon mà còn bổ dưỡng\", chinh phục mọi thực khách ngay từ lần thưởng thức đầu tiên.",
+      "body": [
+        { "type": "p", "text": "Nem Ngựa QT FOOD là sản phẩm đặc sản từ thịt ngựa tươi sạch, có kiểm định khắt khe. Điểm đặc biệt chính là sự hòa quyện hoàn hảo giữa vị ngọt mềm của thịt ngựa, độ giòn sần sật của bì và gia vị tỏi ớt, tạo ra món ăn đậm đà, \"không chỉ thơm ngon mà còn bổ dưỡng\"." }
+      ],
+      "specs": {
+        "netWeight": "200g",
+        "shelfLife": "01 tháng kể từ NSX",
+        "storage": "Bảo quản trong ngăn mát tủ lạnh (2 - 6°C)",
+        "usage": "Thưởng thức trực tiếp cùng các loại lá ăn kèm như sung, mơ, đinh lăng,... chấm kèm tương ớt.",
+        "price": 90000,
+        "priceUnit": "quả"
+      },
+      "images": ["products/nem-ngua-goi-2.jpg", "products/nem-ngua-dia-1.jpg", "products/nem-ngua-dia-2.jpg", "products/nem-ngua-dia-3.jpg", "products/nem-ngua-goi-1.jpg"]
+    },
+    {
+      "slug": "nem-rieng",
+      "category": "che-bien-san",
+      "name": "Nem Riềng",
+      "headline": "Nem Riềng QT Food",
+      "summary": "Nem Riềng QT FOOD là sự kết hợp đột phá mang đậm hương vị truyền thống, được chế biến đặc biệt từ 100% thịt ngựa đen nguyên bản thượng hạng. Sự hòa quyện tuyệt vời giữa độ mềm ngọt của thịt ngựa đen, bì thái sợi giòn sần sật và hương thơm nồng ấm đặc trưng của củ riềng tươi xay nhuyễn tạo nên một món ăn cực kỳ đưa miệng. Đậm đà, bùng nổ vị giác và dồi dào dinh dưỡng, đây chắc chắn là món đặc sản vạn người mê mà bạn không thể bỏ lỡ.",
+      "body": [
+        { "type": "p", "text": "Nem Riềng QT FOOD là sự kết hợp hoàn hảo giữa thịt Ngựa đen (nguyên bản) sạch, bì thái sợi giòn sần sật và hương vị nồng ấm đặc trưng của củ riềng tươi xay nhuyễn. Sản phẩm đúng chuẩn tiêu chí \"không chỉ thơm ngon mà còn bổ dưỡng\"." }
+      ],
+      "specs": {
+        "netWeight": "150g",
+        "shelfLife": "01 tháng kể từ NSX",
+        "storage": "Bảo quản trong ngăn mát tủ lạnh (2 - 5°C)",
+        "usage": "Thưởng thức trực tiếp cùng các loại lá ăn kèm như sung, mơ, đinh lăng,... chấm kèm tương ớt.",
+        "price": 70000,
+        "priceUnit": "quả"
+      },
+      "images": ["products/nem-rieng-1.jpg"]
+    },
+    {
+      "slug": "gio-ngua",
+      "category": "che-bien-san",
+      "name": "Giò Ngựa",
+      "headline": "Giò Ngựa",
+      "summary": "Giò Ngựa QT FOOD là món ngon tinh túy mang đậm dấu ấn ẩm thực truyền thống, được chế biến từ 100% thịt ngựa tươi sạch tuyển chọn khắt khe. Trải qua quy trình xay giã tỉ mỉ, nêm nếm gia vị đậm đà cùng hạt tiêu thơm lừng và gói trọn trong lá chuối xanh, từng khoanh giò khi cắt ra giữ được kết cấu dẻo dai, mềm mọng và vị ngọt thanh đặc trưng. Sang trọng trên mâm cỗ, tiện lợi cho bữa ăn hàng ngày.",
+      "highlights": [
+        "Nguyên liệu chuẩn: 100% thịt ngựa tươi sạch, tỷ lệ nạc - mỡ hoàn hảo giúp viên mọc luôn mềm ẩm, không bị khô.",
+        "Hương vị cuốn hút: Xay quết tỉ mỉ tạo độ dẻo dai, giòn sật, vị ngọt thanh tự nhiên quyện cùng chút tiêu cay nồng.",
+        "Chế biến tiện lợi: Dễ dàng kết hợp làm đồ nhúng lẩu, nấu bún/phở, nấu canh hoặc luộc/chiên chấm tương ớt nhanh gọn.",
+        "An toàn sức khỏe: Cam kết không sử dụng hàn the hay chất bảo quản độc hại."
+      ],
+      "specs": {
+        "netWeight": "250g",
+        "shelfLife": "1 tuần từ ngày sản xuất",
+        "usage": "Sử dụng ngay khi bóc ra, ăn cùng với nước chấm đi kèm.",
+        "price": 320000,
+        "priceUnit": "kg"
+      },
+      "images": ["products/gio-ngua-1.jpg", "products/gio-ngua-2.jpg"],
+      "_review": "Mục 'Nguyên liệu chuẩn' đang nhắc 'viên mọc' (có vẻ copy từ Mọc Ngựa); giá tính theo kg nhưng KLT 250g — cần xác nhận."
+    },
+    {
+      "slug": "moc-ngua",
+      "category": "che-bien-san",
+      "name": "Mọc Ngựa",
+      "headline": "Mọc Ngựa cao cấp – Tinh hoa cho mọi bữa ăn",
+      "summary": "Được chế biến từ thịt ngựa tươi sạch nguyên chất, Mọc Ngựa QT Fresh Food mang đến trải nghiệm ẩm thực tiện lợi nhưng vẫn giữ trọn vẹn giá trị dinh dưỡng. Trải qua quá trình xay quết kỹ lưỡng, từng viên mọc đạt được độ dẻo dai lý tưởng, hòa quyện cùng gia vị đậm đà và chút tiêu sọ thơm lừng. Với vị ngọt thịt tự nhiên và kết cấu giòn mềm hấp dẫn.",
+      "body": [
+        { "type": "p", "text": "Được chế biến từ 100% thịt ngựa chuẩn loại 1, sản phẩm Mọc Ngựa của chúng tôi mang đến sự an tâm về chất lượng. Những viên mọc tròn trịa, điểm xuyết hạt tiêu đen vô cùng bắt mắt, được nêm nếm gia vị vừa vặn, chuẩn công thức gia truyền. Sản phẩm đã được làm chín sơ và đóng gói cẩn thận, giúp các bà nội trợ tiết kiệm tối đa thời gian chế biến mà vẫn có nồi lẩu hay bát canh mọc thơm ngon, bổ dưỡng chiêu đãi cả nhà." }
+      ],
+      "specs": {
+        "netWeight": "250g",
+        "shelfLife": "1 tuần kể từ ngày sản xuất",
+        "usage": "Chế biến các món lẩu, bún mọc, nấu canh củ quả hoặc chiên rán.",
+        "price": 70000,
+        "priceUnit": "túi"
+      },
+      "images": ["products/moc-ngua-2.jpg", "products/moc-ngua-1.jpg"]
+    }
+  ],
+
+  "franchise": {
+    "title": "QT FOOD kết nối đam mê – Bứt phá thành công với hệ thống trên 50 cơ sở nhượng quyền",
+    "stats": [{ "value": 50, "suffix": "+", "label": "cơ sở nhượng quyền" }],
+    "intro": "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản vùng đất Tổ vươn xa, QT FOOD đã và đang khẳng định vị thế dẫn đầu trong lĩnh vực phân phối và chế biến các sản phẩm từ thịt ngựa tươi sạch. Cột mốc trên 50 cơ sở nhượng quyền trải dài khắp các tỉnh thành không chỉ là một con số ấn tượng, mà còn là minh chứng sống động cho uy tín thương hiệu và sự thành công của một mô hình kinh doanh F&B bền vững.",
+    "sections": [
+      {
+        "title": "Thành công được nhân bản từ thực tế",
+        "paragraphs": [
+          "Hình ảnh những buổi lễ khai trương hồng phát rộn ràng – tiêu biểu như cơ sở Hưng Yên của chúng tôi – là minh chứng rõ nét nhất cho sức hút của QT FOOD. Mỗi cơ sở mới ra đời không chỉ khoác lên mình bộ nhận diện thương hiệu màu xanh lá nổi bật, chuyên nghiệp, mà còn mang theo sứ mệnh trao gửi những giá trị ẩm thực trọn vẹn nhất đến khách hàng: từ Lẩu ngựa thịt tươi, Phở ngựa đậm đà, cho đến hệ sinh thái sản phẩm chế biến sẵn như Nem, Giò, Mọc ngựa.",
+          "Sự đồng bộ về chất lượng và hương vị \"không chỉ thơm ngon mà còn bổ dưỡng\" chính là chìa khóa giúp các cơ sở nhượng quyền của QT FOOD nhanh chóng chiếm lĩnh thị trường và giữ chân thực khách địa phương."
+        ]
+      },
+      {
+        "title": "Đặc quyền khi trở thành đối tác của QT FOOD",
+        "paragraphs": ["Chúng tôi không chỉ trao cho bạn một thương hiệu, chúng tôi đồng hành cùng bạn xây dựng một cơ ngơi kinh doanh sinh lời bền vững. Khi gia nhập hệ thống trên 50 cơ sở của QT FOOD, đối tác sẽ được cam kết hỗ trợ toàn diện:"],
+        "items": [
+          { "title": "Chuyển giao công thức độc quyền", "text": "Nắm giữ bí quyết chế biến nước dùng Lẩu, Phở chuẩn vị và cách bảo quản thực phẩm tối ưu nhất." },
+          { "title": "Nguồn nguyên liệu tận gốc", "text": "Đảm bảo chuỗi cung ứng thịt ngựa tươi sạch 100%, an toàn vệ sinh thực phẩm với mức giá sỉ cạnh tranh nhất, giúp tối ưu hóa biên độ lợi nhuận." },
+          { "title": "Set-up & Nhận diện thương hiệu", "text": "Hỗ trợ tư vấn thiết kế không gian quán, bảng hiệu, menu đồng bộ, chuyên nghiệp, thu hút sự chú ý ngay từ cái nhìn đầu tiên." },
+          { "title": "Đồng hành chiến lược", "text": "Hỗ trợ quy trình vận hành bài bản và các chiến lược truyền thông, marketing để bùng nổ doanh thu trong từng giai đoạn." }
+        ]
+      },
+      {
+        "title": "Cùng QT FOOD kiến tạo tương lai",
+        "paragraphs": [
+          "Thị trường ẩm thực đặc sản luôn là một \"mảnh đất vàng\" đầy tiềm năng. Với mô hình nhượng quyền đã được kiểm chứng qua hơn 50 cơ sở thành công, QT FOOD tự tin là đối tác chiến lược đáng tin cậy nhất của bạn.",
+          "Hãy để chúng tôi đồng hành cùng bạn trên hành trình mang những tinh hoa ẩm thực đích thực đến mọi miền Tổ quốc!"
+        ]
+      }
+    ],
+    "gallery": { "dir": "franchise", "count": 26, "pattern": "khai-truong-{01..26}.jpg", "caption": "Khai trương các cơ sở nhượng quyền QT FOOD" }
+  },
+
+  "franchisePolicy": {
+    "title": "Chính sách nhượng quyền thương hiệu QT Food: Cơ hội đột phá doanh thu cùng đặc sản Lẩu Ngựa - Phở Ngựa",
+    "intro": "Công ty TNHH QT Fresh Food mang đến cơ hội nhượng quyền thương mại đối với mô hình kinh doanh cơ sở Lẩu ngựa – Thịt ngựa tươi tại Việt Nam. Dưới đây là thông tin chi tiết về chính sách nhượng quyền được xây dựng nhằm đảm bảo quyền lợi và sự phát triển bền vững cho các đối tác.",
+    "sections": [
+      {
+        "title": "1. Tại sao nên trở thành đối tác nhượng quyền của QT Food?",
+        "items": [
+          { "title": "Sản phẩm cốt lõi khác biệt – Mảng \"ngách\" đầy tiềm năng", "text": "Giữa thị trường tràn ngập các loại lẩu phổ thông (lẩu bò, lẩu thái, lẩu hải sản...), Lẩu Ngựa nổi lên như một điểm sáng độc đáo. Thịt ngựa không chỉ có hương vị đặc trưng, thơm ngon mà còn mang lại giá trị dinh dưỡng cao. Sự mới lạ này chính là \"thỏi nam châm\" thu hút lượng lớn khách hàng tò mò đến thưởng thức và trở thành khách quen, giúp nhà hàng của bạn không phải cạnh tranh quá gay gắt trong \"đại dương đỏ\"." },
+          { "title": "Nguồn nguyên liệu ổn định, đạt chuẩn", "text": "Khó khăn lớn nhất của việc kinh doanh đặc sản là nguồn cung. Khi nhượng quyền cùng QT Food, bạn sẽ được giải quyết triệt để vấn đề này. Chúng tôi cung cấp trực tiếp các nguyên liệu độc quyền (thịt ngựa tươi sạch chuẩn loại 1, mọc ngựa, cốt lẩu gia truyền...) với mức giá chiết khấu tốt nhất, đảm bảo chất lượng đồng đều trên toàn hệ thống." }
+        ]
+      },
+      {
+        "title": "2. Chi tiết chính sách hỗ trợ dành cho đối tác",
+        "intro": "Tại QT Food, chúng tôi quan niệm: \"Sự thành công của đối tác chính là sự phát triển của thương hiệu\". Do đó, chính sách nhượng quyền được thiết kế để hỗ trợ bạn từ những bước đi đầu tiên cho đến khi vận hành trơn tru:",
+        "items": [
+          { "title": "Hỗ trợ setup & không gian", "text": "Công ty chịu trách nhiệm tiến hành khảo sát cơ sở nhượng quyền, tư vấn chọn mặt bằng kinh doanh phù hợp. Hỗ trợ thiết kế biển bảng, bảng hiệu chuẩn bộ nhận diện thương hiệu QT Fresh Food - Thương Hiệu Nhượng quyền Lẩu Ngựa." },
+          { "title": "Đào tạo chuyên sâu", "text": "Ở giai đoạn ban đầu, đối tác được đào tạo kỹ thuật nấu, chế biến món lẩu ngựa và các món về ngựa. Công ty cũng cam kết đào tạo nhân viên, hướng dẫn quản lý và vận hành cơ sở để đạt trình độ phục vụ theo tiêu chuẩn chung. Trong quá trình kinh doanh, công ty sẽ cung cấp và trợ giúp kỹ thuật thường xuyên. Hơn nữa, đối tác còn được tham gia các lớp học quản lý, kinh doanh, vận hành nhà hàng do công ty tổ chức." },
+          { "title": "Hỗ trợ marketing căn bản", "text": "Công ty chịu trách nhiệm hỗ trợ làm marketing, xây dựng hình ảnh và thiết kế fanpage Facebook để thu hút khách hàng cho cơ sở của đối tác. Bên cạnh đó, công ty sẽ thực hiện nghiên cứu thị trường và các hình thức quảng cáo, xúc tiến thương mại chung." },
+          { "title": "Kiểm soát chất lượng nguồn nguyên liệu", "text": "Công ty đảm bảo cung cấp nguồn thịt ngựa tươi ngon với mức giá mua không cao hơn giá ngoài thị trường. Giá nguyên liệu sẽ được duy trì ổn định và chỉ điều chỉnh khi thị trường có biến động đáng kể, kèm theo thông báo trước bằng văn bản. Đồng thời, công ty cung cấp đầy đủ gia vị, nước chấm để đảm bảo chất lượng lẩu ngựa, đồng thời chịu trách nhiệm về an toàn thực phẩm và tính hợp pháp của nguồn nguyên liệu đầu vào này." }
+        ]
+      },
+      {
+        "title": "3. Trách nhiệm của đối tác nhận quyền",
+        "intro": "Khi tham gia vào hệ thống QT Fresh Food, đối tác cần tuân thủ các quy định nhằm bảo vệ uy tín thương hiệu chung:",
+        "items": [
+          { "title": "Vận hành và pháp lý", "text": "Đối tác trực tiếp đứng tên trên Giấy phép kinh doanh, tự quyết định các hoạt động chi tiêu nội bộ và tự chịu trách nhiệm tài chính, pháp lý phát sinh từ cơ sở của mình. Đối tác phải chủ động đăng ký giấy phép kinh doanh và giấy chứng nhận đủ điều kiện an toàn thực phẩm theo quy định của Nhà nước." },
+          { "title": "Đầu tư tài chính", "text": "Đối tác tự mình đầu tư cơ sở vật chất, thanh toán toàn bộ chi phí để thiết lập cơ sở theo chuẩn hệ thống (bao gồm biển hiệu, nồi, tủ, dụng cụ làm bếp) và tự chi trả tiền lương cho nhân viên làm việc tại cơ sở." },
+          { "title": "Quy định nhập hàng độc quyền", "text": "Đối tác có nghĩa vụ bắt buộc phải nhập toàn bộ nguyên liệu, gia vị, nước chấm do công ty cung cấp nhằm duy trì chất lượng lẩu ngựa theo quy chuẩn. Nếu vi phạm quy định này bằng việc sử dụng nguồn hàng khác, công ty có quyền đơn phương chấm dứt hợp đồng ngay lập tức, thu hồi quyền sử dụng thương hiệu và yêu cầu bồi thường thiệt hại." },
+          { "title": "Nguyên tắc thanh toán đơn hàng", "text": "Đối tác có trách nhiệm thanh toán đầy đủ 100% giá trị đơn hàng trong cùng ngày nhận hàng. Trường hợp không thanh toán ngay trong ngày, đối tác sẽ phải chịu mức phạt 1%/ngày trên toàn bộ giá trị đơn hàng chưa thanh toán và công ty có quyền tạm ngừng cung cấp hàng." }
+        ]
+      },
+      {
+        "title": "4. Bắt đầu hành trình kinh doanh ngay hôm nay",
+        "intro": "Nếu bạn đã sẵn sàng nắm bắt cơ hội kinh doanh độc đáo này, hãy liên hệ ngay với chúng tôi để nhận bảng hồ sơ nhượng quyền chi tiết và được tư vấn trực tiếp từ ban giám đốc.",
+        "cta": { "label": "Liên hệ ngay", "href": "/lien-he" }
+      }
+    ]
+  },
+
+  "decor": {
+    "note": "Tranh vẽ nét núi đồi / ruộng bậc thang dùng làm nền trang trí (header các trang, footer).",
+    "files": ["decor/nui-doi-chim-bay.jpg", "decor/nui-doi.jpg", "decor/nui-doi-ruong-bac-thang.jpg", "decor/nui-doi-chi-tiet.jpg"]
+  }
+}

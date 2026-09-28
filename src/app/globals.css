@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens                                                      */
+/*  Mỗi section khai báo data-tone (base | alt | hero | deep | brand).  */
+/*  Mỗi tone định nghĩa biến ngữ nghĩa (bg, ink, muted…) → component    */
+/*  chỉ dùng biến, không dùng mã màu trực tiếp.                         */
+/* ------------------------------------------------------------------ */
+
+@theme inline {
+  --color-green-brand: #4cb448;
+  --color-red-brand: #ed1c24;
+
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-btn: var(--btn-bg);
+  --color-btn-ink: var(--btn-ink);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-body);
+  --font-serif: var(--font-serif);
+
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Phương án màu đã chốt: A. Tươi sáng (2026-09-28) */
+[data-tone="base"],
+[data-tone="hero"] {
+  --bg: #fbfaf5; --ink: #1b2a1c; --muted: #5d6b5e; --line: #e4e7dd; --card: #ffffff;
+  --accent: #2d8a2a; --btn-bg: #4cb448; --btn-ink: #0f230f; --btn-hover-bg: #2d8a2a; --btn-hover-ink: #ffffff;
+  --logo-color: block; --logo-white: none; --decor-filter: none; --decor-blend: multiply;
+}
+[data-tone="alt"] {
+  --bg: #eff5e7; --ink: #1b2a1c; --muted: #56675a; --line: #d9e4cf; --card: #ffffff;
+  --accent: #2d8a2a; --btn-bg: #4cb448; --btn-ink: #0f230f; --btn-hover-bg: #2d8a2a; --btn-hover-ink: #ffffff;
+  --logo-color: block; --logo-white: none; --decor-filter: none; --decor-blend: multiply;
+}
+/* Mảng xanh nhạt nổi bật (Nhượng quyền) */
+[data-tone="brand"] {
+  --bg: #e2f1d8; --ink: #16261a; --muted: #4c6150; --line: #c9e0bb; --card: #ffffff;
+  --accent: #2d8a2a; --btn-bg: #4cb448; --btn-ink: #0f230f; --btn-hover-bg: #2d8a2a; --btn-hover-ink: #ffffff;
+  --logo-color: block; --logo-white: none; --decor-filter: none; --decor-blend: multiply;
+}
+/* Nền đậm — chỉ dùng cho footer & menu mobile */
+[data-tone="deep"] {
+  --bg: #1c3520; --ink: #f3f1e8; --muted: #b7c3b2; --line: rgb(255 255 255 / 0.12); --card: #24412a;
+  --accent: #86d681; --btn-bg: #4cb448; --btn-ink: #0f230f; --btn-hover-bg: #f3f1e8; --btn-hover-ink: #1c3520;
+  --logo-color: none; --logo-white: block; --decor-filter: invert(1); --decor-blend: screen;
+}
+
+[data-tone] {
+  background-color: var(--bg);
+  color: var(--ink);
+  transition: background-color 0.5s var(--ease-soft), color 0.5s var(--ease-soft);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection {
+  background: #4cb448;
+  color: #0f230f;
+}
+.font-serif-accent,
+.rich em {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.logo-color { display: var(--logo-color, block); }
+.logo-white { display: var(--logo-white, none); }
+
+.decor {
+  filter: var(--decor-filter);
+  mix-blend-mode: var(--decor-blend);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Button: nền lấp đầy từ trái sang khi hover                          */
+/* ------------------------------------------------------------------ */
+.btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow: hidden;
+  border-radius: 999px;
+  padding: 0.95rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 0.45s var(--ease-soft), border-color 0.45s var(--ease-soft), transform 0.45s var(--ease-soft);
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.55s var(--ease-out-expo);
+}
+.btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.btn .btn-arrow {
+  transition: transform 0.45s var(--ease-soft);
+}
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+}
+.btn-primary::before {
+  background: var(--btn-hover-bg);
+}
+.btn-primary:hover {
+  color: var(--btn-hover-ink);
+}
+.btn-ghost {
+  border: 1.5px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  color: var(--ink);
+}
+.btn-ghost::before {
+  background: var(--btn-bg);
+}
+.btn-ghost:hover {
+  color: var(--btn-ink);
+  border-color: var(--btn-bg);
+}
+
+/* Link gạch chân chạy từ trái */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s var(--ease-out-expo);
+}
+.link-underline:hover,
+.link-underline[aria-current="page"] {
+  background-size: 100% 1.5px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Marquee                                                            */
+/* ------------------------------------------------------------------ */
+.marquee {
+  --marquee-duration: 60s;
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration) linear infinite;
+}
+.marquee[data-direction="reverse"] {
+  animation-direction: reverse;
+}
+.marquee-wrap:hover .marquee {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Trạng thái ban đầu cho hiệu ứng (JS sẽ bật lên)                     */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal] { opacity: 0; }
+  html.js [data-split] { visibility: hidden; }
+  html.js [data-clip] { clip-path: inset(100% 0 0 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .spin-slow { animation: none; }
+}
