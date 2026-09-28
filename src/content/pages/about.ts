@@ -6,7 +6,7 @@ import { certificationsBlock } from "./shared";
 const { about } = content;
 
 /** Trang Giới thiệu — `company`, `certification`: dữ liệu chung từ admin */
-export const aboutBlocks = ({ company, certification }: SiteData): Block[] => [
+export const aboutBlocks = ({ company, certification, stats }: SiteData): Block[] => [
   {
     type: "pageHero",
     props: {
@@ -17,9 +17,9 @@ export const aboutBlocks = ({ company, certification }: SiteData): Block[] => [
         "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản vùng đất Tổ vươn xa — QT FOOD cung cấp, chế biến và phân phối đặc sản từ thịt ngựa tươi, đồng thời là thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa.",
       image: { src: img(about.landscape), alt: "Ruộng bậc thang vùng cao" },
       stats: [
-        { value: 50, suffix: "+", label: "cơ sở nhượng quyền" },
+        { value: stats.stores, suffix: "+", label: "cơ sở nhượng quyền" },
         { value: 3, suffix: "", label: "mảng kinh doanh" },
-        { value: content.products.length, suffix: "", label: "đặc sản từ thịt ngựa" },
+        { value: stats.products, suffix: "", label: "đặc sản từ thịt ngựa" },
       ],
     },
   },
@@ -56,19 +56,6 @@ export const aboutBlocks = ({ company, certification }: SiteData): Block[] => [
       title: company.ceo.title,
       photo: img(company.ceo.photo),
       quotes: company.ceo.quote,
-    },
-  },
-  {
-    type: "brandIdentity",
-    props: {
-      tone: "alt",
-      title: "Dấu ấn *QT FOOD*",
-      text: about.brandIdentity.text,
-      slogan: company.slogan,
-      symbol: about.brandIdentity.symbol,
-      gestures: about.brandIdentity.gestures,
-      colors: about.brandIdentity.colors,
-      logo: "/brand/logo-qtfood.png",
     },
   },
   ...certificationsBlock(certification, "base"),

@@ -31,6 +31,16 @@ export const SiteSettings: GlobalConfig = {
           label: "Công ty",
           fields: [
             {
+              name: "storeCount",
+              type: "number",
+              label: "Số cơ sở nhượng quyền",
+              min: 1,
+              defaultValue: 50,
+              admin: {
+                description: "Hiện trên website dạng \"50+\" / \"hơn 50 cơ sở\" (trang chủ, nhượng quyền, hệ thống cơ sở…). Nhập số tròn, vd 50, 100, 200.",
+              },
+            },
+            {
               type: "row",
               fields: [
                 { name: "legalName", type: "text", label: "Tên pháp lý", required: true, admin: { width: "60%" } },

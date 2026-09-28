@@ -7,7 +7,7 @@ import { nav as defaultNav, primaryCta as defaultCta } from "@/content/site";
 import type { Company, Hotline } from "@/content/types";
 
 export type NavItem = { label: string; href: string };
-export type SiteSettings = { company: Company; nav: NavItem[]; primaryCta: NavItem; mainHotline: Hotline };
+export type SiteSettings = { company: Company; nav: NavItem[]; primaryCta: NavItem; mainHotline: Hotline; storeCount: number };
 
 const pick = <T,>(value: T | null | undefined, fallback: T): T => (value === null || value === undefined || value === "" ? fallback : value);
 
@@ -50,5 +50,6 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
     nav: nav.length ? nav : defaultNav,
     primaryCta: { label: pick(s.primaryCta?.label, defaultCta.label), href: pick(s.primaryCta?.href, defaultCta.href) },
     mainHotline: company.hotlines[0],
+    storeCount: s.storeCount && s.storeCount > 0 ? s.storeCount : 50,
   };
 });

@@ -39,7 +39,7 @@ export default async function ProductPage({ params }: Params) {
   const product = await getProduct(slug, draft);
   if (!product || product.category.slug !== categorySlug) notFound();
 
-  const { company, mainHotline } = await getSiteSettings();
+  const { company, mainHotline, storeCount } = await getSiteSettings();
   const related = (await getProducts(categorySlug)).filter((p) => p.slug !== slug).slice(0, 4);
   const { specs } = product;
   const sellable = Boolean(product.priceLabel);
@@ -110,7 +110,7 @@ export default async function ProductPage({ params }: Params) {
                     {specs.priceUnit && <span className="text-muted"> / {specs.priceUnit}</span>}
                   </p>
                 ) : (
-                  <p className="font-semibold">Phục vụ tại hệ thống hơn 50 cơ sở nhượng quyền QT FOOD</p>
+                  <p className="font-semibold">Phục vụ tại hệ thống hơn {storeCount} cơ sở nhượng quyền QT FOOD</p>
                 )}
                 {specRows.length > 0 && (
                   <dl className="mt-5 divide-y divide-[var(--line)] border-t border-line text-[0.95rem]">

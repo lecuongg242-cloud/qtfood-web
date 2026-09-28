@@ -1,21 +1,20 @@
 import type { Block } from "@/blocks";
 import type { SiteData } from "../types";
-import { content, formatPrice, franchiseGallery, img, productBySlug } from "../data";
+import { content, franchiseGallery, img } from "../data";
 import { certificationsBlock } from "./shared";
 import type { PostCardData } from "@/components/post/PostCard";
+import { productMeta } from "@/components/product/ProductCard";
+import type { ProductView } from "@/lib/data/products";
 
 const { home, about, franchise } = content;
 
-const productHref = (slug: string) => {
-  const p = productBySlug(slug);
-  return `/san-pham/${p?.category ?? "mon-an"}/${slug}`;
-};
-
-const processed = content.products.filter((p) => p.category === "che-bien-san");
 const benefits = franchise.sections.find((s) => s.items)?.items ?? [];
 
-/** Trang chủ — `company`, `certification`: dữ liệu chung từ admin; `posts`: 3 bài mới nhất (block tin tức tự ẩn khi chưa có bài) */
-export const homeBlocks = ({ company, certification }: SiteData, posts: PostCardData[]): Block[] => [
+/**
+ * Trang chủ — `site`: dữ liệu chung từ admin (công ty, chứng nhận, số liệu); `posts`: 3 bài mới nhất;
+ * `products`: sản phẩm đã xuất bản trong CMS (món mới tự hiện ở "Nổi bật" / "Chế biến sẵn").
+ */
+export const homeBlocks = ({ company, certification, stats }: SiteData, posts: PostCardData[], products: ProductView[]): Block[] => [
   {
     type: "hero",
     props: {
@@ -26,9 +25,9 @@ export const homeBlocks = ({ company, certification }: SiteData, posts: PostCard
       primary: { label: "Đăng ký nhượng quyền", href: "/nhuong-quyen" },
       secondary: { label: "Khám phá sản phẩm", href: "/san-pham" },
       stats: [
-        { value: 50, suffix: "+", label: "cơ sở nhượng quyền" },
+        { value: stats.stores, suffix: "+", label: "cơ sở nhượng quyền" },
         { value: 100, suffix: "%", label: "thịt ngựa tươi sạch" },
-        { value: content.products.length, suffix: "", label: "đặc sản từ thịt ngựa" },
+        { value: stats.products, suffix: "", label: "đặc sản từ thịt ngựa" },
       ],
       images: {
         main: img("products/pho-ngua-3.jpg"),
@@ -46,14 +45,22 @@ export const homeBlocks = ({ company, certification }: SiteData, posts: PostCard
       eyebrow: "Sản phẩm nổi bật",
       title: "Hương vị *đặc sản* làm nên thương hiệu",
       description:
-        "Ba món làm nên tên tuổi QT FOOD — phục vụ tại hơn 50 cơ sở nhượng quyền và đóng gói mang về cho mọi gia đình.",
-      items: home.featured.map((f) => ({
-        title: f.title,
-        text: f.text,
-        image: img(f.image),
-        href: productHref(f.product),
-        tag: productBySlug(f.product)?.category === "mon-an" ? "Món tại quán" : "Chế biến sẵn",
-      })),
+        `Những món làm nên tên tuổi QT FOOD — phục vụ tại hơn ${stats.stores} cơ sở nhượng quyền và đóng gói mang về cho mọi gia đình.`,
+      // Sản phẩm bật "Nổi bật ở trang chủ" (tối đa 3); món gốc dùng đoạn giới thiệu & ảnh đã biên tập trong qtfood.json
+      items: products
+        .filter((p) => p.featured)
+        .slice(0, 3)
+        .map((p) => {
+          const curated = home.featured.find((f) => f.product === p.slug);
+          const image = curated ? img(curated.image) : (p.images[1] ?? p.images[0])?.src;
+          return {
+            title: p.name,
+            text: curated?.text ?? p.summary,
+            image: image ?? img("brand/banner-nhuong-quyen-lau-pho-ngua.jpg"),
+            href: p.href,
+            tag: p.category.slug === "mon-an" ? "Món tại quán" : "Chế biến sẵn",
+          };
+        }),
     },
   },
   {
@@ -92,17 +99,17 @@ export const homeBlocks = ({ company, certification }: SiteData, posts: PostCard
       title: "Mua về thưởng thức, *làm quà biếu*",
       description: "Đóng gói hút chân không tiện lợi, giữ trọn vị ngon — giao tận nơi trên toàn quốc.",
       cta: { label: "Xem tất cả sản phẩm", href: "/san-pham" },
-      items: processed.map((p) => ({
-        name: p.name,
-        href: productHref(p.slug),
-        image: img(p.images[0]),
-        summary: p.summary,
-        price: p.specs?.price ? formatPrice(p.specs.price) : undefined,
-        unit: p.specs?.priceUnit,
-        meta: [p.specs?.netWeight && `KLT ${p.specs.netWeight}`, p.specs?.shelfLife && `HSD ${p.specs.shelfLife.replace(/ (kể )?từ.*/, "")}`].filter(
-          Boolean,
-        ) as string[],
-      })),
+      items: products
+        .filter((p) => p.category.slug === "che-bien-san")
+        .map((p) => ({
+          name: p.name,
+          href: p.href,
+          image: p.images[0]?.src ?? img("brand/banner-nhuong-quyen-lau-pho-ngua.jpg"),
+          summary: p.summary,
+          price: p.priceLabel,
+          unit: p.specs.priceUnit ?? undefined,
+          meta: productMeta(p.specs),
+        })),
     },
   },
   {
@@ -118,7 +125,7 @@ export const homeBlocks = ({ company, certification }: SiteData, posts: PostCard
     type: "franchiseTeaser",
     props: {
       eyebrow: "Nhượng quyền thương hiệu",
-      stat: { value: 50, suffix: "+", label: "cơ sở" },
+      stat: { value: stats.stores, suffix: "+", label: "cơ sở" },
       title: "cơ sở nhượng quyền — *kết nối đam mê*, bứt phá thành công",
       intro:
         "Mô hình Lẩu ngựa – Phở ngựa đã được kiểm chứng trên khắp các tỉnh thành. QT FOOD đồng hành cùng đối tác từ chọn mặt bằng, đào tạo, nguồn nguyên liệu đến marketing.",

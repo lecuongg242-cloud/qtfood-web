@@ -7,7 +7,6 @@ import { FloatingContact } from "@/components/layout/FloatingContact";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Animations } from "@/components/motion/Animations";
 import { IntroHorse, introBootScript } from "@/components/motion/IntroHorse";
-import { content } from "@/content/data";
 import type { Company } from "@/content/types";
 import { getSiteSettings } from "@/lib/data/settings";
 import { PreviewBar } from "@/components/preview/PreviewBar";
@@ -29,23 +28,23 @@ const serif = Playfair_Display({
   display: "swap",
 });
 
-const company = content.company;
-
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl()),
-  title: {
-    default: `${company.brand} – ${company.positioning}`,
-    template: `%s | ${company.brand}`,
-  },
-  description:
-    "QT FOOD – đặc sản thịt ngựa tươi sạch, thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa với hơn 50 cơ sở. Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa – không chỉ thơm ngon mà còn bổ dưỡng.",
-  openGraph: {
-    type: "website",
-    locale: "vi_VN",
-    siteName: company.brand,
-    images: ["/images/brand/banner-nhuong-quyen-lau-pho-ngua.jpg"],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { company, storeCount } = await getSiteSettings();
+  return {
+    metadataBase: new URL(siteUrl()),
+    title: {
+      default: `${company.brand} – ${company.positioning}`,
+      template: `%s | ${company.brand}`,
+    },
+    description: `QT FOOD – đặc sản thịt ngựa tươi sạch, thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa với hơn ${storeCount} cơ sở. Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa – không chỉ thơm ngon mà còn bổ dưỡng.`,
+    openGraph: {
+      type: "website",
+      locale: "vi_VN",
+      siteName: company.brand,
+      images: ["/images/brand/banner-nhuong-quyen-lau-pho-ngua.jpg"],
+    },
+  };
+}
 
 // Organization + LocalBusiness cho toàn site (Google Knowledge Panel / Maps)
 const siteJsonLd = (company: Company) => {

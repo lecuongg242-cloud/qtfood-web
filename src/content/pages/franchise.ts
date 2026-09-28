@@ -8,7 +8,7 @@ const { franchise, franchisePolicy, forms } = content;
 const [whySection, supportSection, responsibilitySection, startSection] = franchisePolicy.sections;
 
 /** Trang Nhượng quyền — `company`, `certification`: dữ liệu chung từ admin */
-export const franchiseBlocks = ({ company, certification }: SiteData): Block[] => [
+export const franchiseBlocks = ({ company, certification, stats }: SiteData): Block[] => [
   {
     type: "pageHero",
     props: {
@@ -16,12 +16,12 @@ export const franchiseBlocks = ({ company, certification }: SiteData): Block[] =
       eyebrow: "Nhượng quyền thương hiệu",
       title: "Nhượng quyền *Lẩu ngựa & Phở ngựa* cùng QT FOOD",
       description:
-        "Mô hình đã được kiểm chứng qua hơn 50 cơ sở trên khắp các tỉnh thành. QT FOOD đồng hành cùng đối tác từ khảo sát mặt bằng, đào tạo, nguồn nguyên liệu đến marketing.",
+        `Mô hình đã được kiểm chứng qua hơn ${stats.stores} cơ sở trên khắp các tỉnh thành. QT FOOD đồng hành cùng đối tác từ khảo sát mặt bằng, đào tạo, nguồn nguyên liệu đến marketing.`,
       image: { src: img("franchise/khai-truong-01.jpg"), alt: "Khai trương cơ sở nhượng quyền QT FOOD" },
       primary: { label: "Nhận hồ sơ nhượng quyền", href: "#dang-ky" },
       secondary: { label: "Xem chính sách", href: "/nhuong-quyen/chinh-sach" },
       stats: [
-        { value: 50, suffix: "+", label: "cơ sở nhượng quyền" },
+        { value: stats.stores, suffix: "+", label: "cơ sở nhượng quyền" },
         { value: 100, suffix: "%", label: "nguyên liệu, gia vị do công ty cung cấp" },
         { value: franchise.process.length, suffix: " bước", label: "đồng hành từ đầu đến khai trương" },
       ],
@@ -64,7 +64,7 @@ export const franchiseBlocks = ({ company, certification }: SiteData): Block[] =
     props: {
       tone: "alt",
       eyebrow: "Hệ thống cơ sở",
-      title: "Hơn *50 cơ sở* đã khai trương",
+      title: `Hơn *${stats.stores} cơ sở* đã khai trương`,
       description: "Những buổi khai trương rộn ràng trên khắp các tỉnh thành — minh chứng rõ nét nhất cho sức hút của mô hình.",
       images: franchiseGallery().map((src) => ({ src, alt: "Khai trương cơ sở nhượng quyền QT FOOD" })),
       initial: 12,

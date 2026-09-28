@@ -3,6 +3,7 @@ import * as migration_20260928_094824_product_iso_badge from './20260928_094824_
 import * as migration_20260928_100232_stores from './20260928_100232_stores';
 import * as migration_20260928_122053_posts_policies from './20260928_122053_posts_policies';
 import * as migration_20260928_144057_cms_p5 from './20260928_144057_cms_p5';
+import * as migration_20260928_155717_store_count from './20260928_155717_store_count';
 
 export const migrations = [
   {
@@ -28,6 +29,11 @@ export const migrations = [
   {
     up: migration_20260928_144057_cms_p5.up,
     down: migration_20260928_144057_cms_p5.down,
-    name: '20260928_144057_cms_p5'
+    name: '20260928_144057_cms_p5',
+  },
+  {
+    up: migration_20260928_155717_store_count.up,
+    down: migration_20260928_155717_store_count.down,
+    name: '20260928_155717_store_count'
   },
 ];

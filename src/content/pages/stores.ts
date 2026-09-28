@@ -2,19 +2,19 @@ import type { Block } from "@/blocks";
 import type { StoreView } from "@/lib/data/stores";
 import { franchiseGallery, img } from "../data";
 
-/** Trang Hệ thống cơ sở — danh sách cơ sở lấy từ CMS (ẩn khi chưa có dữ liệu) */
-export const storesBlocks = (stores: StoreView[]): Block[] => [
+/** Trang Hệ thống cơ sở — danh sách cơ sở lấy từ CMS (ẩn khi chưa có dữ liệu); `storeCount`: số cơ sở nhập trong admin */
+export const storesBlocks = (stores: StoreView[], storeCount: number): Block[] => [
   {
     type: "pageHero",
     props: {
       breadcrumb: [{ label: "Trang chủ", href: "/" }, { label: "Hệ thống cơ sở" }],
       eyebrow: "Hệ thống cơ sở",
-      title: "Hơn *50 cơ sở* trên khắp các tỉnh thành",
+      title: `Hơn *${storeCount} cơ sở* trên khắp các tỉnh thành`,
       description:
         "Mỗi cơ sở mang bộ nhận diện xanh lá đặc trưng và cùng một tiêu chuẩn hương vị — từ Lẩu ngựa, Phở ngựa đến Nem, Giò, Mọc ngựa.",
       primary: { label: "Mở cơ sở tại tỉnh bạn", href: "/nhuong-quyen#dang-ky" },
       stats: [
-        { value: 50, suffix: "+", label: "cơ sở nhượng quyền" },
+        { value: storeCount, suffix: "+", label: "cơ sở nhượng quyền" },
         ...(stores.length
           ? [{ value: new Set(stores.map((s) => s.province)).size, suffix: "", label: "tỉnh/thành có cơ sở" }]
           : []),

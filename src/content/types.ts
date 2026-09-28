@@ -121,4 +121,9 @@ export type CertificationView = {
 };
 
 /** Dữ liệu dùng chung khi dựng trang từ block (thông tin công ty, chứng nhận…) */
-export type SiteData = { company: Company; certification: CertificationView | null };
+export type SiteData = {
+  company: Company;
+  certification: CertificationView | null;
+  /** Số liệu hiển thị: số cơ sở nhượng quyền (admin nhập), số sản phẩm (đếm trong CMS) */
+  stats: { stores: number; products: number };
+};
