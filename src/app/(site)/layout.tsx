@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { draftMode } from "next/headers";
 import { Be_Vietnam_Pro, Playfair_Display } from "next/font/google";
 import { Header } from "@/components/layout/Header";
@@ -27,6 +27,11 @@ const serif = Playfair_Display({
   style: ["italic"],
   display: "swap",
 });
+
+// Web chỉ thiết kế nền sáng: chặn trình duyệt tự đảo màu khi máy bật chế độ tối.
+export const viewport: Viewport = {
+  colorScheme: "only light",
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const { company, storeCount } = await getSiteSettings();
@@ -95,6 +100,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className={`${body.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
+        <meta name="darkreader-lock" />
         <script dangerouslySetInnerHTML={{ __html: introBootScript }} />
         <noscript>
           <style>{`[data-reveal],[data-split]{opacity:1!important;visibility:visible!important}[data-clip]{clip-path:none!important}`}</style>

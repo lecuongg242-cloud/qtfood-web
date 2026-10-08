@@ -64,6 +64,7 @@
 /*  Base                                                               */
 /* ------------------------------------------------------------------ */
 html {
+  color-scheme: only light;
   -webkit-text-size-adjust: 100%;
 }
 body {
