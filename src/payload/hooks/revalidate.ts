@@ -34,8 +34,9 @@ export const revalidatePaths = (
   };
 };
 
-/** Sản phẩm & nhóm sản phẩm: làm mới toàn bộ /san-pham và trang chủ */
-export const revalidateProductPages = () => revalidatePaths([{ path: "/san-pham", type: "layout" }, { path: "/" }]);
+/** Sản phẩm & nhóm sản phẩm: làm mới toàn bộ /san-pham, trang chủ và Giới thiệu (số món đếm từ CMS) */
+export const revalidateProductPages = () =>
+  revalidatePaths([{ path: "/san-pham", type: "layout" }, { path: "/" }, { path: "/gioi-thieu" }]);
 
 /** Thông tin chung dùng ở header/footer mọi trang → làm mới toàn bộ website */
 export const revalidateWholeSite: GlobalAfterChangeHook = ({ doc, req }) => {

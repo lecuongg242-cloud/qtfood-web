@@ -16,12 +16,15 @@ const benefits = franchise.sections.find((s) => s.items)?.items ?? [];
  */
 export const homeBlocks = ({ company, certification, stats }: SiteData, posts: PostCardData[], products: ProductView[]): Block[] => [
   {
-    type: "hero",
+    type: "heroCover",
     props: {
-      eyebrow: "Đặc sản thịt ngựa vùng đất Tổ",
-      title: "Thương hiệu nhượng quyền *Lẩu ngựa* & *Phở ngựa*",
-      lead:
-        "Từ nguồn thịt ngựa tươi sạch tuyển chọn kỹ lưỡng, QT FOOD mang đến Lẩu ngựa, Phở ngựa cùng các đặc sản Nem, Giò, Mọc ngựa — không chỉ thơm ngon mà còn bổ dưỡng.",
+      title: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc",
+      image: {
+        src: img("brand/cover-qt-food.jpg"),
+        alt: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc: Lẩu ngựa, Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa",
+        width: 2560,
+        height: 1440,
+      },
       primary: { label: "Đăng ký nhượng quyền", href: "/nhuong-quyen" },
       secondary: { label: "Khám phá sản phẩm", href: "/san-pham" },
       stats: [
@@ -29,14 +32,6 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
         { value: 100, suffix: "%", label: "thịt ngựa tươi sạch" },
         { value: stats.products, suffix: "", label: "đặc sản từ thịt ngựa" },
       ],
-      images: {
-        main: img("products/pho-ngua-3.jpg"),
-        mainAlt: "Phở ngựa QT FOOD",
-        secondary: img("products/lau-ngua-3.jpg"),
-        secondaryAlt: "Lẩu ngựa QT FOOD",
-      },
-      badge: "QT FOOD • QT FOOD • QT FOOD • QT FOOD •",
-      decor: img("decor/nui-doi-ruong-bac-thang.jpg"),
     },
   },
   {

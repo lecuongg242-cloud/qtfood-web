@@ -24,8 +24,8 @@ import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0
 import { LeadsExportButton as LeadsExportButton_b56d9076b42b9520590faf8890218fe4 } from '../../../payload/components/LeadsExportButton'
 import { ExpiryNotice as ExpiryNotice_e6c787a403130732c0256b284ba98e60 } from '../../../payload/components/ExpiryNotice'
 import { AdminDashboard as AdminDashboard_1e65a7bcc6020fdc3c5a3419eeaef3bf } from '../../../payload/components/AdminDashboard'
-import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
+import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 /** @type import('payload').ImportMap */
 export const importMap = {
@@ -55,6 +55,6 @@ export const importMap = {
   "/payload/components/LeadsExportButton#LeadsExportButton": LeadsExportButton_b56d9076b42b9520590faf8890218fe4,
   "/payload/components/ExpiryNotice#ExpiryNotice": ExpiryNotice_e6c787a403130732c0256b284ba98e60,
   "/payload/components/AdminDashboard#AdminDashboard": AdminDashboard_1e65a7bcc6020fdc3c5a3419eeaef3bf,
-  "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1,
-  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e
+  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e,
+  "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

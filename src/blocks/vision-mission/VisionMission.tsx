@@ -20,7 +20,7 @@ export function VisionMission({ tone = "alt", vision, missions }: VisionMissionP
             <HorseMark className="absolute -left-2 -top-10 h-20 w-auto text-[#4cb448]/15 sm:-top-12 sm:h-28" />
             <p
               data-split
-              className="relative text-[clamp(1.6rem,3.2vw,2.6rem)] font-extrabold leading-[1.28] tracking-[-0.02em] text-balance"
+              className="relative text-[clamp(1.2rem,3.2vw,2.6rem)] font-bold leading-[1.45] tracking-[-0.01em] text-pretty lg:font-extrabold lg:leading-[1.28] lg:tracking-[-0.02em] lg:text-balance"
             >
               {vision}
             </p>

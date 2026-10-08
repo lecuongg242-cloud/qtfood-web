@@ -75,13 +75,17 @@ body {
   background: #4cb448;
   color: #0f230f;
 }
-.font-serif-accent,
-.rich em {
+.font-serif-accent {
   font-family: var(--font-serif), Georgia, serif;
   font-style: italic;
   font-weight: 600;
   color: var(--accent);
   letter-spacing: -0.01em;
+}
+/* Từ nhấn trong tiêu đề: giữ nguyên font & độ đậm của tiêu đề để không bị "lún", chỉ đổi màu */
+.rich em {
+  font-style: normal;
+  color: var(--accent);
 }
 
 .logo-color { display: var(--logo-color, block); }
@@ -294,4 +298,10 @@ html.intro .intro-overlay {
 @media (max-width: 1023px) {
   body:has([data-sticky-cta]) .floating-contact { bottom: 6.5rem; }
   body:has([data-sticky-cta]) footer { padding-bottom: 5rem; }
+}
+
+/* Menu mobile đang mở → ẩn nút liên hệ nổi */
+:root[data-menu-open] .floating-contact {
+  opacity: 0;
+  pointer-events: none;
 }

@@ -1,4 +1,5 @@
 import { Hero, type HeroProps } from "./hero/Hero";
+import { HeroCover, type HeroCoverProps } from "./hero-cover/HeroCover";
 import { FeaturedProducts, type FeaturedProductsProps } from "./featured-products/FeaturedProducts";
 import { Commitments, type CommitmentsProps } from "./commitments/Commitments";
 import { Certifications, type CertificationsProps } from "./certifications/Certifications";
@@ -24,6 +25,7 @@ import { NewsList, type NewsListProps } from "./news-list/NewsList";
 /** Trang = danh sách block (dạng JSON) — GĐ2 sẽ lưu/sửa danh sách này trong editor. */
 export type Block =
   | { type: "hero"; props: HeroProps }
+  | { type: "heroCover"; props: HeroCoverProps }
   | { type: "featuredProducts"; props: FeaturedProductsProps }
   | { type: "commitments"; props: CommitmentsProps }
   | { type: "certifications"; props: CertificationsProps }
@@ -53,6 +55,8 @@ export function RenderBlocks({ blocks }: { blocks: Block[] }) {
         switch (block.type) {
           case "hero":
             return <Hero key={i} {...block.props} />;
+          case "heroCover":
+            return <HeroCover key={i} {...block.props} />;
           case "featuredProducts":
             return <FeaturedProducts key={i} {...block.props} />;
           case "commitments":

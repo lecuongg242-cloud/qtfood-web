@@ -7,7 +7,7 @@ import clsx from "clsx";
 import type { NavItem } from "@/lib/data/settings";
 import type { Hotline } from "@/content/types";
 import { Logo } from "./Logo";
-import { Close, Menu, Phone } from "@/components/ui/icons";
+import { ArrowUpRight, Close, HorseMark, Menu, Phone } from "@/components/ui/icons";
 
 export function Header({ nav, primaryCta, mainHotline }: { nav: NavItem[]; primaryCta: NavItem; mainHotline: Hotline }) {
   const pathname = usePathname();
@@ -24,6 +24,8 @@ export function Header({ nav, primaryCta, mainHotline }: { nav: NavItem[]; prima
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
+    // Ẩn nút Zalo/Gọi nổi khi mở menu (menu đã có hotline riêng)
+    document.documentElement.toggleAttribute("data-menu-open", open);
   }, [open]);
 
   // Đóng menu khi đổi trang (điều chỉnh state trong render thay vì effect)
@@ -100,32 +102,39 @@ export function Header({ nav, primaryCta, mainHotline }: { nav: NavItem[]; prima
           open ? "[clip-path:inset(0_0_0_0)]" : "pointer-events-none [clip-path:inset(0_0_100%_0)]",
         )}
       >
-        <ul className="space-y-1">
+        <ul className="border-t border-line">
           {nav.map((item, i) => (
-            <li
-              key={item.href}
-              className="overflow-hidden"
-            >
+            <li key={item.href} className="overflow-hidden border-b border-line">
               <Link
                 href={item.href}
                 tabIndex={open ? 0 : -1}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 style={{ transitionDelay: open ? `${120 + i * 55}ms` : "0ms" }}
                 className={clsx(
-                  "block py-1.5 text-[2.1rem] font-extrabold tracking-tight transition-transform duration-700 ease-[var(--ease-out-expo)]",
+                  "group flex items-center gap-4 py-3.5 text-[1.45rem] font-bold tracking-tight transition-transform duration-700 ease-[var(--ease-out-expo)]",
                   open ? "translate-y-0" : "translate-y-full",
                   isActive(item.href) && "text-accent",
                 )}
               >
-                {item.label}
+                <span className="flex-1">{item.label}</span>
+                {isActive(item.href) ? (
+                  <HorseMark className="h-4 w-auto" />
+                ) : (
+                  <ArrowUpRight className="h-5 w-5 text-muted transition-transform duration-300 group-active:translate-x-0.5 group-active:-translate-y-0.5" />
+                )}
               </Link>
             </li>
           ))}
         </ul>
-        <div className="space-y-4 text-muted">
-          <a href={`tel:${mainHotline.number}`} className="flex items-center gap-3 text-lg font-bold text-ink">
-            <Phone className="h-5 w-5" /> {mainHotline.display}
+        <div className="space-y-3">
+          <a
+            href={`tel:${mainHotline.number}`}
+            tabIndex={open ? 0 : -1}
+            className="flex items-center justify-center gap-3 rounded-full border border-line py-3.5 text-base font-bold"
+          >
+            <Phone className="h-5 w-5 text-accent" /> {mainHotline.display}
           </a>
-          <Link href={primaryCta.href} tabIndex={open ? 0 : -1} className="btn btn-primary">
+          <Link href={primaryCta.href} tabIndex={open ? 0 : -1} className="btn btn-primary w-full justify-center">
             {primaryCta.label}
           </Link>
         </div>
