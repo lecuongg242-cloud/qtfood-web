@@ -20,10 +20,10 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
     props: {
       title: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc",
       image: {
-        src: img("brand/cover-qt-food.jpg"),
+        src: img("brand/cover-qt-food-ngua.jpg"),
         alt: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc: Lẩu ngựa, Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa",
-        width: 2560,
-        height: 1440,
+        width: 10667,
+        height: 3780,
       },
       primary: { label: "Đăng ký nhượng quyền", href: "/nhuong-quyen" },
       secondary: { label: "Khám phá sản phẩm", href: "/san-pham" },

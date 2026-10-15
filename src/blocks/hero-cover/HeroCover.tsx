@@ -17,27 +17,17 @@ export function HeroCover(p: HeroCoverProps) {
     <Section tone="hero" data-hero className="overflow-hidden pt-[76px] sm:pt-[84px]">
       <h1 className="sr-only">{p.title}</h1>
 
-      {/* Giới hạn chiều cao: ảnh luôn hiện trọn (contain), hai bên lấp bằng bản mờ của chính ảnh */}
-      <div className="relative h-[min(56.25vw,64svh)] overflow-hidden">
-        <Image
-          src={p.image.src}
-          alt=""
-          aria-hidden
-          fill
-          quality={30}
-          sizes="50vw"
-          className="scale-110 object-cover blur-2xl"
-        />
-        <Image
-          src={p.image.src}
-          alt={p.image.alt}
-          fill
-          preload
-          quality={85}
-          sizes="100vw"
-          className="object-contain"
-        />
-      </div>
+      {/* Ảnh hiện trọn theo đúng tỉ lệ gốc, phủ hết chiều ngang */}
+      <Image
+        src={p.image.src}
+        alt={p.image.alt}
+        width={p.image.width}
+        height={p.image.height}
+        preload
+        quality={85}
+        sizes="100vw"
+        className="block h-auto w-full"
+      />
 
       <Container className="flex flex-col gap-8 py-8 lg:flex-row lg:items-center lg:justify-between lg:py-10">
         <div data-reveal className="flex flex-wrap gap-3">
