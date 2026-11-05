@@ -13,7 +13,8 @@ export const formatDate = (iso: string) => iso.split("-").reverse().join("/");
 
 export const productBySlug = (slug: string) => content.products.find((p) => p.slug === slug);
 
-export const franchiseGallery = () =>
-  Array.from({ length: content.franchise.gallery.count }, (_, i) =>
-    img(`${content.franchise.gallery.dir}/khai-truong-${String(i + 1).padStart(2, "0")}.jpg`),
-  );
+/** Ảnh khai trương khai-truong-01..N — số lớn là cơ sở mới nhất, nên xếp mới nhất lên trước */
+export const franchiseGallery = () => {
+  const { count, dir } = content.franchise.gallery;
+  return Array.from({ length: count }, (_, i) => img(`${dir}/khai-truong-${String(count - i).padStart(2, "0")}.jpg`));
+};

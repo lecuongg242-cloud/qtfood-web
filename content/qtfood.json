@@ -18,6 +18,11 @@
         "number": "0981787992",
         "display": "0981.787.992",
         "contact": "Anh Quang"
+      },
+      {
+        "number": "0965629699",
+        "display": "0965.629.699",
+        "contact": "Ông Tĩnh"
       }
     ],
     "social": {
@@ -74,6 +79,10 @@
         "image": "products/nem-ngua-mam.jpg"
       }
     ],
+    "tiktokVideos": [
+      "7682651507317034258",
+      "7659272404094487829"
+    ],
     "commitments": [
       {
         "title": "100%",
@@ -127,9 +136,9 @@
     }
   ],
   "about": {
-    "intro": "Công ty TNHH QT Fresh Food (Thương hiệu QT FOOD) tự hào là một trong những đơn vị tiên phong trong lĩnh vực cung cấp, chế biến và phân phối các sản phẩm đặc sản từ thịt ngựa tươi. Với tâm huyết mang đến cho thực khách Việt những trải nghiệm ẩm thực độc đáo, bổ dưỡng và đậm đà bản sắc, QT FOOD luôn đặt chất lượng sản phẩm và vệ sinh an toàn thực phẩm lên hàng đầu trong suốt quá trình hoạt động.",
+    "intro": "Công ty TNHH QT Fresh Food (Thương hiệu QT FOOD) tự hào là một đơn vị tiên phong trong lĩnh vực chăn nuôi, cung cấp, chế biến và phân phối các sản phẩm đặc sản từ thịt ngựa tươi. Với mong muốn mang đến cho thực khách trên mọi miền đất Việt những trải nghiệm ẩm thực độc đáo, bổ dưỡng và đậm đà bản sắc, QT FOOD luôn đề cao chất lượng sản phẩm và vệ sinh an toàn thực phẩm lên hàng đầu trong suốt quá trình hoạt động của mình.",
     "teamPhoto": "about/doi-ngu-qtfood.jpg",
-    "landscape": "about/ruong-bac-thang-vung-cao.jpg",
+    "landscape": "about/dan-ngua-tren-doi.jpg",
     "businessLines": {
       "title": "Sản phẩm tiêu biểu",
       "intro": "Từ nguồn nguyên liệu thịt ngựa tươi sạch, được tuyển chọn kỹ lưỡng, QT FOOD mang đến hệ sinh thái ẩm thực phong phú, đáp ứng đa dạng nhu cầu thưởng thức của khách hàng:",
@@ -384,11 +393,11 @@
       "category": "che-bien-san",
       "name": "Nem Riềng",
       "headline": "Nem Riềng QT Food",
-      "summary": "Nem Riềng QT FOOD là sự kết hợp đột phá mang đậm hương vị truyền thống, được chế biến đặc biệt từ 100% thịt ngựa tươi sạch thượng hạng. Sự hòa quyện tuyệt vời giữa độ mềm ngọt của thịt ngựa, bì thái sợi giòn sần sật và hương thơm nồng ấm đặc trưng của củ riềng tươi xay nhuyễn tạo nên một món ăn cực kỳ đưa miệng. Đậm đà, bùng nổ vị giác và dồi dào dinh dưỡng, đây chắc chắn là món đặc sản vạn người mê mà bạn không thể bỏ lỡ.",
+      "summary": "Nem Riềng QT FOOD là sự kết hợp đột phá mang đậm hương vị truyền thống, được chế biến đặc biệt từ 100% thịt lợn đen thượng hạng. Sự hòa quyện tuyệt vời giữa độ mềm ngọt của thịt lợn đen, bì thái sợi giòn sần sật và hương thơm nồng ấm đặc trưng của củ riềng tươi xay nhuyễn tạo nên một món ăn cực kỳ đưa miệng. Đậm đà, bùng nổ vị giác và dồi dào dinh dưỡng, đây chắc chắn là món đặc sản vạn người mê mà bạn không thể bỏ lỡ.",
       "body": [
         {
           "type": "p",
-          "text": "Nem Riềng QT FOOD là sự kết hợp hoàn hảo giữa thịt ngựa tươi sạch, bì thái sợi giòn sần sật và hương vị nồng ấm đặc trưng của củ riềng tươi xay nhuyễn. Sản phẩm đúng chuẩn tiêu chí \"không chỉ thơm ngon mà còn bổ dưỡng\"."
+          "text": "Nem Riềng QT FOOD là sự kết hợp hoàn hảo giữa thịt lợn đen sạch, bì thái sợi giòn sần sật và hương vị nồng ấm đặc trưng của củ riềng tươi xay nhuyễn. Sản phẩm đúng chuẩn tiêu chí \"không chỉ thơm ngon mà còn bổ dưỡng\"."
         }
       ],
       "specs": {
@@ -506,8 +515,8 @@
     ],
     "gallery": {
       "dir": "franchise",
-      "count": 26,
-      "pattern": "khai-truong-{01..26}.jpg",
+      "count": 34,
+      "pattern": "khai-truong-{01..34}.jpg",
       "caption": "Khai trương các cơ sở nhượng quyền QT FOOD"
     },
     "process": [

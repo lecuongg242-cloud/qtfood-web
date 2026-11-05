@@ -64,6 +64,8 @@ export type SiteContent = {
   home: {
     banner: string;
     featured: { product: string; title: string; text: string; image: string }[];
+    /** ID video TikTok nổi bật (số cuối trong link tiktok.com/@kenh/video/<id>) */
+    tiktokVideos?: string[];
     commitments: Commitment[];
   };
   about: {

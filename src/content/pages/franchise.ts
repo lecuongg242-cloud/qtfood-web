@@ -5,6 +5,12 @@ import { certificationsBlock } from "./shared";
 import { PROVINCES } from "@/lib/provinces";
 
 const { franchise, franchisePolicy, forms } = content;
+
+const FRANCHISE_HOTLINE = "0965629699";
+const franchiseHotlines = (all: SiteData["company"]["hotlines"]) => {
+  const own = all.filter((h) => h.number === FRANCHISE_HOTLINE);
+  return own.length ? own : all;
+};
 const [whySection, supportSection, responsibilitySection, startSection] = franchisePolicy.sections;
 
 /** Trang Nhượng quyền — `company`, `certification`: dữ liệu chung từ admin */
@@ -113,7 +119,8 @@ export const franchiseBlocks = ({ company, certification, stats }: SiteData): Bl
       title: "Nhận *hồ sơ nhượng quyền*",
       description: startSection.intro ?? "",
       points: ["Nhận bảng hồ sơ nhượng quyền chi tiết", "Tư vấn trực tiếp từ ban giám đốc", "Khảo sát, tư vấn chọn mặt bằng phù hợp"],
-      hotlines: company.hotlines,
+      // Tư vấn nhượng quyền: số ông Tĩnh (theo feedback khách); xoá số này trong admin thì dùng các số chung
+      hotlines: franchiseHotlines(company.hotlines),
       zalo: company.social.zalo[0].url,
       provinces: [...PROVINCES],
       budgets: forms.budgets,

@@ -30,7 +30,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
       stats: [
         { value: stats.stores, suffix: "+", label: "cơ sở nhượng quyền" },
         { value: 100, suffix: "%", label: "thịt ngựa tươi sạch" },
-        { value: stats.products, suffix: "", label: "đặc sản từ thịt ngựa" },
+        { value: stats.products, suffix: "", label: "món đặc sản" },
       ],
     },
   },
@@ -138,6 +138,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
       title: "Câu chuyện *QT FOOD*",
       posts,
       cta: { label: "Xem tất cả tin tức", href: "/tin-tuc" },
+      videos: { ids: home.tiktokVideos ?? [], channel: company.social.tiktok },
     },
   },
   {
