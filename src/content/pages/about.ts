@@ -14,7 +14,7 @@ export const aboutBlocks = ({ company, certification, stats }: SiteData): Block[
       eyebrow: "Về QT FOOD",
       title: "Tinh hoa thực phẩm, *vươn tầm sức khoẻ*",
       description:
-        "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản vùng đất Tổ vươn xa — QT FOOD cung cấp, chế biến và phân phối đặc sản từ thịt ngựa tươi, đồng thời là thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa.",
+        "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản núi rừng Tây Bắc vươn xa — QT FOOD cung cấp, chế biến và phân phối đặc sản từ thịt ngựa tươi, đồng thời là thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa.",
       image: { src: img(about.landscape), alt: "Ruộng bậc thang vùng cao" },
       stats: [
         { value: stats.stores, suffix: "+", label: "cơ sở nhượng quyền" },

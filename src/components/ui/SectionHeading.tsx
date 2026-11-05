@@ -14,11 +14,11 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
   return (
     <p
       className={clsx(
-        "inline-flex items-center gap-2.5 text-[0.8rem] font-bold uppercase tracking-[0.18em] text-accent",
+        "inline-flex items-center gap-3 text-[0.9rem] font-extrabold uppercase tracking-[0.16em] text-accent sm:text-base",
         className,
       )}
     >
-      <HorseMark className="h-3.5 w-auto" />
+      <HorseMark className="h-5 w-auto sm:h-6" />
       {children}
     </p>
   );

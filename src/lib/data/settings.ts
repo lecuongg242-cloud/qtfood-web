@@ -50,6 +50,6 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
     nav: nav.length ? nav : defaultNav,
     primaryCta: { label: pick(s.primaryCta?.label, defaultCta.label), href: pick(s.primaryCta?.href, defaultCta.href) },
     mainHotline: company.hotlines[0],
-    storeCount: s.storeCount && s.storeCount > 0 ? s.storeCount : 50,
+    storeCount: s.storeCount && s.storeCount > 0 ? s.storeCount : 60,
   };
 });

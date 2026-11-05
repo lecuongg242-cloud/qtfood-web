@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { Container, Section, type Tone } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { Rich } from "@/components/ui/Rich";
 import { Check } from "@/components/ui/icons";
+import { FranchiseMarquee } from "./FranchiseMarquee";
 
 export type FranchiseTeaserProps = {
   tone?: Tone;
@@ -28,9 +28,6 @@ export function FranchiseTeaser({
   primary,
   secondary,
 }: FranchiseTeaserProps) {
-  const half = Math.ceil(gallery.length / 2);
-  const rows = [gallery.slice(0, half), gallery.slice(half)];
-
   return (
     <Section tone={tone} className="overflow-hidden py-24 lg:py-32">
       <Container className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
@@ -78,33 +75,8 @@ export function FranchiseTeaser({
         </ul>
       </Container>
 
-      {/* Dải ảnh khai trương: 2 hàng cùng chiều, cùng tốc độ, hàng dưới lệch nửa ảnh */}
-      <div className="marquee-wrap mt-20 space-y-4" aria-label="Ảnh khai trương các cơ sở nhượng quyền">
-        {rows.map((row, r) => (
-          <div key={r} className="overflow-hidden">
-            <div
-              className="marquee gap-4 pr-4"
-              style={{ ["--marquee-duration" as string]: "120s", animationDelay: r === 1 ? "-4.6s" : undefined }}
-            >
-              {[...row, ...row].map((src, i) => (
-                <div
-                  key={`${src}-${i}`}
-                  className="relative h-56 w-44 shrink-0 overflow-hidden rounded-2xl bg-card sm:h-72 sm:w-56"
-                >
-                  <Image
-                    src={src}
-                    alt={i < row.length ? "Khai trương cơ sở nhượng quyền QT FOOD" : ""}
-                    fill
-                    loading="eager"
-                    sizes="224px"
-                    className="object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Dải ảnh khai trương: 2 hàng cùng chiều, cùng tốc độ, hàng dưới lệch nửa ảnh; bấm để xem */}
+      <FranchiseMarquee gallery={gallery} />
     </Section>
   );
 }

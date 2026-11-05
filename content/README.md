@@ -41,5 +41,5 @@ content/
 
 ## Cần xác nhận
 - **Giò ngựa:** mục "Nguyên liệu chuẩn" nhắc "viên mọc" (nghi copy từ Mọc ngựa); giá `320.000đ/kg` nhưng KLT `250g`.
-- **Nem riềng:** chỉ có ảnh gói hàng số lượng lớn, chưa có ảnh thành phẩm.
+- ~~**Nem riềng:** chưa có ảnh thành phẩm~~ → đã bổ sung `nem-rieng-goi.jpg` (2026-11-05, ảnh khách gửi qua Drive).
 - Ảnh khai trương chưa gắn tên cơ sở / địa điểm (chưa cần — hiển thị chung "trên 50 cơ sở").

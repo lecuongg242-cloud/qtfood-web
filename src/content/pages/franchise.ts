@@ -35,8 +35,28 @@ export const franchiseBlocks = ({ company, certification, stats }: SiteData): Bl
       eyebrow: "Vì sao chọn QT FOOD",
       title: "Mảng ngách *đầy tiềm năng*, nguồn cung ổn định",
       description: "Lẩu ngựa nổi bật giữa thị trường lẩu phổ thông — và QT FOOD giải quyết bài toán khó nhất của kinh doanh đặc sản: nguồn nguyên liệu.",
-      items: whySection.items ?? [],
-      image: { src: img("products/lau-ngua-1.jpg"), alt: "Lẩu ngựa QT FOOD" },
+      // Rút ý chính từ franchisePolicy (bản đầy đủ ở trang Chính sách nhượng quyền)
+      items: [
+        {
+          title: whySection.items?.[0]?.title ?? "Sản phẩm cốt lõi khác biệt – Mảng \"ngách\" đầy tiềm năng",
+          points: [
+            "Nổi bật giữa thị trường lẩu phổ thông (lẩu bò, lẩu thái, lẩu hải sản…)",
+            "Thịt ngựa thơm ngon, giàu giá trị dinh dưỡng",
+            "Món mới lạ thu hút khách tò mò, dễ trở thành khách quen",
+            "Ít đối thủ, tránh cạnh tranh gay gắt",
+          ],
+        },
+        {
+          title: whySection.items?.[1]?.title ?? "Nguồn nguyên liệu ổn định, đạt chuẩn",
+          points: [
+            "Giải quyết bài toán nguồn cung — khó khăn lớn nhất khi kinh doanh đặc sản",
+            "Cung cấp trực tiếp nguyên liệu độc quyền: thịt ngựa tươi loại 1, mọc ngựa, cốt lẩu gia truyền…",
+            "Giá chiết khấu ưu đãi cho đối tác",
+            "Chất lượng đồng đều trên toàn hệ thống",
+          ],
+        },
+      ],
+      image: { src: img("products/lau-ngua-mam-1.jpg"), alt: "Mâm lẩu ngựa QT FOOD" },
     },
   },
   {

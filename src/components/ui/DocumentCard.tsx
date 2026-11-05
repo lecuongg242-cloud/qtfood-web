@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
-import { Close, ZoomIn } from "./icons";
+import { ArrowUpRight, Close, ZoomIn, ZoomOut } from "./icons";
 import { pauseScroll, resumeScroll } from "@/components/motion/lenis";
 
 type Props = {
@@ -14,9 +14,14 @@ type Props = {
   tilt?: "left" | "right";
 };
 
-/** Văn bản / giấy chứng nhận: thẻ giấy nghiêng nhẹ, bấm để phóng to trong <dialog>. */
+/**
+ * Văn bản / giấy chứng nhận: thẻ giấy nghiêng nhẹ, bấm để xem toàn màn hình trong <dialog>.
+ * Điện thoại: ảnh rộng hết màn hình, cuộn dọc để đọc; nút phóng to (gấp đôi, kéo ngang) và mở ảnh gốc.
+ */
 export function DocumentCard({ src, title, width, height, tilt = "left" }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const [zoomed, setZoomed] = useState(false);
+  const close = () => dialog.current?.close();
 
   return (
     <figure className="group">
@@ -46,27 +51,67 @@ export function DocumentCard({ src, title, width, height, tilt = "left" }: Props
       <dialog
         ref={dialog}
         aria-label={title}
-        onClose={resumeScroll}
-        onClick={(e) => e.target === dialog.current && dialog.current.close()}
-        className="doc-dialog m-auto max-h-[94vh] max-w-[94vw] overflow-visible bg-transparent p-0 backdrop:bg-[#0c1a0c]/75 backdrop:backdrop-blur-sm"
+        onClose={() => {
+          setZoomed(false);
+          resumeScroll();
+        }}
+        className="doc-dialog m-0 h-[100dvh] max-h-none w-screen max-w-none overflow-hidden bg-transparent p-0 backdrop:bg-[#0c1a0c]/85 backdrop:backdrop-blur-sm"
       >
-        <Image
-          src={src}
-          alt={title}
-          width={width}
-          height={height}
-          sizes="94vw"
-          quality={85}
-          className="h-auto max-h-[90vh] w-auto rounded-lg shadow-2xl"
-        />
+        {/* Vùng cuộn riêng (Lenis đang tạm dừng) — bấm ra ngoài ảnh để đóng */}
+        <div
+          data-lenis-prevent
+          className="h-full w-full overflow-auto overscroll-contain"
+          onClick={(e) => e.target === e.currentTarget && close()}
+        >
+          <div
+            className={clsx("flex min-h-full items-center px-3 pb-24 pt-20 sm:px-10 sm:pb-24 sm:pt-16", !zoomed && "justify-center")}
+            onClick={(e) => e.target === e.currentTarget && close()}
+          >
+            <Image
+              src={src}
+              alt={title}
+              width={width}
+              height={height}
+              sizes={zoomed ? "200vw" : "(min-width: 640px) 60vw, 100vw"}
+              quality={90}
+              onClick={() => setZoomed((z) => !z)}
+              className={clsx(
+                "h-auto max-w-none shrink-0 rounded-lg bg-white shadow-2xl",
+                zoomed
+                  ? "w-[200%] cursor-zoom-out sm:w-[min(160vw,2400px)]"
+                  : "w-full cursor-zoom-in sm:max-h-[calc(100dvh-10rem)] sm:w-auto sm:max-w-full",
+              )}
+            />
+          </div>
+        </div>
+
         <button
           type="button"
-          onClick={() => dialog.current?.close()}
+          onClick={close}
           aria-label="Đóng"
-          className="absolute -right-3 -top-3 grid h-11 w-11 place-items-center rounded-full bg-white text-[#10240f] shadow-lg transition-transform hover:rotate-90"
+          className="fixed right-4 top-4 grid h-12 w-12 place-items-center rounded-full bg-white text-[#10240f] shadow-lg transition-transform hover:rotate-90"
         >
           <Close className="h-5 w-5" />
         </button>
+        <div className="fixed bottom-5 left-1/2 flex -translate-x-1/2 gap-2">
+          <button
+            type="button"
+            onClick={() => setZoomed((z) => !z)}
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-sm font-bold text-[#10240f] shadow-lg"
+          >
+            {zoomed ? <ZoomOut className="h-4 w-4" /> : <ZoomIn className="h-4 w-4" />}
+            {zoomed ? "Thu nhỏ" : "Phóng to"}
+          </button>
+          <a
+            href={src}
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white/90 px-4 py-2.5 text-sm font-bold text-[#10240f] shadow-lg"
+          >
+            Mở ảnh gốc
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
       </dialog>
     </figure>
   );
