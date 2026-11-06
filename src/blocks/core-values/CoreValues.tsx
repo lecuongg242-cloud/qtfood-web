@@ -15,21 +15,21 @@ export function CoreValues({ tone = "base", eyebrow, statement, items }: CoreVal
   const words = items.map((v) => v.key);
   return (
     <Section tone={tone} className="overflow-hidden py-24 lg:py-32">
-      {/* 4 chữ vàng: chữ đặc màu thương hiệu, hiện đủ cả 4 chữ ngay trong khung nhìn */}
+      {/* 3 chữ vàng: chữ đặc màu thương hiệu, hiện đủ các chữ ngay trong khung nhìn */}
       <Container>
         <div className="border-y border-line py-8 lg:py-10">
-          {/* Điện thoại: lưới 2×2; từ sm: một hàng dàn đều; ngựa ngăn cách từ lg */}
-          <ul className="grid grid-cols-2 gap-y-6 sm:flex sm:items-center sm:justify-between">
+          {/* Một hàng dàn đều ở mọi cỡ màn hình; ngựa ngăn cách từ sm */}
+          <ul className="flex items-center justify-between gap-2 sm:justify-center sm:gap-[5vw]">
             {words.map((w, i) => (
               <Fragment key={w}>
                 {i > 0 && (
-                  <li aria-hidden className="hidden lg:block">
-                    <HorseMark className="h-[clamp(1rem,1.6vw,1.75rem)] w-auto text-[#ed1c24]/80" />
+                  <li aria-hidden className="hidden sm:block">
+                    <HorseMark className="h-[clamp(1rem,1.8vw,2rem)] w-auto text-[#ed1c24]/80" />
                   </li>
                 )}
                 <li
                   data-reveal
-                  className="text-center text-[15vw] font-extrabold uppercase leading-none tracking-[-0.04em] text-accent sm:text-[clamp(2.5rem,6.5vw,6rem)] lg:text-[clamp(3rem,6vw,6rem)]"
+                  className="text-center text-[11vw] font-extrabold uppercase leading-none tracking-[-0.04em] text-accent sm:text-[clamp(2.5rem,7vw,6.5rem)]"
                 >
                   {w}
                 </li>
@@ -54,7 +54,7 @@ export function CoreValues({ tone = "base", eyebrow, statement, items }: CoreVal
           </div>
           <div className="grid gap-px overflow-hidden rounded-[1.5rem] bg-[var(--line)] sm:grid-cols-2">
             {items.map((v) => (
-              <article key={v.key} data-reveal className="group bg-bg p-7 transition-colors duration-500 hover:bg-card">
+              <article key={v.key} data-reveal className="group bg-bg p-7 sm:odd:last:col-span-2 transition-colors duration-500 hover:bg-card">
                 <p className="flex items-baseline gap-3">
                   <span className="text-4xl font-extrabold uppercase tracking-tight text-accent">{v.key}</span>
                   <span className="text-sm font-semibold uppercase tracking-[0.14em] text-muted">{v.meaning}</span>

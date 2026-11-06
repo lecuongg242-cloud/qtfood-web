@@ -20,17 +20,17 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
     props: {
       title: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc",
       image: {
-        src: img("brand/cover-qt-food-ngua.jpg"),
+        src: img("brand/cover-qt-food-ngua-2.jpg"),
         alt: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc: Lẩu ngựa, Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa",
-        width: 10667,
-        height: 3780,
+        width: 2560,
+        height: 1440,
       },
       primary: { label: "Đăng ký nhượng quyền", href: "/nhuong-quyen" },
       secondary: { label: "Khám phá sản phẩm", href: "/san-pham" },
       stats: [
-        { value: stats.stores, suffix: "+", label: "cơ sở nhượng quyền" },
         { value: 100, suffix: "%", label: "thịt ngựa tươi sạch" },
         { value: stats.products, suffix: "", label: "món đặc sản" },
+        { value: 3, suffix: "", label: "mảng kinh doanh" },
       ],
     },
   },
@@ -40,7 +40,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
       eyebrow: "Sản phẩm nổi bật",
       title: "Hương vị *đặc sản* làm nên thương hiệu",
       description:
-        `Những món làm nên tên tuổi QT FOOD — phục vụ tại hơn ${stats.stores} cơ sở nhượng quyền và đóng gói mang về cho mọi gia đình.`,
+        `Những món làm nên tên tuổi QT FOOD — phục vụ tại nhiều cơ sở nhượng quyền trên toàn quốc và đóng gói mang về cho mọi gia đình.`,
       // Sản phẩm bật "Nổi bật ở trang chủ" (tối đa 3); món gốc dùng đoạn giới thiệu & ảnh đã biên tập trong qtfood.json
       items: products
         .filter((p) => p.featured)
@@ -112,7 +112,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
     props: {
       tone: "alt",
       eyebrow: "Giá trị cốt lõi",
-      statement: "Xây dựng QT FOOD trên *4 chữ vàng* — Tín, Tâm, Tinh, Tiến.",
+      statement: "Xây dựng QT FOOD trên *3 chữ vàng* — Tín, Tâm, Tiến.",
       items: about.coreValues.items,
     },
   },
@@ -120,8 +120,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
     type: "franchiseTeaser",
     props: {
       eyebrow: "Nhượng quyền thương hiệu",
-      stat: { value: stats.stores, suffix: "+", label: "cơ sở" },
-      title: "cơ sở nhượng quyền — *kết nối đam mê*, bứt phá thành công",
+      title: "Hệ thống nhượng quyền *trên toàn quốc* — kết nối đam mê, bứt phá thành công",
       intro:
         "Mô hình Lẩu ngựa – Phở ngựa đã được kiểm chứng trên khắp các tỉnh thành. QT FOOD đồng hành cùng đối tác từ chọn mặt bằng, đào tạo, nguồn nguyên liệu đến marketing.",
       benefits,

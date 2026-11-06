@@ -8,7 +8,8 @@ import { FranchiseMarquee } from "./FranchiseMarquee";
 export type FranchiseTeaserProps = {
   tone?: Tone;
   eyebrow: string;
-  stat: { value: number; suffix: string; label: string };
+  /** Số lớn phía trên tiêu đề — bỏ trống thì tiêu đề tự to hơn */
+  stat?: { value: number; suffix: string; label: string };
   title: string;
   intro: string;
   benefits: { title: string; text: string }[];
@@ -35,15 +36,19 @@ export function FranchiseTeaser({
           <div data-reveal>
             <Eyebrow>{eyebrow}</Eyebrow>
           </div>
-          <p data-reveal className="mt-6 flex items-start gap-2 leading-none">
-            <span className="text-[clamp(6rem,15vw,11rem)] font-extrabold tracking-[-0.06em] text-accent">
-              <span data-count={stat.value}>{stat.value}</span>
-              <span className="align-top text-[0.5em]">{stat.suffix}</span>
-            </span>
-          </p>
+          {stat && (
+            <p data-reveal className="mt-6 flex items-start gap-2 leading-none">
+              <span className="text-[clamp(6rem,15vw,11rem)] font-extrabold tracking-[-0.06em] text-accent">
+                <span data-count={stat.value}>{stat.value}</span>
+                <span className="align-top text-[0.5em]">{stat.suffix}</span>
+              </span>
+            </p>
+          )}
           <h2
             data-split
-            className="rich mt-2 text-[clamp(1.8rem,3.4vw,2.8rem)] font-extrabold leading-[1.18] tracking-[-0.02em] text-balance"
+            className={`rich font-extrabold tracking-[-0.02em] text-balance ${
+              stat ? "mt-2 text-[clamp(1.8rem,3.4vw,2.8rem)] leading-[1.18]" : "mt-6 text-[clamp(2rem,3.8vw,3.1rem)] leading-[1.12]"
+            }`}
           >
             <Rich text={title} />
           </h2>

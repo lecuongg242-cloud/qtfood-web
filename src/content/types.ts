@@ -89,7 +89,6 @@ export type SiteContent = {
   products: Product[];
   franchise: {
     title: string;
-    stats: { value: number; suffix: string; label: string }[];
     intro: string;
     sections: { title: string; paragraphs: string[]; items?: { title: string; text: string }[] }[];
     process: { title: string; text: string }[];
@@ -126,6 +125,6 @@ export type CertificationView = {
 export type SiteData = {
   company: Company;
   certification: CertificationView | null;
-  /** Số liệu hiển thị: số cơ sở nhượng quyền (admin nhập), số sản phẩm (đếm trong CMS) */
-  stats: { stores: number; products: number };
+  /** Số liệu hiển thị: số sản phẩm (đếm trong CMS). Không hiển thị số lượng cơ sở (theo feedback khách) */
+  stats: { products: number };
 };

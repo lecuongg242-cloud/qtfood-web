@@ -43,9 +43,12 @@ export function AboutTeaser({ tone = "base", eyebrow, title, intro, image, image
 
         <div>
           <SectionHeading eyebrow={eyebrow} title={title} />
-          <p data-reveal className="mt-6 text-lg leading-relaxed text-muted text-pretty">
-            {intro}
-          </p>
+          {/* Đoạn giới thiệu có thể gồm nhiều đoạn, ngăn cách bằng dòng trống */}
+          {intro.split(/\n\s*\n/).map((para, i) => (
+            <p key={i} data-reveal className={`${i ? "mt-4" : "mt-6"} text-lg leading-relaxed text-muted text-pretty`}>
+              {para}
+            </p>
+          ))}
           <ol className="mt-10 space-y-0 border-t border-line">
             {lines.map((line, i) => (
               <li

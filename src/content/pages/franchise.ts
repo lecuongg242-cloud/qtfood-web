@@ -7,14 +7,15 @@ import { PROVINCES } from "@/lib/provinces";
 const { franchise, franchisePolicy, forms } = content;
 
 const FRANCHISE_HOTLINE = "0965629699";
-const franchiseHotlines = (all: SiteData["company"]["hotlines"]) => {
-  const own = all.filter((h) => h.number === FRANCHISE_HOTLINE);
-  return own.length ? own : all;
-};
+/** Số ông Tĩnh lên đầu (form dùng số đầu tiên), vẫn giữ các số còn lại (anh Quang) */
+const franchiseHotlines = (all: SiteData["company"]["hotlines"]) => [
+  ...all.filter((h) => h.number === FRANCHISE_HOTLINE),
+  ...all.filter((h) => h.number !== FRANCHISE_HOTLINE),
+];
 const [whySection, supportSection, responsibilitySection, startSection] = franchisePolicy.sections;
 
 /** Trang Nhượng quyền — `company`, `certification`: dữ liệu chung từ admin */
-export const franchiseBlocks = ({ company, certification, stats }: SiteData): Block[] => [
+export const franchiseBlocks = ({ company, certification }: SiteData): Block[] => [
   {
     type: "pageHero",
     props: {
@@ -22,12 +23,11 @@ export const franchiseBlocks = ({ company, certification, stats }: SiteData): Bl
       eyebrow: "Nhượng quyền thương hiệu",
       title: "Nhượng quyền *Lẩu ngựa & Phở ngựa* cùng QT FOOD",
       description:
-        `Mô hình đã được kiểm chứng qua hơn ${stats.stores} cơ sở trên khắp các tỉnh thành. QT FOOD đồng hành cùng đối tác từ khảo sát mặt bằng, đào tạo, nguồn nguyên liệu đến marketing.`,
+        "Mô hình đã được kiểm chứng qua nhiều cơ sở trên toàn quốc. QT FOOD đồng hành cùng đối tác từ khảo sát mặt bằng, đào tạo, nguồn nguyên liệu đến marketing.",
       image: { src: img("franchise/khai-truong-01.jpg"), alt: "Khai trương cơ sở nhượng quyền QT FOOD" },
       primary: { label: "Nhận hồ sơ nhượng quyền", href: "#dang-ky" },
       secondary: { label: "Xem chính sách", href: "/nhuong-quyen/chinh-sach" },
       stats: [
-        { value: stats.stores, suffix: "+", label: "cơ sở nhượng quyền" },
         { value: 100, suffix: "%", label: "nguyên liệu, gia vị do công ty cung cấp" },
         { value: franchise.process.length, suffix: " bước", label: "đồng hành từ đầu đến khai trương" },
       ],
@@ -90,7 +90,7 @@ export const franchiseBlocks = ({ company, certification, stats }: SiteData): Bl
     props: {
       tone: "alt",
       eyebrow: "Hệ thống cơ sở",
-      title: `Hơn *${stats.stores} cơ sở* đã khai trương`,
+      title: "Các cơ sở *đã khai trương* trên toàn quốc",
       description: "Những buổi khai trương rộn ràng trên khắp các tỉnh thành — minh chứng rõ nét nhất cho sức hút của mô hình.",
       images: franchiseGallery().map((src) => ({ src, alt: "Khai trương cơ sở nhượng quyền QT FOOD" })),
       initial: 12,
@@ -119,7 +119,7 @@ export const franchiseBlocks = ({ company, certification, stats }: SiteData): Bl
       title: "Nhận *hồ sơ nhượng quyền*",
       description: startSection.intro ?? "",
       points: ["Nhận bảng hồ sơ nhượng quyền chi tiết", "Tư vấn trực tiếp từ ban giám đốc", "Khảo sát, tư vấn chọn mặt bằng phù hợp"],
-      // Tư vấn nhượng quyền: số ông Tĩnh (theo feedback khách); xoá số này trong admin thì dùng các số chung
+      // Tư vấn nhượng quyền: số ông Tĩnh trước, sau đó số anh Quang (theo feedback khách)
       hotlines: franchiseHotlines(company.hotlines),
       zalo: company.social.zalo[0].url,
       provinces: [...PROVINCES],

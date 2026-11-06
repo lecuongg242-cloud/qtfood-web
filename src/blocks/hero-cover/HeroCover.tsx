@@ -17,17 +17,29 @@ export function HeroCover(p: HeroCoverProps) {
     <Section tone="hero" data-hero className="overflow-hidden pt-[76px] sm:pt-[84px]">
       <h1 className="sr-only">{p.title}</h1>
 
-      {/* Ảnh hiện trọn theo đúng tỉ lệ gốc, phủ hết chiều ngang */}
-      <Image
-        src={p.image.src}
-        alt={p.image.alt}
-        width={p.image.width}
-        height={p.image.height}
-        preload
-        quality={85}
-        sizes="100vw"
-        className="block h-auto w-full"
-      />
+      {/* Ảnh hiện trọn theo đúng tỉ lệ gốc (không cắt chữ). Máy tính: giới hạn chiều cao để dải nút + số liệu
+          vẫn nằm trong màn hình đầu tiên; phần trống hai bên lấp bằng chính ảnh làm mờ. */}
+      <div className="relative isolate overflow-hidden">
+        <Image
+          src={p.image.src}
+          alt=""
+          aria-hidden
+          fill
+          quality={30}
+          sizes="40vw"
+          className="-z-10 hidden scale-110 object-cover blur-2xl saturate-125 lg:block"
+        />
+        <Image
+          src={p.image.src}
+          alt={p.image.alt}
+          width={p.image.width}
+          height={p.image.height}
+          preload
+          quality={85}
+          sizes="100vw"
+          className="mx-auto block h-auto w-full lg:w-auto lg:max-h-[calc(100svh-84px-9rem)] lg:max-w-full lg:[mask-image:linear-gradient(to_right,transparent,black_3%,black_97%,transparent)]"
+        />
+      </div>
 
       <Container className="flex flex-col gap-8 py-8 lg:flex-row lg:items-center lg:justify-between lg:py-10">
         <div data-reveal className="flex flex-wrap gap-3">

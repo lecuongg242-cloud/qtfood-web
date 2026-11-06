@@ -34,14 +34,14 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { company, storeCount } = await getSiteSettings();
+  const { company } = await getSiteSettings();
   return {
     metadataBase: new URL(siteUrl()),
     title: {
       default: `${company.brand} – ${company.positioning}`,
       template: `%s | ${company.brand}`,
     },
-    description: `QT FOOD – đặc sản thịt ngựa tươi sạch, thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa với hơn ${storeCount} cơ sở. Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa – không chỉ thơm ngon mà còn bổ dưỡng.`,
+    description: `QT FOOD – đặc sản thịt ngựa tươi sạch, thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa với nhiều cơ sở trên toàn quốc. Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa – không chỉ thơm ngon mà còn bổ dưỡng.`,
     openGraph: {
       type: "website",
       locale: "vi_VN",

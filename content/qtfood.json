@@ -136,7 +136,7 @@
     }
   ],
   "about": {
-    "intro": "Công ty TNHH QT Fresh Food (Thương hiệu QT FOOD) tự hào là một đơn vị tiên phong trong lĩnh vực chăn nuôi, cung cấp, chế biến và phân phối các sản phẩm đặc sản từ thịt ngựa tươi. Với mong muốn mang đến cho thực khách trên mọi miền đất Việt những trải nghiệm ẩm thực độc đáo, bổ dưỡng và đậm đà bản sắc, QT FOOD luôn đề cao chất lượng sản phẩm và vệ sinh an toàn thực phẩm lên hàng đầu trong suốt quá trình hoạt động của mình.",
+    "intro": "Công ty TNHH QT Fresh Food (Thương hiệu QT FOOD) tự hào là một đơn vị tiên phong trong lĩnh vực chăn nuôi, cung cấp, chế biến và phân phối các sản phẩm đặc sản từ thịt ngựa tươi. Với mong muốn mang đến cho thực khách trên mọi miền đất Việt những trải nghiệm ẩm thực độc đáo, bổ dưỡng và đậm đà bản sắc, QT FOOD luôn đề cao chất lượng sản phẩm và vệ sinh an toàn thực phẩm lên hàng đầu trong suốt quá trình hoạt động của mình.\n\nQT FOOD sở hữu trang trại chăn nuôi ngựa riêng QT Farm tại Ba Vì, chủ động nguồn thịt ngựa tươi từ khâu chăn nuôi đến chế biến. Nhờ đó, nguồn cung luôn sẵn có và ổn định quanh năm, đáp ứng kịp thời nhu cầu của hệ thống cơ sở nhượng quyền cùng các nhà hàng, đối tác trên toàn quốc.",
     "teamPhoto": "about/doi-ngu-qtfood.jpg",
     "landscape": "about/dan-ngua-tren-doi.jpg",
     "businessLines": {
@@ -182,7 +182,7 @@
       }
     ],
     "coreValues": {
-      "intro": "Chúng tôi xây dựng và phát triển QT FOOD dựa trên 4 chữ vàng: TÍN – TÂM – TINH – TIẾN",
+      "intro": "Chúng tôi xây dựng và phát triển QT FOOD dựa trên 3 chữ vàng: TÍN – TÂM – TIẾN",
       "items": [
         {
           "key": "Tín",
@@ -193,11 +193,6 @@
           "key": "Tâm",
           "meaning": "Tận tâm",
           "text": "Làm việc bằng tất cả đam mê và trách nhiệm. Phục vụ khách hàng bằng sự tận tâm, hỗ trợ đối tác bằng sự chân thành."
-        },
-        {
-          "key": "Tinh",
-          "meaning": "Tinh hoa",
-          "text": "Chắt lọc những gì tinh túy nhất trong công thức chế biến độc quyền để tạo ra các sản phẩm mang hương vị vượt trội, không thể trộn lẫn."
         },
         {
           "key": "Tiến",
@@ -249,7 +244,7 @@
       "category": "mon-an",
       "name": "Phở Ngựa",
       "headline": "Phở Ngựa QT Fresh Food – Tinh hoa ẩm thực độc đáo",
-      "summary": "Phở Ngựa QT FOOD là sự giao thoa tinh tế giữa công thức nước dùng phở truyền thống và hương vị độc đáo, bổ dưỡng của đặc sản thịt ngựa tươi sạch. Đây là món ăn sáng hoặc bữa chính đầy năng lượng, đang làm nức lòng thực khách tại hệ thống chuỗi cửa hàng của chúng tôi.",
+      "summary": "Phở Ngựa QT FOOD – Đặc sản mang đậm hương vị núi rừng Tây Bắc, là sự hòa quyện tinh tế giữa nước dùng phở truyền thống, thịt ngựa tươi ngon cùng các loại gia vị đặc trưng vùng cao. Đặc biệt, nước chấm Mường Khương cay thơm, đậm đà tạo nên dấu ấn riêng biệt, mang đến trải nghiệm ẩm thực độc đáo, giàu dinh dưỡng và đầy hấp dẫn trong từng tô phở.",
       "body": [
         {
           "type": "p",
@@ -262,10 +257,10 @@
         {
           "type": "list",
           "items": [
-            "Thịt ngựa tươi ngon hảo hạng: Từng lát thịt ngựa được tuyển chọn kỹ lưỡng, thái mỏng vừa ăn và chần chín tới. Điều này giúp giữ nguyên độ mềm mại, vị ngọt thịt tự nhiên cùng hàm lượng dinh dưỡng cao, dồi dào protein và ít chất béo.",
-            "Nước dùng ngọt thanh, đậm đà: Nước cốt được ninh hầm cẩn thận trong nhiều giờ, mang đến vị ngọt thanh tao, thơm lừng đặc trưng, đánh thức mọi giác quan ngay từ thìa nước dùng đầu tiên.",
-            "Sự hòa quyện trọn vẹn: Tô phở được phục vụ vô cùng đầy đặn với ngập tràn hành lá xắt nhỏ. Đặc biệt, khi ăn kèm cùng đĩa rau thơm tươi mát (húng quế, mùi tàu) và những chiếc quẩy vàng ươm, giòn rụm, món ăn sẽ bùng nổ hương vị một cách hài hòa nhất.",
-            "Chất lượng từ thương hiệu uy tín: Kế thừa tiêu chuẩn khắt khe từ chuỗi thương hiệu QT Fresh Food, mỗi tô phở đều đảm bảo tiêu chí \"Tươi ngon - Sạch sẽ - An toàn\"."
+            "Hương vị Tây Bắc đặc trưng: Từng tô phở mang đậm tinh thần ẩm thực vùng cao với thịt ngựa tươi ngọt mềm, kết hợp cùng cách chế biến chuẩn vị, tạo nên hương thơm mộc mạc mà cuốn hút.",
+            "Nước dùng ngọt thanh, đậm sâu: Nước cốt được ninh kỹ nhiều giờ, cho vị thanh ngọt tự nhiên, thơm dịu và đậm đà, gợi rõ nét phong vị Tây Bắc trong từng thìa nước đầu tiên.",
+            "Nước chấm Mường Khương đặc biệt: Điểm nhấn riêng biệt của món ăn nằm ở chén nước chấm Mường Khương cay thơm, dậy vị, giúp tôn lên vị ngọt của thịt ngựa và làm trọn vẹn trải nghiệm thưởng thức.",
+            "Trọn vị khi ăn kèm: Khi dùng cùng rau thơm tươi, quẩy vàng giòn và các món ăn kèm, tô phở trở nên hài hòa, hấp dẫn và bùng nổ hương vị hơn."
           ]
         },
         {
@@ -276,7 +271,10 @@
       "images": [
         "products/pho-ngua-3.jpg",
         "products/pho-ngua-1.jpg",
-        "products/pho-ngua-2.jpg"
+        "products/pho-ngua-2.jpg",
+        "products/pho-ngua-4.jpg",
+        "products/pho-ngua-5.jpg",
+        "products/pho-ngua-6.jpg"
       ]
     },
     {
@@ -284,7 +282,7 @@
       "category": "mon-an",
       "name": "Lẩu Ngựa",
       "headline": "Lẩu Ngựa QT Food: Tuyệt phẩm đặc sản đậm đà hương vị vùng cao",
-      "summary": "Lẩu Ngựa QT FOOD là tuyệt phẩm ẩm thực mang đậm dấu ấn bản sắc, kết hợp hoàn hảo giữa nước cốt lẩu thảo mộc thanh ngọt và các phần thịt ngựa tươi sạch thượng hạng. Bồi bổ khí huyết và cực kỳ dồi dào dinh dưỡng, nồi lẩu nghi ngút khói đậm đà hương vị núi rừng này chính là lựa chọn hoàn hảo nhất cho những buổi tụ họp quây quần bên gia đình và bạn bè.",
+      "summary": "Lẩu Ngựa QT FOOD là tuyệt phẩm ẩm thực mang đậm chất Tây Bắc, kết hợp hoàn hảo giữa nước cốt lẩu thảo mộc tự nhiên thanh ngọt và các phần thịt ngựa tươi sạch thượng hạng. Bồi bổ khí huyết và cực kỳ dồi dào dinh dưỡng, nồi lẩu đậm đà hương vị núi rừng này chính là lựa chọn hoàn hảo nhất cho những buổi tụ họp quây quần bên gia đình và bạn bè.",
       "body": [
         {
           "type": "p",
@@ -296,7 +294,7 @@
         },
         {
           "type": "p",
-          "text": "Tại QT Food, chúng tôi không chỉ bán một món ăn, chúng tôi mang đến một trải nghiệm ẩm thực chất lượng cao. Nồi lẩu ngựa của chúng tôi chinh phục hàng ngàn thực khách nhờ 3 yếu tố cốt lõi:"
+          "text": "Tại QT Food, chúng tôi không chỉ bán một món ăn, chúng tôi mang đến một trải nghiệm ẩm thực đậm vị núi rừng Tây Bắc, với chất lượng cao. Nồi lẩu ngựa của chúng tôi chinh phục hàng ngàn thực khách nhờ 4 yếu tố cốt lõi:"
         },
         {
           "type": "h3",
@@ -304,7 +302,7 @@
         },
         {
           "type": "p",
-          "text": "100% thịt ngựa tại QT Food được tuyển chọn từ những nguồn cung cấp sạch, có nguồn gốc xuất xứ rõ ràng. Chúng tôi cam kết sử dụng thịt ngựa tươi mới mỗi ngày. Từng thớ thịt đỏ au, săn chắc, kết hợp cùng các phần nội tạng,... được làm sạch kỹ lưỡng, đảm bảo độ giòn ngon, ngọt thịt và không có mùi hôi."
+          "text": "100% thịt ngựa tại QT Food được tuyển chọn từ trang trại ngựa của chúng tôi tại QT Farm Ba Vì, có nguồn gốc xuất xứ rõ ràng. Chúng tôi cam kết sử dụng thịt ngựa tươi mới mỗi ngày để đảm bảo độ ngon, ngọt thịt và không có mùi hôi."
         },
         {
           "type": "h3",
@@ -312,7 +310,7 @@
         },
         {
           "type": "p",
-          "text": "Nước lẩu của QT Food có một màu sắc vô cùng bắt mắt. Đó là thành quả của quá trình ninh xương ngựa liên tục trong nhiều giờ. Kết hợp với các gia vị thảo mộc tự nhiên như quế, hồi, thảo quả, sả, ớt... nước dùng lẩu ngựa QT Food mang vị ngọt thanh của xương, cay nồng nhẹ nhàng và hương thơm ngây ngất khó quên."
+          "text": "Nước lẩu của QT Food là thành quả của quá trình ninh xương ngựa liên tục trong nhiều giờ. Kết hợp với các gia vị thảo mộc tự nhiên núi rừng như quế, hồi, thảo quả, sả, ớt... nước dùng lẩu ngựa QT Food mang vị ngọt thanh của xương, cay nồng nhẹ nhàng và hương thơm ngây ngất khó quên."
         },
         {
           "type": "h3",
@@ -320,11 +318,19 @@
         },
         {
           "type": "p",
-          "text": "Để món lẩu thêm phần trọn vẹn, QT Food luôn chuẩn bị những loại rau nhúng đặc trưng, tươi xanh nhất như: rau muống, bắp cải, cải đắng,... Vị đắng dịu của rau hòa quyện cùng vị ngọt béo của thịt ngựa tạo nên một bản giao hưởng bùng nổ trong khoang miệng."
+          "text": "Để món lẩu thêm trọn vị, QT Food chuẩn bị các loại rau nhúng tươi xanh như rau rừng, rau muống, bắp cải, cải đắng,... hòa quyện cùng vị ngọt tự nhiên của thịt ngựa. Đặc biệt, nước chấm Mường Khương cay thơm, đậm đà là điểm nhấn độc đáo, kết hợp cùng nước lẩu thảo mộc tạo nên hương vị Tây Bắc đặc trưng, hấp dẫn và khó quên."
+        },
+        {
+          "type": "h3",
+          "text": "Đội ngũ đầu bếp tận tâm – Gìn giữ hương vị đặc trưng"
+        },
+        {
+          "type": "p",
+          "text": "Đằng sau mỗi nồi lẩu ngựa thơm ngon là tâm huyết của đội ngũ đầu bếp QT Food. Với sự tỉ mỉ trong từng công đoạn chế biến, kết hợp cùng bí quyết gia vị đặc trưng Tây Bắc, các đầu bếp mang đến những nồi lẩu đậm đà, chuẩn vị và đồng nhất về chất lượng."
         },
         {
           "type": "h2",
-          "text": "2. Lẩu Ngựa – Không chỉ ngon mà còn vô cùng bổ dưỡng"
+          "text": "2. Ăn lẩu ngựa – Khỏe như ngựa"
         },
         {
           "type": "p",
@@ -358,7 +364,8 @@
       "images": [
         "products/lau-ngua-mam-1.jpg",
         "products/lau-ngua-mam-2.jpg",
-        "products/lau-ngua-mang-ve.jpg"
+        "products/lau-ngua-mang-ve.jpg",
+        "products/lau-ngua-nang-ly.jpg"
       ]
     },
     {
@@ -458,21 +465,13 @@
         "priceUnit": "túi"
       },
       "images": [
-        "products/moc-ngua-2.jpg",
-        "products/moc-ngua-1.jpg"
+        "products/moc-ngua-ro.jpg"
       ]
     }
   ],
   "franchise": {
-    "title": "QT FOOD kết nối đam mê – Bứt phá thành công với hệ thống trên 60 cơ sở nhượng quyền",
-    "stats": [
-      {
-        "value": 60,
-        "suffix": "+",
-        "label": "cơ sở nhượng quyền"
-      }
-    ],
-    "intro": "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản núi rừng Tây Bắc vươn xa, QT FOOD đã và đang khẳng định vị thế dẫn đầu trong lĩnh vực phân phối và chế biến các sản phẩm từ thịt ngựa tươi sạch. Cột mốc trên 60 cơ sở nhượng quyền trải dài khắp các tỉnh thành không chỉ là một con số ấn tượng, mà còn là minh chứng sống động cho uy tín thương hiệu và sự thành công của một mô hình kinh doanh F&B bền vững.",
+    "title": "QT FOOD kết nối đam mê – Bứt phá thành công với hệ thống cơ sở nhượng quyền trên toàn quốc",
+    "intro": "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản núi rừng Tây Bắc vươn xa, QT FOOD đã và đang khẳng định vị thế dẫn đầu trong lĩnh vực phân phối và chế biến các sản phẩm từ thịt ngựa tươi sạch. Hệ thống cơ sở nhượng quyền trải dài trên toàn quốc là minh chứng sống động cho uy tín thương hiệu và sự thành công của một mô hình kinh doanh F&B bền vững.",
     "sections": [
       {
         "title": "Thành công được nhân bản từ thực tế",
@@ -484,12 +483,12 @@
       {
         "title": "Đặc quyền khi trở thành đối tác của QT FOOD",
         "paragraphs": [
-          "Chúng tôi không chỉ trao cho bạn một thương hiệu, chúng tôi đồng hành cùng bạn xây dựng một cơ ngơi kinh doanh sinh lời bền vững. Khi gia nhập hệ thống trên 60 cơ sở của QT FOOD, đối tác sẽ được cam kết hỗ trợ toàn diện:"
+          "Chúng tôi không chỉ trao cho bạn một thương hiệu, chúng tôi đồng hành cùng bạn xây dựng một cơ ngơi kinh doanh sinh lời bền vững. Khi gia nhập hệ thống cơ sở trên toàn quốc của QT FOOD, đối tác sẽ được cam kết hỗ trợ toàn diện:"
         ],
         "items": [
           {
             "title": "Chuyển giao công thức độc quyền",
-            "text": "Nắm giữ bí quyết chế biến nước dùng Lẩu, Phở chuẩn vị và cách bảo quản thực phẩm tối ưu nhất."
+            "text": "Nắm giữ bí quyết chế biến nước dùng Lẩu, Phở chuẩn vị Tây Bắc và cách bảo quản thực phẩm tối ưu nhất."
           },
           {
             "title": "Nguồn nguyên liệu tận gốc",
@@ -508,7 +507,7 @@
       {
         "title": "Cùng QT FOOD kiến tạo tương lai",
         "paragraphs": [
-          "Thị trường ẩm thực đặc sản luôn là một \"mảnh đất vàng\" đầy tiềm năng. Với mô hình nhượng quyền đã được kiểm chứng qua hơn 60 cơ sở thành công, QT FOOD tự tin là đối tác chiến lược đáng tin cậy nhất của bạn.",
+          "Thị trường ẩm thực đặc sản luôn là một \"mảnh đất vàng\" đầy tiềm năng. Với mô hình nhượng quyền đã được kiểm chứng qua nhiều cơ sở thành công trên toàn quốc, QT FOOD tự tin là đối tác chiến lược đáng tin cậy nhất của bạn.",
           "Hãy để chúng tôi đồng hành cùng bạn trên hành trình mang những tinh hoa ẩm thực đích thực đến mọi miền Tổ quốc!"
         ]
       }

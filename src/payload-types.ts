@@ -936,9 +936,6 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface SiteSetting {
   id: number;
-  /**
-   * Hiện trên website dạng "50+" / "hơn 50 cơ sở" (trang chủ, nhượng quyền, hệ thống cơ sở…). Nhập số tròn, vd 50, 100, 200.
-   */
   storeCount?: number | null;
   legalName: string;
   brand: string;

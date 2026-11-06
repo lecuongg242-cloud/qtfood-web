@@ -36,9 +36,8 @@ export const SiteSettings: GlobalConfig = {
               label: "Số cơ sở nhượng quyền",
               min: 1,
               defaultValue: 50,
-              admin: {
-                description: "Hiện trên website dạng \"50+\" / \"hơn 50 cơ sở\" (trang chủ, nhượng quyền, hệ thống cơ sở…). Nhập số tròn, vd 50, 100, 200.",
-              },
+              // Website không còn hiển thị số lượng cơ sở (feedback khách 06/11) — ẩn ô này, giữ cột DB để không cần migration
+              admin: { hidden: true },
             },
             {
               type: "row",

@@ -7,6 +7,6 @@ import { getProducts } from "./products";
 
 /** Dữ liệu chung cho các trang dựng từ block (xem `SiteData`) */
 export const getSiteData = cache(async (): Promise<SiteData> => {
-  const [{ company, storeCount }, certification, products] = await Promise.all([getSiteSettings(), getCertification(), getProducts()]);
-  return { company, certification, stats: { stores: storeCount, products: products.length } };
+  const [{ company }, certification, products] = await Promise.all([getSiteSettings(), getCertification(), getProducts()]);
+  return { company, certification, stats: { products: products.length } };
 });

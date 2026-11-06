@@ -44,7 +44,7 @@ export function ProductGallery({ images, transitionName, badge }: { images: Prod
       </button>
 
       {images.length > 1 && (
-        <ul className="mt-4 grid grid-cols-5 gap-3">
+        <ul className={`mt-4 grid gap-3 ${images.length > 5 ? "grid-cols-6 gap-2 sm:gap-3" : "grid-cols-5"}`}>
           {images.map((image, i) => (
             <li key={image.src}>
               <button
