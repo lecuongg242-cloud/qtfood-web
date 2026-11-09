@@ -10,19 +10,29 @@ export type ContactCtaProps = {
   title: string;
   description: string;
   image: string;
+  imageAlt?: string;
+  /** object-position của ảnh trong khung (vd "43% 50%") */
+  imagePosition?: string;
   hotlines: { number: string; display: string; contact: string }[];
   email: string;
   address: string;
   zalo: string;
 };
 
-export function ContactCta({ tone = "base", eyebrow, title, description, image, hotlines, email, address, zalo }: ContactCtaProps) {
+export function ContactCta({ tone = "base", eyebrow, title, description, image, imageAlt, imagePosition, hotlines, email, address, zalo }: ContactCtaProps) {
   return (
     <Section tone={tone} className="py-24 lg:py-32">
       <Container>
         <div className="grid overflow-hidden rounded-[2rem] border border-line bg-card lg:grid-cols-2">
           <div data-clip className="relative min-h-[280px] lg:min-h-full">
-            <Image src={image} alt="Đặc sản QT FOOD" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <Image
+              src={image}
+              alt={imageAlt ?? "Đặc sản QT FOOD"}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+              style={imagePosition ? { objectPosition: imagePosition } : undefined}
+            />
           </div>
           <div className="p-8 sm:p-12 lg:p-14">
             <SectionHeading eyebrow={eyebrow} title={title} description={description} />

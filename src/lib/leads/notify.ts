@@ -1,6 +1,14 @@
 import "server-only";
 import type { LeadInput } from "./schema";
 import { siteUrl } from "@/lib/site-url";
+import { getSiteSettings } from "@/lib/data/settings";
+
+/**
+ * Người gửi mặc định của Resend — dùng được ngay khi chưa xác minh tên miền riêng, nhưng Resend chỉ cho gửi tới
+ * email của chính tài khoản Resend ⇒ tạo tài khoản Resend bằng email nhận thông báo (qtfreshfood@gmail.com).
+ * Khi đã xác minh tên miền, đặt LEAD_EMAIL_FROM (vd "QT FOOD <web@qtfood.vn>") để gửi tới bất kỳ địa chỉ nào.
+ */
+const DEFAULT_FROM = "QT FOOD Website <onboarding@resend.dev>";
 
 const TYPE_LABEL: Record<LeadInput["type"], string> = {
   franchise: "Đăng ký nhượng quyền",
@@ -51,9 +59,12 @@ async function sendTelegram(lead: LeadInput, adminUrl?: string, extra: [string, 
 
 async function sendEmail(lead: LeadInput, adminUrl?: string, extra: [string, string][] = []) {
   const key = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_EMAIL_TO?.split(",").map((s) => s.trim()).filter(Boolean);
-  const from = process.env.LEAD_EMAIL_FROM;
-  if (!key || !to?.length || !from) return false;
+  if (!key) return false;
+  // Nơi nhận: LEAD_EMAIL_TO (nhiều địa chỉ cách nhau dấu phẩy) → mặc định email công ty trong admin (Thông tin chung)
+  const envTo = process.env.LEAD_EMAIL_TO?.split(",").map((s) => s.trim()).filter(Boolean) ?? [];
+  const to = envTo.length ? envTo : [(await getSiteSettings()).company.email].filter(Boolean);
+  const from = process.env.LEAD_EMAIL_FROM?.trim() || DEFAULT_FROM;
+  if (!to.length) return false;
   const rows = lines(lead, extra);
   const html = `<h2 style="font-family:sans-serif">${TYPE_LABEL[lead.type]}</h2><table style="font-family:sans-serif;border-collapse:collapse">${rows
     .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0;color:#667"><b>${k}</b></td><td style="padding:4px 0">${escapeHtml(v)}</td></tr>`)
@@ -64,6 +75,8 @@ async function sendEmail(lead: LeadInput, adminUrl?: string, extra: [string, str
     body: JSON.stringify({
       from,
       to,
+      // Bấm "Trả lời" trong hộp thư là trả lời thẳng cho khách (nếu khách có để lại email)
+      ...(lead.email ? { reply_to: lead.email } : {}),
       subject: `[QT FOOD] ${TYPE_LABEL[lead.type]} – ${lead.name} – ${lead.phone}`,
       html,
       text: rows.map(([k, v]) => `${k}: ${v}`).join("\n") + (adminUrl ? `\n\n${adminUrl}` : ""),

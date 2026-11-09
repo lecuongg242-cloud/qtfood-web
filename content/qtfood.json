@@ -69,13 +69,13 @@
       {
         "product": "lau-ngua",
         "title": "Lẩu Ngựa",
-        "text": "Nồi lẩu đậm đà hương vị thảo mộc và lá mắc mật Tây Bắc, ăn kèm đồ nhúng chuẩn sạch và bát nước chấm tuyển trạch độc quyền.",
+        "text": "Nồi lẩu ngựa đậm đà hương vị thảo mộc núi rừng Tây Bắc, ăn kèm đồ nhúng chuẩn sạch và bát nước chấm tuyển trạch độc quyền.",
         "image": "products/lau-ngua-mam-2.jpg"
       },
       {
         "product": "nem-ngua",
         "title": "Nem Ngựa",
-        "text": "Đặc sản đóng gói hút chân không tiện lợi, giữ trọn vị giòn dai sần sật, thơm ngon và vô cùng bổ dưỡng. Món mồi bén này cực kỳ thích hợp để mua về nhâm nhi tại nhà hoặc làm quà biếu.",
+        "text": "Đặc sản làm từ thịt ngựa tươi thái lát mỏng, trộn cùng bì ngựa giòn dai. Mùi thơm từ tỏi xay và riềng củ. Món mồi bén này cực kỳ thích hợp để nhâm nhi tại nhà hoặc làm quà biếu.",
         "image": "products/nem-ngua-mam.jpg"
       }
     ],
@@ -87,13 +87,13 @@
       {
         "title": "100%",
         "subtitle": "Nguyên liệu sạch",
-        "text": "Nguyên liệu được chọn lựa từ những nhà cung cấp uy tín, đảm bảo đủ điều kiện an toàn thực phẩm, kiểm tra nghiêm ngặt theo các chỉ số: độ tươi, nguồn gốc, và chất lượng.",
+        "text": "Nguyên liệu được cung ứng bởi trang trại QT Farm tại Ba Vì, đảm bảo đủ điều kiện an toàn thực phẩm, kiểm tra nghiêm ngặt theo các chỉ số: độ tươi và chất lượng.",
         "icon": "icons/cam-ket-nguyen-lieu-sach.png"
       },
       {
         "title": "An toàn",
         "subtitle": "Có kiểm định",
-        "text": "Sản phẩm được sản xuất theo dây chuyền khép kín, đảm bảo hệ thống an toàn thực phẩm theo tiêu chuẩn quốc tế. Sản phẩm luôn đạt chất lượng tốt nhất đến tay người tiêu dùng.",
+        "text": "Sản phẩm được sản xuất theo dây chuyền khép kín, đạt chuẩn ISO 22000:2018 do Nhà nước cung cấp, đảm bảo an toàn thực phẩm theo đúng tiêu chuẩn. Sản phẩm mang đến chất lượng tốt nhất đến tay người tiêu dùng.",
         "icon": "icons/cam-ket-an-toan.png"
       },
       {
@@ -145,7 +145,7 @@
       "items": [
         {
           "title": "Kinh doanh dịch vụ ăn uống",
-          "text": "Ghi dấu ấn với các món ngon trứ danh như Lẩu ngựa, Phở ngựa mang hương vị đậm đà, công thức nước dùng độc quyền."
+          "text": "Ghi dấu ấn khi trở thành đơn vị nhượng quyền ẩm thực hàng đầu Việt Nam với các món ngon trứ danh như Lẩu ngựa, Phở ngựa, mang hương vị đậm đà bản sắc Tây Bắc, cùng với công thức nước dùng độc quyền."
         },
         {
           "title": "Thực phẩm chế biến sẵn",
@@ -550,11 +550,11 @@
         "items": [
           {
             "title": "Sản phẩm cốt lõi khác biệt – Mảng \"ngách\" đầy tiềm năng",
-            "text": "Giữa thị trường tràn ngập các loại lẩu phổ thông (lẩu bò, lẩu thái, lẩu hải sản...), Lẩu Ngựa nổi lên như một điểm sáng độc đáo. Thịt ngựa không chỉ có hương vị đặc trưng, thơm ngon mà còn mang lại giá trị dinh dưỡng cao. Sự mới lạ này chính là \"thỏi nam châm\" thu hút lượng lớn khách hàng tò mò đến thưởng thức và trở thành khách quen, giúp nhà hàng của bạn không phải cạnh tranh quá gay gắt trong \"đại dương đỏ\"."
+            "text": "Giữa thị trường tràn ngập các loại lẩu phổ thông (lẩu bò, lẩu thái, lẩu hải sản...), Lẩu Ngựa Tây Bắc nổi lên như một điểm sáng độc đáo. Thịt ngựa không chỉ có hương vị đặc trưng, thơm ngon mà còn mang lại giá trị dinh dưỡng cao. Sự mới lạ này chính là \"thỏi nam châm\" thu hút lượng lớn khách hàng tò mò đến thưởng thức và trở thành khách quen, giúp nhà hàng của bạn không phải cạnh tranh quá gay gắt trong \"đại dương đỏ\"."
           },
           {
             "title": "Nguồn nguyên liệu ổn định, đạt chuẩn",
-            "text": "Khó khăn lớn nhất của việc kinh doanh đặc sản là nguồn cung. Khi nhượng quyền cùng QT Food, bạn sẽ được giải quyết triệt để vấn đề này. Chúng tôi cung cấp trực tiếp các nguyên liệu độc quyền (thịt ngựa tươi sạch chuẩn loại 1, mọc ngựa, cốt lẩu gia truyền...) với mức giá chiết khấu tốt nhất, đảm bảo chất lượng đồng đều trên toàn hệ thống."
+            "text": "Khó khăn lớn nhất của việc kinh doanh đặc sản là nguồn cung. Khi nhượng quyền cùng QT Food, bạn sẽ được giải quyết triệt để vấn đề này. Chúng tôi cung cấp trực tiếp các nguyên liệu độc quyền từ trang trại ngựa QT Farm tại Ba Vì (thịt ngựa tươi sạch chuẩn loại 1, mọc ngựa, nem ngựa, cốt lẩu ngựa & phở ngựa gia truyền...) với mức giá chiết khấu tốt nhất, đảm bảo chất lượng đồng đều trên toàn hệ thống."
           }
         ]
       },
@@ -590,7 +590,7 @@
           },
           {
             "title": "Đầu tư tài chính",
-            "text": "Đối tác tự mình đầu tư cơ sở vật chất, thanh toán toàn bộ chi phí để thiết lập cơ sở theo chuẩn hệ thống (bao gồm biển hiệu, nồi, tủ, dụng cụ làm bếp) và tự chi trả tiền lương cho nhân viên làm việc tại cơ sở."
+            "text": "Đối tác tự mình đầu tư cơ sở vật chất, thanh toán toàn bộ chi phí để thiết lập cơ sở theo chuẩn hệ thống (bao gồm biển hiệu, nồi, tủ, dụng cụ làm bếp) và tự chi trả tiền lương cho nhân viên làm việc tại cơ sở của chính mình."
           },
           {
             "title": "Quy định nhập hàng độc quyền",

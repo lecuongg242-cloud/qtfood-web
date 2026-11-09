@@ -14,7 +14,7 @@ export type PageHeroProps = {
   image?: { src: string; alt: string };
   primary?: { label: string; href: string };
   secondary?: { label: string; href: string };
-  stats?: { value: number; suffix: string; label: string }[];
+  stats?: { prefix?: string; value: number; suffix: string; label: string }[];
   decor?: string;
 };
 
@@ -57,15 +57,16 @@ export function PageHero({ tone = "hero", breadcrumb, eyebrow, title, descriptio
             </div>
           )}
           {stats && (
-            <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-5 sm:grid-cols-3">
+            <dl className={`mt-12 grid max-w-2xl grid-cols-2 gap-5 ${stats.length > 3 ? "gap-y-7 sm:grid-cols-4" : "sm:grid-cols-3"}`}>
               {stats.map((s) => (
                 <div key={s.label} data-reveal className="border-l-2 border-[#4cb448] pl-4">
                   <dt className="sr-only">{s.label}</dt>
                   <dd className="text-[clamp(1.8rem,3vw,2.5rem)] font-extrabold leading-none tracking-tight">
+                    {s.prefix && <span>{s.prefix}</span>}
                     <span data-count={s.value}>{s.value}</span>
                     <span className="text-accent">{s.suffix}</span>
                   </dd>
-                  <dd className="mt-2 text-sm leading-snug text-muted">{s.label}</dd>
+                  <dd className="mt-2 text-sm leading-snug text-muted text-pretty">{s.label}</dd>
                 </div>
               ))}
             </dl>

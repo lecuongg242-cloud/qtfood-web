@@ -61,7 +61,16 @@ export function Animations() {
           );
         });
 
-        ScrollTrigger.batch("[data-reveal]", {
+        // Hero: hiện ngay khi tải trang (không chờ cuộn) — tránh nút/số liệu sát mép dưới màn hình bị ẩn
+        const heroReveal = gsap.utils.toArray<HTMLElement>("[data-hero] [data-reveal]");
+        if (heroReveal.length)
+          gsap.fromTo(
+            heroReveal,
+            { y: 36, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, duration: 1.1, ease: EASE, stagger: 0.09, delay: introDelay },
+          );
+
+        ScrollTrigger.batch("[data-reveal]:not([data-hero] [data-reveal])", {
           start: "top 90%",
           once: true,
           onEnter: (batch) =>
@@ -102,7 +111,10 @@ export function Animations() {
             v: target,
             duration: 2,
             ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 90%", once: true },
+            // Trong hero: đếm ngay khi tải trang, không chờ cuộn
+            ...(el.closest("[data-hero]")
+              ? { delay: 0.3 + introDelay }
+              : { scrollTrigger: { trigger: el, start: "top 90%", once: true } }),
             onUpdate: () => {
               el.textContent = Math.round(obj.v).toString();
             },

@@ -46,7 +46,7 @@ export const franchiseBlocks = ({ company, certification }: SiteData): Block[] =
         {
           title: whySection.items?.[0]?.title ?? "Sản phẩm cốt lõi khác biệt – Mảng \"ngách\" đầy tiềm năng",
           points: [
-            "Nổi bật giữa thị trường lẩu phổ thông (lẩu bò, lẩu thái, lẩu hải sản…)",
+            "Lẩu ngựa Tây Bắc nổi bật giữa thị trường lẩu phổ thông (lẩu bò, lẩu thái, lẩu hải sản…)",
             "Thịt ngựa thơm ngon, giàu giá trị dinh dưỡng",
             "Món mới lạ thu hút khách tò mò, dễ trở thành khách quen",
             "Ít đối thủ, tránh cạnh tranh gay gắt",
@@ -56,7 +56,7 @@ export const franchiseBlocks = ({ company, certification }: SiteData): Block[] =
           title: whySection.items?.[1]?.title ?? "Nguồn nguyên liệu ổn định, đạt chuẩn",
           points: [
             "Giải quyết bài toán nguồn cung — khó khăn lớn nhất khi kinh doanh đặc sản",
-            "Cung cấp trực tiếp nguyên liệu độc quyền: thịt ngựa tươi loại 1, mọc ngựa, cốt lẩu gia truyền…",
+            "Cung cấp trực tiếp nguyên liệu độc quyền từ trang trại QT Farm Ba Vì: thịt ngựa tươi loại 1, mọc ngựa, nem ngựa, cốt lẩu ngựa & phở ngựa gia truyền…",
             "Giá chiết khấu ưu đãi cho đối tác",
             "Chất lượng đồng đều trên toàn hệ thống",
           ],

@@ -1,7 +1,7 @@
 import type { Block } from "@/blocks";
 import type { SiteData } from "../types";
 import { content, franchiseGallery, img } from "../data";
-import { certificationsBlock } from "./shared";
+import { brandStats, certificationsBlock } from "./shared";
 import type { PostCardData } from "@/components/post/PostCard";
 import { productMeta } from "@/components/product/ProductCard";
 import type { ProductView } from "@/lib/data/products";
@@ -19,19 +19,24 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
     type: "heroCover",
     props: {
       title: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc",
-      image: {
-        src: img("brand/cover-qt-food-ngua-2.jpg"),
-        alt: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc: Lẩu ngựa, Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa",
-        width: 2560,
-        height: 1440,
-      },
+      images: [
+        {
+          src: img("brand/cover-qt-food-ngua-2.jpg"),
+          alt: "QT FOOD – Thương hiệu nhượng quyền đặc sản ngựa Tây Bắc: Lẩu ngựa, Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa",
+          width: 2560,
+          height: 1440,
+        },
+        {
+          src: img("brand/banner-ban-do-dac-san.jpg"),
+          alt: "QT FOOD – Mang đặc sản núi Tây Bắc đến mọi miền Tổ quốc: bản đồ Việt Nam cùng Phở ngựa, Lẩu ngựa, Nem ngựa, Nem riềng, Giò ngựa, Mọc ngựa",
+          width: 2560,
+          height: 907,
+          bg: "#5bd157", // màu nền xanh ở mép ảnh — lấp hai dải trên/dưới
+        },
+      ],
       primary: { label: "Đăng ký nhượng quyền", href: "/nhuong-quyen" },
       secondary: { label: "Khám phá sản phẩm", href: "/san-pham" },
-      stats: [
-        { value: 100, suffix: "%", label: "thịt ngựa tươi sạch" },
-        { value: stats.products, suffix: "", label: "món đặc sản" },
-        { value: 3, suffix: "", label: "mảng kinh doanh" },
-      ],
+      stats: brandStats(stats),
     },
   },
   {
@@ -92,7 +97,8 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
       tone: "base",
       eyebrow: "Chế biến sẵn",
       title: "Mua về thưởng thức, *làm quà biếu*",
-      description: "Đóng gói hút chân không tiện lợi, giữ trọn vị ngon — giao tận nơi trên toàn quốc.",
+      description:
+        "Dưới đây là những sản phẩm “NGON – BỔ – HỢP LÝ” mà quý khách nên dùng thử, hoặc làm quà biếu những dịp lễ Tết. Sản phẩm được đóng gói hút chân không tiện lợi, giữ trọn vị ngon – có cung cấp sỉ, lẻ toàn quốc.",
       cta: { label: "Xem tất cả sản phẩm", href: "/san-pham" },
       items: products
         .filter((p) => p.category.slug === "che-bien-san")
@@ -147,7 +153,10 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
       eyebrow: "Liên hệ",
       title: "Sẵn sàng *đồng hành* cùng QT FOOD?",
       description: "Gọi ngay để được tư vấn nhượng quyền, đặt hàng sỉ lẻ hoặc giải đáp mọi thắc mắc.",
-      image: img("products/nem-ngua-dia-1.jpg"),
+      image: img("about/quan-pho-ngua-cong-ty.jpg"),
+      imageAlt: "Quán Phở Ngựa của Công ty TNHH QT Fresh Food tại Thôn Cầu Các, Xã Bình Nguyên, Phú Thọ",
+      // Ảnh ngang trong khung đứng: lệch sang trái để giữ trọn biển hiệu "PHỞ NGỰA"
+      imagePosition: "43% 50%",
       hotlines: company.hotlines,
       email: company.email,
       address: company.address,

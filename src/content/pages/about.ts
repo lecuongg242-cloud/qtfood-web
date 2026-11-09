@@ -1,7 +1,7 @@
 import type { Block } from "@/blocks";
 import type { SiteData } from "../types";
 import { content, img } from "../data";
-import { certificationsBlock } from "./shared";
+import { brandStats, certificationsBlock } from "./shared";
 
 const { about } = content;
 
@@ -16,11 +16,7 @@ export const aboutBlocks = ({ company, certification, stats }: SiteData): Block[
       description:
         "Khởi nguồn từ khát vọng đưa tinh hoa đặc sản núi rừng Tây Bắc vươn xa — QT FOOD cung cấp, chế biến và phân phối đặc sản từ thịt ngựa tươi, đồng thời là thương hiệu nhượng quyền Lẩu ngựa & Phở ngựa.",
       image: { src: img(about.landscape), alt: "Đàn ngựa gặm cỏ trên đồi ruộng bậc thang" },
-      stats: [
-        { value: 100, suffix: "%", label: "thịt ngựa tươi sạch" },
-        { value: 3, suffix: "", label: "mảng kinh doanh" },
-        { value: stats.products, suffix: "", label: "món đặc sản" },
-      ],
+      stats: brandStats(stats),
     },
   },
   {
