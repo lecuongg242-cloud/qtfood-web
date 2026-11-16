@@ -3,6 +3,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { Container, Section, type Tone } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
 import { ArrowUpRight } from "@/components/ui/icons";
 
 export type FeaturedProductsProps = {
@@ -11,9 +12,11 @@ export type FeaturedProductsProps = {
   title: string;
   description: string;
   items: { title: string; text: string; image: string; href: string; tag: string }[];
+  /** Nút căn giữa bên dưới danh sách (vd "Xem thêm sản phẩm") */
+  cta?: { label: string; href: string };
 };
 
-export function FeaturedProducts({ tone = "base", eyebrow, title, description, items }: FeaturedProductsProps) {
+export function FeaturedProducts({ tone = "base", eyebrow, title, description, items, cta }: FeaturedProductsProps) {
   return (
     <Section tone={tone} className="py-24 lg:py-36">
       <Container>
@@ -58,6 +61,12 @@ export function FeaturedProducts({ tone = "base", eyebrow, title, description, i
             </Link>
           ))}
         </div>
+
+        {cta && (
+          <div data-reveal className="mt-14 flex justify-center lg:mt-16">
+            <Button href={cta.href}>{cta.label}</Button>
+          </div>
+        )}
       </Container>
     </Section>
   );

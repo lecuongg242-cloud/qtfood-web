@@ -6,8 +6,8 @@ import { PROVINCES } from "@/lib/provinces";
 
 const { franchise, franchisePolicy, forms } = content;
 
-const FRANCHISE_HOTLINE = "0965629699";
-/** Số ông Tĩnh lên đầu (form dùng số đầu tiên), vẫn giữ các số còn lại (anh Quang) */
+const FRANCHISE_HOTLINE = "0886752388";
+/** Số em Thảo lên đầu (form dùng số đầu tiên), vẫn giữ các số còn lại (anh Quang) */
 const franchiseHotlines = (all: SiteData["company"]["hotlines"]) => [
   ...all.filter((h) => h.number === FRANCHISE_HOTLINE),
   ...all.filter((h) => h.number !== FRANCHISE_HOTLINE),
@@ -119,7 +119,7 @@ export const franchiseBlocks = ({ company, certification }: SiteData): Block[] =
       title: "Nhận *hồ sơ nhượng quyền*",
       description: startSection.intro ?? "",
       points: ["Nhận bảng hồ sơ nhượng quyền chi tiết", "Tư vấn trực tiếp từ ban giám đốc", "Khảo sát, tư vấn chọn mặt bằng phù hợp"],
-      // Tư vấn nhượng quyền: số ông Tĩnh trước, sau đó số anh Quang (theo feedback khách)
+      // Tư vấn nhượng quyền: số em Thảo trước, sau đó số anh Quang (theo feedback khách)
       hotlines: franchiseHotlines(company.hotlines),
       zalo: company.social.zalo[0].url,
       provinces: [...PROVINCES],

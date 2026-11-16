@@ -46,6 +46,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
       title: "Hương vị *đặc sản* làm nên thương hiệu",
       description:
         `Những món làm nên tên tuổi QT FOOD — phục vụ tại nhiều cơ sở nhượng quyền trên toàn quốc và đóng gói mang về cho mọi gia đình.`,
+      cta: { label: "Xem thêm sản phẩm", href: "/san-pham" },
       // Sản phẩm bật "Nổi bật ở trang chủ" (tối đa 3); món gốc dùng đoạn giới thiệu & ảnh đã biên tập trong qtfood.json
       items: products
         .filter((p) => p.featured)
