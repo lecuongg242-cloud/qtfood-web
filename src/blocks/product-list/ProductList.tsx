@@ -24,14 +24,7 @@ export function ProductList({ tone = "alt", eyebrow, title, description, items, 
   return (
     <Section tone={tone} className="py-24 lg:py-32">
       <Container>
-        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <SectionHeading eyebrow={eyebrow} title={title} description={description} />
-          <div data-reveal className="shrink-0 lg:pb-2">
-            <Button href={cta.href} variant="ghost">
-              {cta.label}
-            </Button>
-          </div>
-        </div>
+        <SectionHeading eyebrow={eyebrow} title={title} description={description} />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
@@ -47,6 +40,11 @@ export function ProductList({ tone = "alt", eyebrow, title, description, items, 
               />
             </div>
           ))}
+        </div>
+
+        {/* Nút đặt dưới danh sách cho dễ thấy */}
+        <div data-reveal className="mt-14 flex justify-center lg:mt-16">
+          <Button href={cta.href}>{cta.label}</Button>
         </div>
       </Container>
     </Section>
