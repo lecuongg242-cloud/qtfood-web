@@ -37,7 +37,6 @@ export const franchiseLeadSchema = z.object({
   hasPremises: z.enum(["yes", "no"]).optional(),
   budget: optionalText(60),
   message: optionalText(1000),
-  consent: z.literal("on", { error: "Vui lòng đồng ý để QT FOOD liên hệ tư vấn" }),
 });
 
 export const contactLeadSchema = z.object({

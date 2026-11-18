@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { submitLead } from "@/lib/leads/actions";
 import type { LeadState } from "@/lib/leads/schema";
 import { Check, Phone } from "@/components/ui/icons";
-import { Checkbox, Choice, Field, Input, Select, SubmitButton, Textarea } from "./fields";
+import { Choice, Field, Input, Select, SubmitButton, Textarea } from "./fields";
 
 type Props = {
   kind: "franchise" | "contact" | "order";
@@ -179,14 +179,6 @@ export function LeadForm({ kind, product, provinces = [], budgets = [], topics =
             rows={kind === "order" ? 3 : 4}
           />
         </Field>
-
-        {kind === "franchise" && (
-          <div className="sm:col-span-2">
-            <Checkbox name="consent" error={e.consent} defaultChecked={v.consent === "on"}>
-              Tôi đồng ý để QT FOOD liên hệ tư vấn nhượng quyền qua số điện thoại đã cung cấp.
-            </Checkbox>
-          </div>
-        )}
       </div>
 
       <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { ArrowRight, Close } from "./icons";
 import { pauseScroll, resumeScroll } from "@/components/motion/lenis";
@@ -20,12 +20,13 @@ export function Lightbox({ images, index, onChange }: Props) {
   const opener = useRef<HTMLElement | null>(null);
   const touchX = useRef<number | null>(null);
   const [loaded, setLoaded] = useState(false);
+  /** Tỉ lệ rộng/cao của ảnh đang xem (đọc khi ảnh tải xong) — dùng để tự đặt kích thước ảnh */
+  const [ratio, setRatio] = useState<number | null>(null);
   const open = index !== null;
 
   const go = useCallback(
     (delta: number) => {
       if (index === null) return;
-      setLoaded(false);
       onChange((index + delta + images.length) % images.length);
     },
     [index, images.length, onChange],
@@ -55,6 +56,14 @@ export function Lightbox({ images, index, onChange }: Props) {
 
   const current = index !== null ? images[index] : null;
 
+  // Đổi ảnh (bấm trước/sau, vuốt, hoặc mở ảnh khác từ lưới) → chờ ảnh mới tải, đọc lại tỉ lệ
+  const [shownSrc, setShownSrc] = useState(current?.src);
+  if (shownSrc !== current?.src) {
+    setShownSrc(current?.src);
+    setLoaded(false);
+    setRatio(null);
+  }
+
   return (
     <dialog
       ref={dialog}
@@ -77,6 +86,9 @@ export function Lightbox({ images, index, onChange }: Props) {
       {current && (
         <div className="grid h-full w-full place-items-center p-4 sm:p-12" onClick={(e) => e.target === e.currentTarget && dialog.current?.close()}>
           <div className="relative flex max-h-full max-w-full items-center justify-center">
+            {/* Kích thước ảnh đặt theo màn hình (vừa chiều ngang, cao tối đa 82dvh, giữ tỉ lệ) — không để trình duyệt
+                suy từ ảnh tải về: ảnh gốc nhỏ hơn bản srcset đã chọn (vd điện thoại 3x xin 1920px nhưng ảnh gốc 960px)
+                sẽ bị thu nhỏ còn khoảng 1/2 màn hình. */}
             <Image
               key={current.src}
               src={current.src}
@@ -85,8 +97,17 @@ export function Lightbox({ images, index, onChange }: Props) {
               height={2000}
               sizes="94vw"
               quality={85}
-              onLoad={() => setLoaded(true)}
-              className={`h-auto max-h-[82dvh] w-auto max-w-full rounded-xl object-contain shadow-2xl transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+              onLoad={(e) => {
+                const img = e.currentTarget;
+                if (img.naturalWidth && img.naturalHeight) setRatio(img.naturalWidth / img.naturalHeight);
+                setLoaded(true);
+              }}
+              style={ratio ? ({ "--r": ratio, aspectRatio: ratio } as CSSProperties) : undefined}
+              className={`h-auto max-h-[82dvh] rounded-xl object-contain shadow-2xl transition-opacity duration-300 ${
+                ratio
+                  ? "w-[min(calc(100vw_-_2rem),calc(82dvh_*_var(--r)))] sm:w-[min(calc(100vw_-_6rem),calc(82dvh_*_var(--r)))]"
+                  : "w-auto max-w-full"
+              } ${loaded ? "opacity-100" : "opacity-0"}`}
             />
           </div>
           <p className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-4 py-1.5 text-sm font-semibold text-white">
