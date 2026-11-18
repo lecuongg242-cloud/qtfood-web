@@ -65,7 +65,8 @@ export type SiteContent = {
     banner: string;
     featured: { product: string; title: string; text: string; image: string }[];
     /** ID video TikTok nổi bật (số cuối trong link tiktok.com/@kenh/video/<id>) */
-    tiktokVideos?: string[];
+    /** Video nổi bật ở mục Tin tức trang chủ: file mp4 (Vercel Blob) */
+    videos?: { src: string; title: string }[];
     commitments: Commitment[];
   };
   about: {

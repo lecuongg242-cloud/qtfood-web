@@ -144,7 +144,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
       title: "Câu chuyện *QT FOOD*",
       posts,
       cta: { label: "Xem tất cả tin tức", href: "/tin-tuc" },
-      videos: { ids: home.tiktokVideos ?? [], channel: company.social.tiktok },
+      videos: { items: home.videos ?? [], channel: company.social.tiktok },
     },
   },
   {

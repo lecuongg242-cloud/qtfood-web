@@ -79,9 +79,15 @@
         "image": "products/nem-ngua-mam.jpg"
       }
     ],
-    "tiktokVideos": [
-      "7682651507317034258",
-      "7659272404094487829"
+    "videos": [
+      {
+        "src": "https://rk6iviufn3wv7f10.public.blob.vercel-storage.com/videos/qtfood-video-1.mp4",
+        "title": "Video QT FOOD 1"
+      },
+      {
+        "src": "https://rk6iviufn3wv7f10.public.blob.vercel-storage.com/videos/qtfood-video-2.mp4",
+        "title": "Video QT FOOD 2"
+      }
     ],
     "commitments": [
       {
