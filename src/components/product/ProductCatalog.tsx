@@ -18,7 +18,8 @@ export function ProductCatalog({ categories, active, products }: Props) {
   return (
     <Section tone="base" className="pb-24 lg:pb-32">
       <Container>
-        <nav aria-label="Nhóm sản phẩm" className="-mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+        {/* data-keep-scroll: đổi nhóm giữ nguyên vị trí cuộn (xem SmoothScroll) */}
+        <nav aria-label="Nhóm sản phẩm" data-keep-scroll className="-mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
           <ul className="flex w-max gap-2 rounded-full border border-line bg-card p-1.5">
             {tabs.map((t) => {
               const isActive = (active ?? "") === t.slug;

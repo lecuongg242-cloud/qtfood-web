@@ -7,6 +7,8 @@ export const setLenis = (lenis: Lenis | null) => {
   instance = lenis;
 };
 
+export const getLenis = () => instance;
+
 export const pauseScroll = () => {
   instance?.stop();
   document.documentElement.style.overflow = "hidden";
