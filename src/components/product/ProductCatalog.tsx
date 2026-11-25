@@ -52,6 +52,7 @@ export function ProductCatalog({ categories, active, products }: Props) {
                 image={p.images[0] ?? { src: "/images/brand/banner-nhuong-quyen-lau-pho-ngua.jpg", alt: p.name }}
                 summary={p.summary}
                 priceLabel={p.priceLabel}
+                orderable={p.orderable}
                 unit={p.specs.priceUnit}
                 meta={productMeta(p.specs)}
                 tag={p.category.name}

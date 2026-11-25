@@ -4,6 +4,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import type { Media, Product, ProductCategory } from "@/payload-types";
 import { content, formatPrice, img } from "@/content/data";
+import { SHOW_PRICES } from "@/lib/shop";
 
 export type ProductImage = { src: string; alt: string; width?: number; height?: number };
 
@@ -16,7 +17,10 @@ export type ProductView = {
   highlights: string[];
   body: Product["body"];
   specs: NonNullable<Product["specs"]>;
+  /** Chỉ có khi SHOW_PRICES bật */
   priceLabel?: string;
+  /** Bán lẻ/đặt hàng được (có giá trong admin) — không phụ thuộc việc có hiện giá hay không */
+  orderable: boolean;
   category: { slug: string; name: string; note?: string | null };
   images: ProductImage[];
   featured: boolean;
@@ -39,7 +43,9 @@ function toImages(p: Product): ProductImage[] {
 
 function toView(p: Product): ProductView {
   const cat = p.category as ProductCategory;
-  const specs = p.specs ?? {};
+  const raw = p.specs ?? {};
+  // Ẩn giá: bỏ luôn số giá khỏi dữ liệu trang (không lọt ra HTML, JSON-LD, form đặt hàng)
+  const specs = SHOW_PRICES ? raw : { ...raw, price: null };
   return {
     id: p.id,
     slug: p.slug,
@@ -50,6 +56,7 @@ function toView(p: Product): ProductView {
     body: p.body,
     specs,
     priceLabel: specs.price ? formatPrice(specs.price) : undefined,
+    orderable: Boolean(raw.price),
     category: { slug: cat?.slug ?? "", name: cat?.name ?? "", note: cat?.note },
     images: toImages(p),
     featured: Boolean(p.featured),

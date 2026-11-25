@@ -13,6 +13,7 @@ import { ProductCard, productMeta } from "@/components/product/ProductCard";
 import { getProduct, getProducts } from "@/lib/data/products";
 import { siteUrl } from "@/lib/site-url";
 import { getSiteSettings } from "@/lib/data/settings";
+import { ONLINE_ORDER } from "@/lib/shop";
 
 type Params = PageProps<"/san-pham/[danh-muc]/[slug]">;
 
@@ -42,7 +43,7 @@ export default async function ProductPage({ params }: Params) {
   const { company, mainHotline } = await getSiteSettings();
   const related = (await getProducts(categorySlug)).filter((p) => p.slug !== slug).slice(0, 4);
   const { specs } = product;
-  const sellable = Boolean(product.priceLabel);
+  const sellable = product.orderable;
   // Phần sau ":" hoặc "–" của tiêu đề phụ (vd "Lẩu Ngựa QT Food: Tuyệt phẩm…" → "Tuyệt phẩm…")
   const tagline = product.headline?.split(/\s*[:–]\s*/)[1];
   const orderProduct = { slug: product.slug, name: product.name, price: specs.price, unit: specs.priceUnit };
@@ -104,11 +105,13 @@ export default async function ProductPage({ params }: Params) {
               <p className="mt-5 text-lg leading-relaxed text-muted text-pretty">{product.summary}</p>
 
               <div className="mt-7 rounded-2xl border border-line bg-card p-5">
-                {sellable ? (
+                {product.priceLabel ? (
                   <p className="leading-none">
                     <span className="text-4xl font-extrabold tracking-tight text-accent">{product.priceLabel}</span>
                     {specs.priceUnit && <span className="text-muted"> / {specs.priceUnit}</span>}
                   </p>
+                ) : sellable ? (
+                  <p className="font-semibold">Liên hệ để nhận báo giá — có cung cấp sỉ, lẻ toàn quốc</p>
                 ) : (
                   <p className="font-semibold">Phục vụ tại hệ thống cơ sở nhượng quyền QT FOOD trên toàn quốc</p>
                 )}
@@ -150,7 +153,13 @@ export default async function ProductPage({ params }: Params) {
                   <span>{mainHotline.display}</span>
                 </a>
               </div>
-              {sellable && <p className="mt-4 text-sm text-muted">QT FOOD gọi xác nhận đơn và báo phí giao hàng trước khi giao.</p>}
+              {sellable && (
+                <p className="mt-4 text-sm text-muted">
+                  {ONLINE_ORDER
+                    ? "QT FOOD gọi xác nhận đơn và báo phí giao hàng trước khi giao."
+                    : "Để lại số điện thoại, QT FOOD sẽ gọi lại tư vấn và báo giá."}
+                </p>
+              )}
             </div>
           </div>
         </Container>
@@ -182,6 +191,7 @@ export default async function ProductPage({ params }: Params) {
                   image={p.images[0]}
                   summary={p.summary}
                   priceLabel={p.priceLabel}
+                  orderable={p.orderable}
                   unit={p.specs.priceUnit}
                   meta={productMeta(p.specs)}
                   transitionName={`product-${p.slug}`}
@@ -198,8 +208,14 @@ export default async function ProductPage({ params }: Params) {
           <div className="flex items-center justify-between gap-4">
             <p className="min-w-0 leading-tight">
               <span className="block truncate text-sm text-muted">{product.name}</span>
-              <span className="text-xl font-extrabold text-accent">{product.priceLabel}</span>
-              {specs.priceUnit && <span className="text-sm text-muted"> / {specs.priceUnit}</span>}
+              {product.priceLabel ? (
+                <>
+                  <span className="text-xl font-extrabold text-accent">{product.priceLabel}</span>
+                  {specs.priceUnit && <span className="text-sm text-muted"> / {specs.priceUnit}</span>}
+                </>
+              ) : (
+                <span className="font-bold text-accent">Liên hệ báo giá</span>
+              )}
             </p>
             <OrderButton product={orderProduct} hotline={mainHotline} className="shrink-0 !py-3" />
           </div>

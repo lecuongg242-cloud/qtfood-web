@@ -31,7 +31,8 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
     return { status: "error", errors, values: raw, message: "Vui lòng kiểm tra lại các ô được đánh dấu." };
   }
 
-  const lead = parsed.data;
+  let lead = parsed.data;
+  if (lead.type === "contact" && lead.productSlug) lead = { ...lead, topic: `Tư vấn sản phẩm: ${lead.productSlug}` };
   let leadId: number | string | undefined;
   const extra: [string, string][] = [];
   try {
@@ -46,6 +47,12 @@ export async function submitLead(_prev: LeadState, formData: FormData): Promise<
       productId = product.id;
       extra.push(["Sản phẩm", product.name], ["Số lượng", `${lead.quantity}${product.specs?.priceUnit ? ` ${product.specs.priceUnit}` : ""}`]);
       if (product.specs?.price) extra.push(["Tạm tính", `${formatPrice(product.specs.price * lead.quantity)} (chưa gồm phí giao)`]);
+    }
+
+    // "Liên hệ tư vấn" từ trang sản phẩm: chủ đề = tên sản phẩm (tra phía server)
+    if (lead.type === "contact" && lead.productSlug) {
+      const { docs } = await payload.find({ collection: "products", where: { slug: { equals: lead.productSlug } }, limit: 1, depth: 0 });
+      if (docs[0]) lead = { ...lead, topic: `Tư vấn sản phẩm: ${docs[0].name}` };
     }
 
     const doc = await payload.create({

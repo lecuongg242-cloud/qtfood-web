@@ -2,6 +2,7 @@ import { ViewTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "@/components/ui/icons";
+import { ONLINE_ORDER } from "@/lib/shop";
 
 export type ProductCardData = {
   href: string;
@@ -9,6 +10,8 @@ export type ProductCardData = {
   image: { src: string; alt: string };
   summary: string;
   priceLabel?: string;
+  /** Sản phẩm bán lẻ được (kể cả khi đang ẩn giá) */
+  orderable?: boolean;
   unit?: string | null;
   meta?: string[];
   tag?: string;
@@ -16,7 +19,8 @@ export type ProductCardData = {
   transitionName?: string;
 };
 
-export function ProductCard({ href, name, image, summary, priceLabel, unit, meta = [], tag, transitionName }: ProductCardData) {
+export function ProductCard({ href, name, image, summary, priceLabel, orderable, unit, meta = [], tag, transitionName }: ProductCardData) {
+  const canOrder = Boolean(priceLabel) || Boolean(orderable);
   const img = (
     <Image
       src={image.src}
@@ -64,11 +68,13 @@ export function ProductCard({ href, name, image, summary, priceLabel, unit, meta
               <span className="text-2xl font-extrabold tracking-tight text-accent">{priceLabel}</span>
               {unit && <span className="text-sm text-muted"> / {unit}</span>}
             </p>
+          ) : orderable ? (
+            <p className="text-sm font-semibold text-muted">Liên hệ để nhận báo giá</p>
           ) : (
             <p className="text-sm font-semibold text-muted">Phục vụ tại hệ thống cơ sở</p>
           )}
           <Link href={href} className="btn btn-primary w-full justify-center !py-3 text-sm">
-            {priceLabel ? "Đặt hàng" : "Xem chi tiết"}
+            {canOrder ? (ONLINE_ORDER ? "Đặt hàng" : "Liên hệ tư vấn") : "Xem chi tiết"}
             <ArrowRight className="btn-arrow h-4 w-4" />
           </Link>
         </div>

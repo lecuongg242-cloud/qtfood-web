@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { LeadForm } from "@/components/form/LeadForm";
 import { ArrowRight, Close } from "@/components/ui/icons";
 import { pauseScroll, resumeScroll } from "@/components/motion/lenis";
+import { ONLINE_ORDER } from "@/lib/shop";
 
 type Props = {
   product: { slug: string; name: string; price?: number | null; unit?: string | null };
@@ -13,9 +14,13 @@ type Props = {
   label?: string;
 };
 
-/** Nút "Đặt hàng" → hộp thoại form đặt nhanh (trượt lên từ đáy trên điện thoại) */
-export function OrderButton({ product, hotline, className, label = "Đặt hàng" }: Props) {
+/**
+ * Nút "Đặt hàng" → hộp thoại form đặt nhanh (trượt lên từ đáy trên điện thoại).
+ * Khi tắt bán hàng trực tuyến (ONLINE_ORDER) → "Liên hệ tư vấn": form rút gọn tên, SĐT, ghi chú.
+ */
+export function OrderButton({ product, hotline, className, label }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const title = ONLINE_ORDER ? "Đặt hàng nhanh" : "Liên hệ tư vấn";
   return (
     <>
       <button
@@ -26,12 +31,12 @@ export function OrderButton({ product, hotline, className, label = "Đặt hàng
         }}
         className={clsx("btn btn-primary", className)}
       >
-        <span>{label}</span>
+        <span>{label ?? (ONLINE_ORDER ? "Đặt hàng" : "Liên hệ tư vấn")}</span>
         <ArrowRight className="btn-arrow h-4 w-4" />
       </button>
       <dialog
         ref={dialog}
-        aria-label={`Đặt hàng: ${product.name}`}
+        aria-label={`${title}: ${product.name}`}
         onClose={resumeScroll}
         onClick={(e) => e.target === dialog.current && dialog.current.close()}
         data-lenis-prevent
@@ -39,7 +44,7 @@ export function OrderButton({ product, hotline, className, label = "Đặt hàng
       >
         <div data-tone="base" className="relative rounded-t-[1.75rem] sm:rounded-[1.75rem]">
           <div className="flex items-center justify-between px-6 pt-6 sm:px-9 sm:pt-8">
-            <h2 className="text-2xl font-extrabold tracking-tight">Đặt hàng nhanh</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight">{title}</h2>
             <button
               type="button"
               onClick={() => dialog.current?.close()}
@@ -50,7 +55,7 @@ export function OrderButton({ product, hotline, className, label = "Đặt hàng
             </button>
           </div>
           <div className="p-2 sm:p-3 [&>form]:border-0 [&>div]:border-0">
-            <LeadForm kind="order" product={product} hotline={hotline} />
+            <LeadForm kind={ONLINE_ORDER ? "order" : "contact"} product={product} hotline={hotline} />
           </div>
         </div>
       </dialog>

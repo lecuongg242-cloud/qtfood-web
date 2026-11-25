@@ -39,12 +39,20 @@ export const franchiseLeadSchema = z.object({
   message: optionalText(1000),
 });
 
-export const contactLeadSchema = z.object({
-  type: z.literal("contact"),
-  ...base,
-  topic: optionalText(60),
-  message: z.string().trim().min(5, "Vui lòng nhập nội dung (ít nhất 5 ký tự)").max(1000, "Tối đa 1000 ký tự"),
-});
+export const contactLeadSchema = z
+  .object({
+    type: z.literal("contact"),
+    ...base,
+    topic: optionalText(60),
+    /** Có khi gửi từ nút "Liên hệ tư vấn" ở trang sản phẩm — khi đó không bắt buộc nội dung */
+    productSlug: optionalText(100),
+    message: optionalText(1000),
+  })
+  .superRefine((v, ctx) => {
+    if (!v.productSlug && (v.message?.length ?? 0) < 5) {
+      ctx.addIssue({ code: "custom", path: ["message"], message: "Vui lòng nhập nội dung (ít nhất 5 ký tự)" });
+    }
+  });
 
 export const orderLeadSchema = z.object({
   type: z.literal("order"),

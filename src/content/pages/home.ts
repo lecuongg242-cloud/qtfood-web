@@ -109,6 +109,7 @@ export const homeBlocks = ({ company, certification, stats }: SiteData, posts: P
           image: p.images[0]?.src ?? img("brand/banner-nhuong-quyen-lau-pho-ngua.jpg"),
           summary: p.summary,
           price: p.priceLabel,
+          orderable: p.orderable,
           unit: p.specs.priceUnit ?? undefined,
           meta: productMeta(p.specs),
         })),

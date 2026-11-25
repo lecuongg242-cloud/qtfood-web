@@ -9,7 +9,7 @@ import { Choice, Field, Input, Select, SubmitButton, Textarea } from "./fields";
 
 type Props = {
   kind: "franchise" | "contact" | "order";
-  /** kind = "order": sản phẩm đang đặt */
+  /** kind = "order": sản phẩm đang đặt; kind = "contact": sản phẩm cần tư vấn (form rút gọn: tên, SĐT, ghi chú) */
   product?: { slug: string; name: string; price?: number | null; unit?: string | null };
   provinces?: string[];
   budgets?: string[];
@@ -50,7 +50,9 @@ export function LeadForm({ kind, product, provinces = [], budgets = [], topics =
         <p className="mx-auto mt-3 max-w-md leading-relaxed text-muted">
           {kind === "order"
             ? "QT FOOD đã nhận đơn và sẽ gọi xác nhận đơn, báo phí giao hàng trong giờ làm việc."
-            : "QT FOOD đã nhận được thông tin và sẽ gọi lại trong giờ làm việc."}{" "}
+            : product
+              ? "QT FOOD đã nhận được thông tin và sẽ gọi lại tư vấn, báo giá trong giờ làm việc."
+              : "QT FOOD đã nhận được thông tin và sẽ gọi lại trong giờ làm việc."}{" "}
           Cần trao đổi ngay, anh/chị vui lòng gọi hotline.
         </p>
         <a href={`tel:${hotline.number}`} className="btn btn-primary mt-8">
@@ -127,6 +129,14 @@ export function LeadForm({ kind, product, provinces = [], budgets = [], topics =
               <Input name="address" autoComplete="street-address" defaultValue={v.address} error={e.address} placeholder="Số nhà, đường, xã/phường, tỉnh/thành" />
             </Field>
           </>
+        ) : kind === "contact" && product ? (
+          <>
+            <input type="hidden" name="productSlug" value={product.slug} />
+            <div className="sm:col-span-2 rounded-2xl bg-bg p-4">
+              <p className="text-sm text-muted">Sản phẩm cần tư vấn</p>
+              <p className="mt-1 text-lg font-extrabold tracking-tight">{product.name}</p>
+            </div>
+          </>
         ) : kind === "franchise" ? (
           <>
             <Field label="Tỉnh / thành dự kiến mở" name="province" required error={e.province}>
@@ -159,9 +169,9 @@ export function LeadForm({ kind, product, provinces = [], budgets = [], topics =
         )}
 
         <Field
-          label={kind === "contact" ? "Nội dung" : "Ghi chú"}
+          label={kind === "contact" && !product ? "Nội dung" : "Ghi chú"}
           name="message"
-          required={kind === "contact"}
+          required={kind === "contact" && !product}
           error={e.message}
           className="sm:col-span-2"
         >
@@ -174,16 +184,19 @@ export function LeadForm({ kind, product, provinces = [], budgets = [], topics =
                 ? "Vị trí mặt bằng, câu hỏi về mô hình…"
                 : kind === "order"
                   ? "Thời gian nhận hàng mong muốn, yêu cầu khác…"
-                  : "Anh/chị cần QT FOOD hỗ trợ điều gì?"
+                  : product
+                    ? "Số lượng dự kiến, mua sỉ hay lẻ, khu vực của anh/chị…"
+                    : "Anh/chị cần QT FOOD hỗ trợ điều gì?"
             }
-            rows={kind === "order" ? 3 : 4}
+            rows={kind === "order" || product ? 3 : 4}
           />
         </Field>
       </div>
 
       <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
         <SubmitButton>
-          {submitLabel ?? (kind === "franchise" ? "Nhận hồ sơ nhượng quyền" : kind === "order" ? "Gửi đơn đặt hàng" : "Gửi liên hệ")}
+          {submitLabel ??
+            (kind === "franchise" ? "Nhận hồ sơ nhượng quyền" : kind === "order" ? "Gửi đơn đặt hàng" : product ? "Gửi yêu cầu tư vấn" : "Gửi liên hệ")}
         </SubmitButton>
         <p className="text-sm text-muted">
           Hoặc gọi{" "}

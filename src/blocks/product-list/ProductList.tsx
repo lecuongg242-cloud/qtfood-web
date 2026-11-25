@@ -14,6 +14,7 @@ export type ProductListProps = {
     image: string;
     summary: string;
     price?: string;
+    orderable?: boolean;
     unit?: string;
     meta: string[];
   }[];
@@ -35,6 +36,7 @@ export function ProductList({ tone = "alt", eyebrow, title, description, items, 
                 image={{ src: item.image, alt: item.name }}
                 summary={item.summary}
                 priceLabel={item.price}
+                orderable={item.orderable}
                 unit={item.unit}
                 meta={item.meta}
               />
